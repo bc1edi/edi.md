@@ -80,6 +80,7 @@
     }
 
     .site-nav__link {
+      position: relative;
       color: #9aa3b2;
       font-size: var(--text-sm);
       font-weight: 700;
@@ -87,10 +88,29 @@
       text-decoration: none;
       text-transform: uppercase;
       transition: color var(--duration-fast) var(--ease-standard);
+      padding-bottom: 2px;
+    }
+
+    .site-nav__link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background: var(--coral-glow);
+      border-radius: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--duration-base) var(--ease-standard);
     }
 
     .site-nav__link:hover {
       color: var(--white);
+    }
+
+    .site-nav__link:hover::after {
+      transform: scaleX(1);
     }
 
     /* ── Section layout ────────────────────────────────────────────────── */
@@ -109,6 +129,19 @@
 
     .section__header {
       margin-bottom: var(--space-8);
+    }
+
+    .section__number {
+      display: block;
+      font-family: var(--font-mono-ui);
+      font-size: clamp(56px, 8vw, 96px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--color-text);
+      opacity: 0.055;
+      letter-spacing: -0.04em;
+      margin-bottom: -0.2em;
+      user-select: none;
     }
 
     .section__eyebrow {
@@ -254,6 +287,7 @@
 
   <!-- Hero -->
   <section class="ds-hero ds-hero--dark" aria-label="Hero">
+    <span class="ds-hero__watermark" aria-hidden="true">EDI</span>
     <div class="ds-hero__inner">
       <p class="ds-hero__eyebrow">Designer &amp; Developer</p>
       <h1 class="ds-hero__headline">
@@ -273,6 +307,11 @@
   <!-- About / Bio -->
   <section class="section" id="about" aria-labelledby="about-title">
     <div class="section__inner">
+      <div class="section__header">
+        <span class="section__number" aria-hidden="true">01</span>
+        <p class="section__eyebrow">Chi sono</p>
+        <h2 class="section__title" id="about-title">About</h2>
+      </div>
       <div class="ds-bio">
         <div class="ds-bio__avatar" aria-label="Foto profilo">
           E
@@ -303,6 +342,7 @@
   <section class="section section--alt" id="projects" aria-labelledby="projects-title">
     <div class="section__inner">
       <div class="section__header">
+        <span class="section__number" aria-hidden="true">02</span>
         <p class="section__eyebrow">Lavori selezionati</p>
         <h2 class="section__title" id="projects-title">Progetti</h2>
       </div>
@@ -368,6 +408,7 @@
   <section class="section" id="skills" aria-labelledby="skills-title">
     <div class="section__inner">
       <div class="section__header">
+        <span class="section__number" aria-hidden="true">03</span>
         <p class="section__eyebrow">Competenze</p>
         <h2 class="section__title" id="skills-title">Skills</h2>
       </div>
@@ -426,6 +467,7 @@
   <section class="section section--alt" id="experience" aria-labelledby="experience-title">
     <div class="section__inner">
       <div class="section__header">
+        <span class="section__number" aria-hidden="true">04</span>
         <p class="section__eyebrow">Percorso</p>
         <h2 class="section__title" id="experience-title">Experience</h2>
       </div>
