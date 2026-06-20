@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edi — Designer &amp; Developer</title>
+  <meta name="description" content="Designer e developer. Creo prodotti digitali con attenzione al dettaglio, alla coerenza e all'esperienza." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="design-system.css" />
+  <style>
+    /* ── Signature B — wordmark ────────────────────────────────────────── */
+    .brand-wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .brand-wordmark__block {
+      background: var(--jet-black);
+      padding: 4px 10px 4px 8px;
+      line-height: 1;
+    }
+
+    .brand-wordmark__name {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--coral-glow);
+      letter-spacing: 0.01em;
+    }
+
+    .brand-wordmark__dot {
+      font-family: var(--font-mono-ui);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      opacity: 0.5;
+    }
+
+    .brand-wordmark__tld {
+      background: var(--coral-glow);
+      padding: 4px 8px 4px 6px;
+      font-family: var(--font-mono-ui);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--jet-black);
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+
+    /* ── Nav ───────────────────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgb(26 29 46 / 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgb(255 255 255 / 0.06);
+    }
+
+    .site-nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(100% - 48px, 1100px);
+      margin-inline: auto;
+      height: 56px;
+    }
+
+    .site-nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav__link {
+      color: #9aa3b2;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      letter-spacing: var(--tracking-wide);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color var(--duration-fast) var(--ease-standard);
+    }
+
+    .site-nav__link:hover {
+      color: var(--white);
+    }
+
+    /* ── Section layout ────────────────────────────────────────────────── */
+    .section {
+      padding-block: var(--space-10);
+    }
+
+    .section--alt {
+      background: var(--color-bg-muted);
+    }
+
+    .section__inner {
+      width: min(100% - 48px, 1100px);
+      margin-inline: auto;
+    }
+
+    .section__header {
+      margin-bottom: var(--space-8);
+    }
+
+    .section__eyebrow {
+      color: var(--color-accent);
+      font-family: var(--font-mono-ui);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+
+    .section__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      letter-spacing: var(--tracking-tight);
+      line-height: var(--leading-2xl);
+      margin: 0;
+    }
+
+    /* ── Hero adjustments ──────────────────────────────────────────────── */
+    .ds-hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .ds-hero__inner {
+      width: min(100% - 48px, 1100px);
+    }
+
+    /* ── Projects grid ─────────────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      gap: var(--space-5);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* ── Skills layout ─────────────────────────────────────────────────── */
+    .skills-layout {
+      display: grid;
+      gap: var(--space-8);
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .skills-group__label {
+      font-family: var(--font-mono-ui);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+
+    /* ── Footer ────────────────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--midnight);
+      border-top: 1px solid rgb(255 255 255 / 0.06);
+      padding-block: var(--space-6);
+    }
+
+    .site-footer__inner {
+      width: min(100% - 48px, 1100px);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .site-footer__copy {
+      color: #6e7a8a;
+      font-family: var(--font-mono-ui);
+      font-size: var(--text-xs);
+      margin: 0;
+    }
+
+    /* ── Responsive ────────────────────────────────────────────────────── */
+    @media (max-width: 820px) {
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skills-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+
+      .site-nav__links {
+        display: none;
+      }
+
+      .site-footer__inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ds-hero__inner {
+        width: min(100% - 32px, 1100px);
+      }
+
+      .section__inner {
+        width: min(100% - 32px, 1100px);
+      }
+    }
+
+    /* ── Dark mode overrides for light-specific elements ───────────────── */
+    @media (prefers-color-scheme: dark) {
+      .section--alt {
+        background: #1f2230;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="site-nav" aria-label="Navigazione principale">
+    <div class="site-nav__inner">
+      <a href="/" class="brand-wordmark" aria-label="Edi — home">
+        <span class="brand-wordmark__block">
+          <span class="brand-wordmark__name">edi</span><span class="brand-wordmark__dot">.</span>
+        </span>
+        <span class="brand-wordmark__tld">md</span>
+      </a>
+      <ul class="site-nav__links">
+        <li><a href="#about" class="site-nav__link">About</a></li>
+        <li><a href="#projects" class="site-nav__link">Progetti</a></li>
+        <li><a href="#skills" class="site-nav__link">Skills</a></li>
+        <li><a href="#experience" class="site-nav__link">Experience</a></li>
+        <li><a href="#contact" class="site-nav__link">Contatti</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="ds-hero ds-hero--dark" aria-label="Hero">
+    <div class="ds-hero__inner">
+      <p class="ds-hero__eyebrow">Designer &amp; Developer</p>
+      <h1 class="ds-hero__headline">
+        Creo prodotti digitali<br />con precisione e identità.
+      </h1>
+      <p class="ds-hero__sub">
+        Design system, interfacce operative, personal branding.<br />
+        Ogni dettaglio conta — dalla palette al codice.
+      </p>
+      <div class="ds-hero__actions">
+        <a href="#projects" class="ds-button ds-button--primary">Vedi i progetti</a>
+        <a href="#contact" class="ds-button ds-button--ghost" style="color: #9aa3b2;">Scrivimi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Bio -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="section__inner">
+      <div class="ds-bio">
+        <div class="ds-bio__avatar" aria-label="Foto profilo">
+          E
+        </div>
+        <div class="ds-bio__content">
+          <p class="ds-bio__role">Designer &amp; Developer</p>
+          <h2 class="ds-bio__name" id="about-title">Ciao, sono Edi.</h2>
+          <p>
+            Mi occupo di design e sviluppo con un focus sulla coerenza visiva e sull'esperienza operativa.
+            Lavoro su design system, interfacce dense di informazioni e identità di brand tecnico.
+          </p>
+          <p>
+            Credo che la qualità si veda nei dettagli che la maggior parte non nota: la spaziatura
+            giusta, il token semantico corretto, il componente che funziona su mobile senza sforzo.
+          </p>
+          <div class="ds-cluster" style="margin-top: var(--space-5);">
+            <span class="ds-badge ds-badge--technical">Design System</span>
+            <span class="ds-badge ds-badge--technical">UI/UX</span>
+            <span class="ds-badge ds-badge--technical">Frontend</span>
+            <span class="ds-badge ds-badge--technical">Brand Identity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section section--alt" id="projects" aria-labelledby="projects-title">
+    <div class="section__inner">
+      <div class="section__header">
+        <p class="section__eyebrow">Lavori selezionati</p>
+        <h2 class="section__title" id="projects-title">Progetti</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="ds-project-card">
+          <div class="ds-project-card__meta">2025 &nbsp;·&nbsp; Design System</div>
+          <div class="ds-project-card__body">
+            <h3 class="ds-project-card__title">edi Design System</h3>
+            <p class="ds-project-card__desc">
+              Sistema visivo completo per personal brand tecnico. Token, tipografia, componenti operativi e dark mode nativa.
+            </p>
+          </div>
+          <div class="ds-project-card__footer">
+            <div class="ds-cluster">
+              <span class="ds-badge ds-badge--technical">CSS</span>
+              <span class="ds-badge ds-badge--technical">Tokens</span>
+            </div>
+            <a href="#" class="ds-button ds-button--ghost" style="min-height: 32px; font-size: var(--text-xs);">Esplora →</a>
+          </div>
+        </article>
+
+        <article class="ds-project-card">
+          <div class="ds-project-card__meta">2024 &nbsp;·&nbsp; Web App</div>
+          <div class="ds-project-card__body">
+            <h3 class="ds-project-card__title">Progetto 02</h3>
+            <p class="ds-project-card__desc">
+              Descrizione del progetto. Cosa hai risolto, per chi, con quale approccio tecnico o di design.
+            </p>
+          </div>
+          <div class="ds-project-card__footer">
+            <div class="ds-cluster">
+              <span class="ds-badge ds-badge--technical">React</span>
+              <span class="ds-badge ds-badge--technical">UI</span>
+            </div>
+            <a href="#" class="ds-button ds-button--ghost" style="min-height: 32px; font-size: var(--text-xs);">Esplora →</a>
+          </div>
+        </article>
+
+        <article class="ds-project-card">
+          <div class="ds-project-card__meta">2024 &nbsp;·&nbsp; Branding</div>
+          <div class="ds-project-card__body">
+            <h3 class="ds-project-card__title">Progetto 03</h3>
+            <p class="ds-project-card__desc">
+              Descrizione del progetto. Identità, sistema visivo, applicazioni su prodotto reale.
+            </p>
+          </div>
+          <div class="ds-project-card__footer">
+            <div class="ds-cluster">
+              <span class="ds-badge ds-badge--technical">Brand</span>
+              <span class="ds-badge ds-badge--technical">Figma</span>
+            </div>
+            <a href="#" class="ds-button ds-button--ghost" style="min-height: 32px; font-size: var(--text-xs);">Esplora →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills" aria-labelledby="skills-title">
+    <div class="section__inner">
+      <div class="section__header">
+        <p class="section__eyebrow">Competenze</p>
+        <h2 class="section__title" id="skills-title">Skills</h2>
+      </div>
+
+      <div class="skills-layout">
+
+        <div>
+          <p class="skills-group__label">Design</p>
+          <div class="ds-skill-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="ds-skill-cell">
+              <span class="ds-skill-cell__label">Design System</span>
+              <div class="ds-skill-cell__bar"><div class="ds-skill-cell__bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="ds-skill-cell">
+              <span class="ds-skill-cell__label">UI / UX</span>
+              <div class="ds-skill-cell__bar"><div class="ds-skill-cell__bar-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="ds-skill-cell">
+              <span class="ds-skill-cell__label">Typography</span>
+              <div class="ds-skill-cell__bar"><div class="ds-skill-cell__bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="ds-skill-cell">
+              <span class="ds-skill-cell__label">Brand Identity</span>
+              <div class="ds-skill-cell__bar"><div class="ds-skill-cell__bar-fill" style="width: 82%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="skills-group__label">Development</p>
+          <div class="ds-skill-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="ds-skill-cell">
+              <span class="ds-skill-cell__label">HTML / CSS</span>
+              <div class="ds-skill-cell__bar"><div class="ds-skill-cell__bar-fill" style="width: 93%;"></div></div>
+            </div>
+            <div class="ds-skill-cell">
+              <span class="ds-skill-cell__label">JavaScript</span>
+              <div class="ds-skill-cell__bar"><div class="ds-skill-cell__bar-fill" style="width: 78%;"></div></div>
+            </div>
+            <div class="ds-skill-cell">
+              <span class="ds-skill-cell__label">Git / CLI</span>
+              <div class="ds-skill-cell__bar"><div class="ds-skill-cell__bar-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="ds-skill-cell">
+              <span class="ds-skill-cell__label">Accessibilità</span>
+              <div class="ds-skill-cell__bar"><div class="ds-skill-cell__bar-fill" style="width: 80%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience / Timeline -->
+  <section class="section section--alt" id="experience" aria-labelledby="experience-title">
+    <div class="section__inner">
+      <div class="section__header">
+        <p class="section__eyebrow">Percorso</p>
+        <h2 class="section__title" id="experience-title">Experience</h2>
+      </div>
+
+      <ul class="ds-timeline">
+
+        <li class="ds-timeline__item ds-timeline__item--current">
+          <div class="ds-timeline__dot"></div>
+          <p class="ds-timeline__date">2025 — presente</p>
+          <h3 class="ds-timeline__title">Freelance Designer &amp; Developer</h3>
+          <p class="ds-timeline__body">
+            Design system, branding tecnico e interfacce operative per clienti selezionati.
+          </p>
+        </li>
+
+        <li class="ds-timeline__item">
+          <div class="ds-timeline__dot"></div>
+          <p class="ds-timeline__date">2023 — 2025</p>
+          <h3 class="ds-timeline__title">Ruolo Precedente</h3>
+          <p class="ds-timeline__body">
+            Descrizione del ruolo, responsabilità e risultati principali raggiunti nel periodo.
+          </p>
+        </li>
+
+        <li class="ds-timeline__item">
+          <div class="ds-timeline__dot"></div>
+          <p class="ds-timeline__date">2021 — 2023</p>
+          <h3 class="ds-timeline__title">Ruolo Precedente</h3>
+          <p class="ds-timeline__body">
+            Descrizione del ruolo, responsabilità e risultati principali raggiunti nel periodo.
+          </p>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="ds-contact-strip" id="contact" aria-labelledby="contact-title">
+    <div class="ds-contact-strip__inner">
+      <h2 class="ds-contact-strip__heading" id="contact-title">Lavoriamo insieme.</h2>
+      <p class="ds-contact-strip__sub">
+        Hai un progetto, un'idea o vuoi semplicemente scambiare due parole su design e prodotto?
+      </p>
+      <div style="margin-bottom: var(--space-7);">
+        <a href="mailto:ediderosa@gmail.com" class="ds-button ds-button--primary">Scrivimi una mail</a>
+      </div>
+      <div class="ds-contact-strip__links">
+        <a href="https://github.com/bc1edi" class="ds-contact-strip__link" target="_blank" rel="noopener">GitHub</a>
+        <span style="color: #3a3f52; font-size: 10px;">◆</span>
+        <a href="mailto:ediderosa@gmail.com" class="ds-contact-strip__link">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="/" class="brand-wordmark" aria-label="Edi — home">
+        <span class="brand-wordmark__block">
+          <span class="brand-wordmark__name">edi</span><span class="brand-wordmark__dot">.</span>
+        </span>
+        <span class="brand-wordmark__tld">md</span>
+      </a>
+      <p class="site-footer__copy">© 2025 Edi — Fatto con cura.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
