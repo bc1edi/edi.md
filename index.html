@@ -56,9 +56,9 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgb(26 29 46 / 0.92);
+      background: rgb(255 255 255 / 0.85);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgb(255 255 255 / 0.06);
+      border-bottom: 1px solid var(--color-border);
     }
 
     .site-nav__inner {
@@ -81,7 +81,7 @@
 
     .site-nav__link {
       position: relative;
-      color: #9aa3b2;
+      color: var(--color-text-muted);
       font-size: var(--text-sm);
       font-weight: 700;
       letter-spacing: var(--tracking-wide);
@@ -106,7 +106,7 @@
     }
 
     .site-nav__link:hover {
-      color: var(--white);
+      color: var(--color-text);
     }
 
     .site-nav__link:hover::after {
@@ -200,8 +200,8 @@
 
     /* ── Footer ────────────────────────────────────────────────────────── */
     .site-footer {
-      background: var(--midnight);
-      border-top: 1px solid rgb(255 255 255 / 0.06);
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
       padding-block: var(--space-6);
     }
 
@@ -215,7 +215,7 @@
     }
 
     .site-footer__copy {
-      color: #6e7a8a;
+      color: var(--color-text-soft);
       font-family: var(--font-mono-ui);
       font-size: var(--text-xs);
       margin: 0;
@@ -256,12 +256,6 @@
       }
     }
 
-    /* ── Dark mode overrides for light-specific elements ───────────────── */
-    @media (prefers-color-scheme: dark) {
-      .section--alt {
-        background: #1f2230;
-      }
-    }
   </style>
 </head>
 <body>
@@ -286,20 +280,25 @@
   </nav>
 
   <!-- Hero -->
-  <section class="ds-hero ds-hero--dark" aria-label="Hero">
+  <section class="ds-hero" aria-label="Hero">
     <span class="ds-hero__watermark" aria-hidden="true">EDI</span>
     <div class="ds-hero__inner">
-      <p class="ds-hero__eyebrow">Designer &amp; Developer</p>
-      <h1 class="ds-hero__headline">
-        Creo prodotti digitali<br />con precisione e identità.
-      </h1>
-      <p class="ds-hero__sub">
-        Design system, interfacce operative, personal branding.<br />
-        Ogni dettaglio conta — dalla palette al codice.
-      </p>
-      <div class="ds-hero__actions">
-        <a href="#projects" class="ds-button ds-button--primary">Vedi i progetti</a>
-        <a href="#contact" class="ds-button ds-button--ghost" style="color: #9aa3b2;">Scrivimi</a>
+      <div class="ds-hero__text">
+        <p class="ds-hero__eyebrow">Designer &amp; Developer</p>
+        <h1 class="ds-hero__headline">
+          Creo prodotti digitali con <em>precisione</em> e identità.
+        </h1>
+        <p class="ds-hero__sub">
+          Design system, interfacce operative, personal branding.
+          Ogni dettaglio conta — dalla palette al codice.
+        </p>
+        <div class="ds-hero__actions">
+          <a href="#projects" class="ds-button ds-button--primary">Vedi i progetti</a>
+          <a href="#contact" class="ds-button ds-button--dark">Scrivimi</a>
+        </div>
+      </div>
+      <div class="ds-hero__media">
+        <img src="assets/hero.png" alt="Illustrazione di un personaggio che osserva l'orizzonte" class="ds-illustration" width="420" height="420" />
       </div>
     </div>
   </section>
@@ -313,8 +312,8 @@
         <h2 class="section__title" id="about-title">About</h2>
       </div>
       <div class="ds-bio">
-        <div class="ds-bio__avatar" aria-label="Foto profilo">
-          E
+        <div class="ds-bio__avatar" aria-label="Illustrazione profilo">
+          <img src="assets/about.png" alt="Illustrazione di un personaggio in riflessione" width="200" height="200" />
         </div>
         <div class="ds-bio__content">
           <p class="ds-bio__role">Designer &amp; Developer</p>
@@ -507,17 +506,18 @@
 
   <!-- Contact -->
   <section class="ds-contact-strip" id="contact" aria-labelledby="contact-title">
+    <img src="assets/contact.png" alt="" aria-hidden="true" class="ds-contact-strip__media" />
     <div class="ds-contact-strip__inner">
       <h2 class="ds-contact-strip__heading" id="contact-title">Lavoriamo insieme.</h2>
       <p class="ds-contact-strip__sub">
         Hai un progetto, un'idea o vuoi semplicemente scambiare due parole su design e prodotto?
       </p>
       <div style="margin-bottom: var(--space-7);">
-        <a href="mailto:ediderosa@gmail.com" class="ds-button ds-button--primary">Scrivimi una mail</a>
+        <a href="mailto:ediderosa@gmail.com" class="ds-button ds-button--dark">Scrivimi una mail</a>
       </div>
       <div class="ds-contact-strip__links">
         <a href="https://github.com/bc1edi" class="ds-contact-strip__link" target="_blank" rel="noopener">GitHub</a>
-        <span style="color: #3a3f52; font-size: 10px;">◆</span>
+        <span style="opacity: 0.4; font-size: 10px;">◆</span>
         <a href="mailto:ediderosa@gmail.com" class="ds-contact-strip__link">Email</a>
       </div>
     </div>
