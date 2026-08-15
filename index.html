@@ -160,7 +160,7 @@
           del pensiero, non della tastiera.
         </p>
         <dl class="node__spec">
-          <div class="node__spec-row"><dt>Location</dt><dd>IT</dd></div>
+          <div class="node__spec-row"><dt>Location</dt><dd class="location-badge"><span class="location-dot" aria-hidden="true"></span>Venezia, IT</dd></div>
           <div class="node__spec-row"><dt>Focus</dt><dd>LOCAL AGENTS</dd></div>
           <div class="node__spec-row"><dt>Skill</dt><dd>DESIGN SYS<br />AUDIO SYS<br />SWARM SYS</dd></div>
           <div class="node__spec-row"><dt>Status</dt><dd class="node__status"><span class="node__status-dot"></span>Online</dd></div>
@@ -205,7 +205,10 @@
                 <li>Bitcoin</li>
                 <li>CLI</li>
               </ul>
-              <a href="https://github.com/bc1edi/bitcode" class="node__link" target="_blank" rel="noopener">Esplora bitcode <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></svg></a>
+              <div class="node__links">
+                <a href="https://bitcode-agent.vercel.app/" class="node__link" target="_blank" rel="noopener">Demo <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></svg></a>
+                <a href="https://github.com/bc1edi/bitcode" class="node__link node__link--muted" target="_blank" rel="noopener">Esplora bitcode <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></svg></a>
+              </div>
             </div>
           </article>
 
@@ -232,23 +235,21 @@
           </article>
 
           <article class="node node--project">
-            <p class="node__meta">Work in Progress · Editoria AI</p>
+            <p class="node__meta">Completato · Editoria AI</p>
             <div class="node__body">
               <h3 class="node__name">habilis</h3>
               <p>
                 Enciclica artificiale — progetto editoriale generato con agenti AI.
-                Un libro in lavorazione, ancora work in progress.
               </p>
             </div>
             <div class="node__footer">
               <ul class="taglist">
                 <li>AI Agents</li>
                 <li>Editoria</li>
-                <li>WIP</li>
+                <li>Completato</li>
               </ul>
               <div class="node__links">
-                <a href="https://habilis-book.com/anteprima.html" class="node__link" target="_blank" rel="noopener">Leggi il cap. 1 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></svg></a>
-                <a href="https://habilis-book.com" class="node__link node__link--muted" target="_blank" rel="noopener">habilis-book.com</a>
+                <a href="https://habilis-book.vercel.app/" class="node__link" target="_blank" rel="noopener">Leggi <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></svg></a>
               </div>
             </div>
           </article>
@@ -317,21 +318,12 @@
         </ol>
       </section>
 
-      <!-- Legenda + strumentazione -->
-      <aside class="map__legend" data-reveal aria-label="Legenda della mappa">
-        <p class="map__legend-head">Legenda</p>
-        <ul>
-          <li><span class="lg-swatch lg-swatch--hub" aria-hidden="true"></span> hub — orchestrazione</li>
-          <li><span class="lg-swatch lg-swatch--node" aria-hidden="true"></span> nodo — contenuto</li>
-          <li><span class="lg-swatch lg-swatch--flow" aria-hidden="true"></span> flusso — prompt in uscita</li>
-          <li><span class="lg-swatch lg-swatch--route" aria-hidden="true"></span> rotta — percorso nel tempo</li>
-        </ul>
-        <p class="map__readout" aria-hidden="true">
-          <span id="readout-time">GMT+1 IT --:--</span>
-          <span id="readout-pos">0000 X 0000 Y</span>
-          <span>Agents [5] — Online</span>
-        </p>
-      </aside>
+      <!-- Strumentazione tecnica (legenda rimossa) -->
+      <p class="map__readout" aria-hidden="true">
+        <span id="readout-time">GMT+1 IT --:--</span>
+        <span id="readout-pos">0000 X 0000 Y</span>
+        <span>Agents [5] — Online</span>
+      </p>
     </div>
 
     <!-- CTA — uno solo, sotto la mappa -->
