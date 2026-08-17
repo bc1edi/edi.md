@@ -15,7 +15,7 @@
   --color-surface:       oklch(99.35% 0.0026 106.45); /* near-white caldo, mai #fff pieno */
   --color-ink:           oklch(26.31% 0.0127 100.51); /* #26251e */
   --color-ink-2:         oklch(46.03% 0.0099 91.58);  /* #5a5852 — testo muted */
-  --color-ink-3:         oklch(58.9% 0.0168 94.32);   /* #807d72 — testo soft */
+  --color-ink-3:         oklch(53% 0.0168 94.32);     /* #6f6c61 — testo soft (contrasto AA su #f7f7f4) */
   --color-rule:          oklch(92.13% 0.0068 97.36);  /* #e6e5e0 — hairline */
   --color-accent:        oklch(65.22% 0.2135 37.99);  /* #f54e00 */
   --color-accent-hover:  oklch(57.78% 0.1879 38.31);  /* #d04200 */
