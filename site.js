@@ -283,37 +283,3 @@
         document.fonts.ready.then(draw);
       }
     })();
-
-    // Cursore glow reattivo sull'hero (se reduced-motion non è attivo)
-    (function () {
-      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
-
-      var map = document.getElementById('map');
-      if (!map) return;
-
-      // Crea il glow element
-      var glow = document.createElement('div');
-      glow.className = 'map__cursor-glow';
-      map.appendChild(glow);
-
-      var lastX = 0, lastY = 0;
-      var glowX = 0, glowY = 0;
-
-      map.addEventListener('pointermove', function (e) {
-        var rect = map.getBoundingClientRect();
-        lastX = e.clientX - rect.left;
-        lastY = e.clientY - rect.top;
-      }, { passive: true });
-
-      // Smooth animation loop per il glow
-      function animate() {
-        glowX += (lastX - glowX) * 0.15;
-        glowY += (lastY - glowY) * 0.15;
-        glow.style.left = (glowX - 24) + 'px';
-        glow.style.top = (glowY - 24) + 'px';
-        requestAnimationFrame(animate);
-      }
-
-      animate();
-    })();
