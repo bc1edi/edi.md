@@ -9,6 +9,8 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 type Props = {
   /** posizione del nodo selezionato, o null per tornare a casa */
   focus: Vector3 | null;
+  /** layer Progetti aperto: arretra per far entrare l'anellino dei satelliti */
+  wide?: boolean;
   /** pannello a destra (desktop) o schermo intero (mobile) */
   panelSide: "right" | "bottom";
   reduced: boolean;
@@ -29,7 +31,7 @@ const HOME_TARGET_M = new Vector3(0, 1.0, 0);
  * ferma: la vita della scena viene dagli agenti, dall'hub e dalle gabbie —
  * uno strumento, non un acquario.
  */
-export function CameraRig({ focus, panelSide, reduced }: Props) {
+export function CameraRig({ focus, wide = false, panelSide, reduced }: Props) {
   const controls = useRef<OrbitControlsImpl>(null);
   const camera = useThree((s) => s.camera);
   const flight = useRef({ active: false, pos: new Vector3(), target: new Vector3() });
@@ -56,7 +58,7 @@ export function CameraRig({ focus, panelSide, reduced }: Props) {
       };
       return;
     }
-    const dist = mobile ? 6.0 : 5.2;
+    const dist = wide ? (mobile ? 8.2 : 7.6) : mobile ? 6.0 : 5.2;
     const dir = camera.position.clone().sub(focus).normalize();
     const pos = focus.clone().add(dir.multiplyScalar(dist));
     // Desktop: il pannello laterale copre ~46vw a destra → il nodo si aggancia
@@ -67,7 +69,7 @@ export function CameraRig({ focus, panelSide, reduced }: Props) {
     const right = new Vector3().setFromMatrixColumn(camera.matrixWorld, 0).normalize();
     const target = mobile ? focus.clone() : focus.clone().add(right.multiplyScalar(halfW * 0.46));
     flight.current = { active: true, pos, target };
-  }, [focus, mobile, camera, homeTarget, homeDist]);
+  }, [focus, wide, mobile, camera, homeTarget, homeDist]);
 
   useFrame((_, dt) => {
     const c = controls.current;

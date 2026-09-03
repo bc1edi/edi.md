@@ -21,9 +21,24 @@ export function World() {
   const [focusProject, setFocusProject] = useState<string | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
 
+  // tap su un nodo: toggle. Tap sul sotto-nodo progetto: toggle del progetto.
   const select = useCallback((id: SectionId | null, project?: string) => {
-    setSelected(id);
-    setFocusProject(project ?? null);
+    if (project !== undefined) {
+      setSelected("progetti");
+      setFocusProject((prev) => (prev === project ? null : project));
+      return;
+    }
+    setSelected((prev) => (prev === id ? null : id));
+    setFocusProject(null);
+  }, []);
+
+  // un passo indietro: da progetto → layer progetti; da sezione → punto iniziale
+  const stepBack = useCallback(() => {
+    setFocusProject((fp) => {
+      if (fp) return null;
+      setSelected(null);
+      return null;
+    });
   }, []);
 
   useEffect(() => {
@@ -35,11 +50,11 @@ export function World() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") select(null);
+      if (e.key === "Escape") stepBack();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [select]);
+  }, [stepBack]);
 
   const isStatic = caps.ready && !caps.webgl;
   const quality = caps.coarsePointer || caps.narrow ? "low" : "high";
@@ -51,6 +66,7 @@ export function World() {
         <div className="world__canvas" aria-hidden="true">
           <Scene
             selected={selected}
+            focusProject={focusProject}
             hovered={hovered}
             onSelect={select}
             onHover={setHovered}
