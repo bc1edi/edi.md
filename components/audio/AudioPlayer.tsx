@@ -5,7 +5,7 @@ import { tracks } from "@/lib/content";
 import { ArrowRightIcon, AudioIcon, AudioOffIcon } from "@/components/icons";
 
 /**
- * Player audio di sottofondo — playlist generata con AI (porting di site.js:1-80).
+ * Player audio di sottofondo — playlist generata con AI.
  * Parte sempre muto (autoplay garantito); il primo click sblocca l'audio.
  */
 export function AudioPlayer() {
