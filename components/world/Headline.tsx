@@ -42,8 +42,9 @@ function Rotator() {
 }
 
 /** L'output della shell: la tesi del sito, ancorata sotto il prompt. Resta
- *  sempre visibile — è chrome della shell, come il prompt stesso. */
-export function Headline() {
+ *  sempre visibile — è chrome della shell, come il prompt stesso. In coda, il
+ *  comando successivo: il contatto, sempre a un tocco. */
+export function Headline({ onContact }: { onContact: () => void }) {
   return (
     <>
       <section className="headline" aria-labelledby="headline-title">
@@ -56,6 +57,16 @@ export function Headline() {
           design system di questo sito. Descrivi il risultato, gli agenti fanno il resto. Quello che vedi qui è lo stesso
           sistema, al lavoro.
         </p>
+        <a
+          href="#panel"
+          className="headline__cta"
+          onClick={(e) => {
+            e.preventDefault();
+            onContact();
+          }}
+        >
+          <span className="prompt__mark" aria-hidden="true">&gt;</span> contatti <em>--mail</em>
+        </a>
       </section>
       <p className="headline__hint">
         <span>Trascina per ruotare</span>

@@ -13,7 +13,9 @@ function Anchor({ link }: { link: ProjectLink }) {
   );
 }
 
-export function Projects({ focus }: { focus: string | null }) {
+type Props = { focus: string | null; /** hover su una scheda accende il suo satellite nella mappa */ onHover: (slug: string | null) => void };
+
+export function Projects({ focus, onHover }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!focus || !ref.current) return;
@@ -26,7 +28,13 @@ export function Projects({ focus }: { focus: string | null }) {
       <h2 className="sheet__title" id="progetti-title">Progetti</h2>
       <div className="cards" ref={ref}>
         {projects.map((p) => (
-          <article className={"card" + (p.core ? " is-core" : "") + (focus === p.slug ? " is-focus" : "")} key={p.slug} data-slug={p.slug}>
+          <article
+            className={"card" + (p.core ? " is-core" : "") + (focus === p.slug ? " is-focus" : "")}
+            key={p.slug}
+            data-slug={p.slug}
+            onMouseEnter={() => onHover(p.slug)}
+            onMouseLeave={() => onHover(null)}
+          >
             <p className="card__meta">{p.meta}</p>
             <div className="card__body">
               <h3 className="card__name">{p.name}</h3>

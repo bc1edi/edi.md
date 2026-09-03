@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { sections, type SectionId } from "@/lib/content";
+import { agentFor, agents, sections, type SectionId } from "@/lib/content";
 
 type Props = {
   selected: SectionId | null;
@@ -75,7 +75,10 @@ export function Hud({ selected, hovered, onSelect, onHover, reduced }: Props) {
         <p className="readout" aria-hidden="true">
           <span>{time}</span>
           <span>{pos}</span>
-          <span><span className="readout__dot" />Agents [5] online</span>
+          <span>
+            <span className="readout__dot" />
+            {selected ? `${agentFor(selected).label} · active` : `Agents [${agents.length}] online`}
+          </span>
         </p>
       </header>
     </div>

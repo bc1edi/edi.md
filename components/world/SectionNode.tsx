@@ -13,23 +13,26 @@ type Props = {
   satellite?: boolean;
   selected: boolean;
   hovered: boolean;
+  /** c'è una selezione e non è questo nodo: arretra */
+  dimmed: boolean;
   onSelect: () => void;
   onHover: (on: boolean) => void;
   reduced: boolean;
   delay: number;
-  /** colore del nodo, default: arancione del brand */
+  /** colore di stato del nodo, default: arancione del brand */
   accent?: string;
 };
 
 /**
- * Nodo-sezione: un cubo di carta con una gabbia wireframe che ruota lenta.
- * Hover: la gabbia si accende. Selezione: il nucleo si scalda. Label mono a
- * billboard sotto, con la sintassi da shell (--about).
+ * Nodo-sezione: un cubo di carta con una gabbia wireframe che ruota a scatti.
+ * Hover: la gabbia si accende. Selezione: il nucleo si scalda. Con un'altra
+ * selezione attiva il nodo arretra. Label mono a billboard sotto (--about).
  */
-export function SectionNode({ label, position, satellite, selected, hovered, onSelect, onHover, reduced, delay, accent }: Props) {
+export function SectionNode({ label, position, satellite, selected, hovered, dimmed, onSelect, onHover, reduced, delay, accent }: Props) {
   const group = useRef<Group>(null);
   const cage = useRef<Mesh>(null);
   const clock = useSceneClock();
+  const step = useRef({ t: 0, target: 0, angle: 0 });
   const size = satellite ? 0.2 : 0.4;
   const lit = hovered || selected;
   const glow = accent ?? P.accent;
@@ -38,13 +41,22 @@ export function SectionNode({ label, position, satellite, selected, hovered, onS
     const t = clock.current;
     const p = easeOut((t - delay) / 0.9);
     if (group.current) {
-      const target = p * (lit ? 1.1 : 1);
+      const target = p * (lit ? 1.1 : dimmed ? 0.85 : 1);
       group.current.scale.setScalar(group.current.scale.x + (target - group.current.scale.x) * Math.min(1, dt * 8));
       group.current.visible = p > 0;
     }
     if (cage.current && !reduced) {
-      cage.current.rotation.y += dt * (lit ? 0.6 : 0.22);
-      cage.current.rotation.x += dt * 0.09;
+      // a scatti: un passo di 15° ogni 0.8 s (0.35 s se acceso), raggiunto in ~120 ms
+      const s = step.current;
+      s.t += dt;
+      const period = lit ? 0.35 : 0.8;
+      if (s.t >= period) {
+        s.t -= period;
+        s.target += Math.PI / 12;
+      }
+      s.angle += (s.target - s.angle) * Math.min(1, dt * 22);
+      cage.current.rotation.y = s.angle;
+      cage.current.rotation.x = s.angle * 0.4;
     }
   });
 
@@ -76,7 +88,7 @@ export function SectionNode({ label, position, satellite, selected, hovered, onS
       <mesh ref={cage} scale={2}>
         <boxGeometry args={[size, size, size]} />
         <meshBasicMaterial transparent opacity={0} depthWrite={false} />
-        <Edges color={lit ? glow : P.paperDim} threshold={15} transparent opacity={lit ? 1 : 0.32} />
+        <Edges color={lit ? glow : P.paperDim} threshold={15} transparent opacity={lit ? 1 : dimmed ? 0.14 : 0.32} />
       </mesh>
       <Billboard position={[0, -size - 0.3, 0]}>
         <Text
@@ -84,7 +96,7 @@ export function SectionNode({ label, position, satellite, selected, hovered, onS
           fontSize={satellite ? 0.13 : 0.17}
           letterSpacing={0.12}
           color={lit ? glow : P.paper}
-          fillOpacity={satellite && !lit ? 0.75 : 1}
+          fillOpacity={lit ? 1 : dimmed ? 0.45 : satellite ? 0.75 : 1}
           anchorX="center"
           anchorY="top"
         >

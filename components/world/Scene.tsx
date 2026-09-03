@@ -4,7 +4,15 @@ import { useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import dynamic from "next/dynamic";
 import { Vector3 } from "three";
-import { projectOffsets, projects, sections, type SectionId } from "@/lib/content";
+import {
+  RING_DESKTOP,
+  RING_MOBILE,
+  agentFor,
+  layoutNodes,
+  projects,
+  satelliteOffsets,
+  type SectionId,
+} from "@/lib/content";
 import { P } from "./palette";
 import { SceneClock } from "./useSceneClock";
 import { Hub } from "./Hub";
@@ -33,21 +41,31 @@ function Clock({ clock }: { clock: { current: number } }) {
   return null;
 }
 
-/** Il mondo: hub, nodi-sezione, satelliti-progetto, connessioni, agenti, rete lontana. */
+/**
+ * Il mondo: hub, nodi-sezione, satelliti-progetto, connessioni, agenti, rete
+ * lontana. Un solo stato (selected/hovered) guida tutto: è un sistema, non
+ * uno sfondo. Due composizioni: desktop (anello largo) e mobile (anello alto).
+ */
 export function Scene({ selected, hovered, onSelect, onHover, reduced, quality, panelSide }: SceneProps) {
   const clock = useMemo(() => ({ current: 0 }), []);
+  const narrow = panelSide === "bottom";
 
   const layout = useMemo(() => {
-    const nodes = sections.map((s) => ({ ...s, v: new Vector3(...s.position) }));
+    const nodes = layoutNodes(narrow ? RING_MOBILE : RING_DESKTOP).map((s) => ({ ...s, v: new Vector3(...s.position) }));
     const progetti = nodes.find((n) => n.id === "progetti")!;
-    const sats = projects.map((p, i) => ({ ...p, v: progetti.v.clone().add(new Vector3(...projectOffsets[i])) }));
+    const offsets = satelliteOffsets(narrow ? 0.72 : 1);
+    const sats = projects.map((p, i) => ({ ...p, v: progetti.v.clone().add(new Vector3(...offsets[i])) }));
+    // Le prime 5 coppie sono hub → nodo (indice = indice sezione), le altre progetti → satellite.
     const pairs: [Vector3, Vector3][] = [
       ...nodes.map((n) => [new Vector3(), n.v] as [Vector3, Vector3]),
       ...sats.map((s) => [progetti.v, s.v] as [Vector3, Vector3]),
     ];
-    const workers = nodes.map((n, i) => ({ to: n.v, speed: 0.28 + i * 0.07, offset: i * 1.7 }));
+    const workers = nodes.map((n, i) => ({ to: n.v, speed: 0.28 + i * 0.07, offset: i * 1.7, agent: agentFor(n.id) }));
     return { nodes, sats, pairs, workers };
-  }, []);
+  }, [narrow]);
+
+  const activeIndex = selected ? layout.nodes.findIndex((n) => n.id === selected) : -1;
+  const hoverIndex = hovered ? layout.nodes.findIndex((n) => n.id === hovered) : -1;
 
   const focus = useMemo(() => {
     if (!selected) return null;
@@ -57,7 +75,7 @@ export function Scene({ selected, hovered, onSelect, onHover, reduced, quality, 
   return (
     <Canvas
       dpr={quality === "high" ? [1, 1.5] : [1, 2]}
-      camera={{ position: [0, 3, 22], fov: panelSide === "bottom" ? 52 : 38, near: 0.1, far: 80 }}
+      camera={{ position: [0, 3, 22], fov: narrow ? 58 : 38, near: 0.1, far: 80 }}
       gl={{ antialias: true, powerPreference: "high-performance" }}
       onPointerMissed={(e) => {
         if (e.type === "click") onSelect(null);
@@ -72,9 +90,16 @@ export function Scene({ selected, hovered, onSelect, onHover, reduced, quality, 
         <Clock clock={clock} />
         <CameraRig focus={focus} panelSide={panelSide} reduced={reduced} />
 
-        <FarNetwork reduced={reduced} count={quality === "high" ? 90 : 50} dust={quality === "high" ? 1400 : 500} />
-        <Hub reduced={reduced} />
-        <Links pairs={layout.pairs} workers={layout.workers} reduced={reduced} />
+        <FarNetwork reduced={reduced} count={quality === "high" ? 90 : 50} dust={narrow ? 300 : quality === "high" ? 1400 : 500} lines={!narrow} />
+        <Hub reduced={reduced} pulseKey={selected} haloScale={narrow ? 1.6 : 1} />
+        <Links
+          pairs={layout.pairs}
+          workers={layout.workers}
+          reduced={reduced}
+          activeIndex={activeIndex}
+          hoverIndex={hoverIndex}
+          labels={!narrow}
+        />
 
         {layout.nodes.map((n, i) => (
           <SectionNode
@@ -84,6 +109,7 @@ export function Scene({ selected, hovered, onSelect, onHover, reduced, quality, 
             accent={n.accent}
             selected={selected === n.id}
             hovered={hovered === n.id}
+            dimmed={selected !== null && selected !== n.id}
             onSelect={() => onSelect(n.id)}
             onHover={(on) => onHover(on ? n.id : null)}
             reduced={reduced}
@@ -98,6 +124,7 @@ export function Scene({ selected, hovered, onSelect, onHover, reduced, quality, 
             position={s.v.toArray() as [number, number, number]}
             selected={false}
             hovered={hovered === s.slug}
+            dimmed={selected !== null && selected !== "progetti"}
             onSelect={() => onSelect("progetti", s.slug)}
             onHover={(on) => onHover(on ? s.slug : null)}
             reduced={reduced}

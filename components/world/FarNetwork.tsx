@@ -10,7 +10,9 @@ import { P, rng } from "./palette";
  * sferico collegati ai due vicini più prossimi. Ruota impercettibilmente.
  * Più la polvere: dà scala allo spazio e profondità al parallasse.
  */
-export function FarNetwork({ reduced, count = 90, dust = 1400 }: { reduced: boolean; count?: number; dust?: number }) {
+type Props = { reduced: boolean; count?: number; dust?: number; /** su mobile le linee lontane si spengono */ lines?: boolean };
+
+export function FarNetwork({ reduced, count = 90, dust = 1400, lines = true }: Props) {
   const group = useRef<Group>(null);
 
   const { nodes, segments, dustPts } = useMemo(() => {
@@ -55,12 +57,14 @@ export function FarNetwork({ reduced, count = 90, dust = 1400 }: { reduced: bool
         </bufferGeometry>
         <pointsMaterial color={P.paper} size={0.09} sizeAttenuation transparent opacity={0.55} depthWrite={false} />
       </points>
-      <lineSegments>
-        <bufferGeometry>
-          <bufferAttribute attach="attributes-position" args={[segments, 3]} />
-        </bufferGeometry>
-        <lineBasicMaterial color={P.paper} transparent opacity={0.07} depthWrite={false} />
-      </lineSegments>
+      {lines && (
+        <lineSegments>
+          <bufferGeometry>
+            <bufferAttribute attach="attributes-position" args={[segments, 3]} />
+          </bufferGeometry>
+          <lineBasicMaterial color={P.paper} transparent opacity={0.07} depthWrite={false} />
+        </lineSegments>
+      )}
       <points>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[dustPts, 3]} />

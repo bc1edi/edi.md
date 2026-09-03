@@ -63,8 +63,8 @@ export function World() {
       {!isStatic && <div className="world__vignette" aria-hidden="true" />}
 
       <Hud selected={selected} hovered={hovered} onSelect={select} onHover={setHovered} reduced={caps.reducedMotion} />
-      <Headline />
-      <Panel selected={selected} focusProject={focusProject} onClose={() => select(null)} isStatic={isStatic} />
+      <Headline onContact={() => select("contatti")} />
+      <Panel selected={selected} focusProject={focusProject} onClose={() => select(null)} onHover={setHovered} isStatic={isStatic} />
     </div>
   );
 }

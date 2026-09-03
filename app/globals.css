@@ -38,9 +38,11 @@
   --space-xl: clamp(34px, 3.5vw + 20px, 48px);
   --space-2xl: clamp(44px, 5vw + 24px, 64px);
 
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Motion: strumento, non organismo — un solo easing meccanico (decelerazione
+     secca, niente molla) e durate quantizzate 120 / 240 / 480. */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 480ms;
+  --dur-micro: 120ms; --dur-short: 240ms; --dur-long: 480ms;
 
   --radius-panel: 12px;
   --radius-pill: 999px;
@@ -182,6 +184,16 @@
   font-family: var(--font-body); font-size: var(--text-lg); line-height: 1.55; color: var(--color-paper-dim);
   max-width: 42ch; margin: 0;
 }
+/* il comando successivo: contatto sempre a un tocco, nella grammatica del prompt */
+.headline__cta {
+  display: inline-flex; align-items: center; gap: 0.6ch; margin-top: var(--space-md);
+  font-family: var(--font-outlier); font-size: var(--text-sm); line-height: 2.2;
+  color: var(--color-paper); text-decoration: none;
+  border-bottom: 1px solid var(--color-rule-2);
+  transition: color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+}
+.headline__cta em { font-style: normal; color: var(--color-accent); }
+.headline__cta:hover { color: var(--color-accent); border-color: var(--color-accent); }
 /* hint: micro-legenda autonoma, in basso a sinistra */
 .headline__hint {
   position: fixed; left: var(--hud-pad); bottom: calc(var(--space-md) + 4px); z-index: 10;
@@ -210,6 +222,11 @@
 .panel__cmd b { color: var(--color-paper); font-weight: 700; }
 .panel__cmd b span { color: var(--color-accent); }
 .panel__cmd em { font-style: normal; color: var(--color-accent); }
+/* stato dell'agente del nodo aperto: il readout della mappa, dentro il pannello */
+.panel__agent {
+  margin-left: 1.2ch; font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-mute); white-space: nowrap;
+}
 .panel__close {
   background: none; border: 1px solid var(--color-rule-2); border-radius: var(--radius-pill);
   color: var(--color-paper); font: inherit; padding: 4px 12px; cursor: pointer;
@@ -306,6 +323,7 @@
 }
 
 @media (max-width: 40rem) {
+  :root { --dur-long: 240ms; } /* su touch nessuna transizione oltre 240 ms */
   .hud__top { padding-top: calc(var(--space-sm) + env(safe-area-inset-top, 0px)); }
   .prompt { font-size: var(--text-xs); }
   .prompt__flag { padding-block: 6px; }
