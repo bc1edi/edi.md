@@ -58,16 +58,16 @@ export function CameraRig({ focus, wide = false, panelSide, reduced }: Props) {
       };
       return;
     }
-    const dist = wide ? (mobile ? 8.2 : 7.6) : mobile ? 6.0 : 5.2;
+    const dist = wide ? (mobile ? 8.2 : 7.6) : mobile ? 6.0 : 5.4;
     const dir = camera.position.clone().sub(focus).normalize();
     const pos = focus.clone().add(dir.multiplyScalar(dist));
-    // Desktop: il pannello laterale copre ~46vw a destra → il nodo si aggancia
-    // al suo bordo. Mobile: pannello a schermo intero, il nodo resta centrato.
+    // Desktop: la card copre ~38vw a destra → il nodo si sposta a sinistra,
+    // resta visibile a fianco. Mobile: card quasi a schermo intero, nodo centrato.
     const cam = camera as PerspectiveCamera;
     const halfH = dist * Math.tan((cam.fov * Math.PI) / 360);
     const halfW = halfH * cam.aspect;
     const right = new Vector3().setFromMatrixColumn(camera.matrixWorld, 0).normalize();
-    const target = mobile ? focus.clone() : focus.clone().add(right.multiplyScalar(halfW * 0.46));
+    const target = mobile ? focus.clone() : focus.clone().add(right.multiplyScalar(halfW * 0.33));
     flight.current = { active: true, pos, target };
   }, [focus, wide, mobile, camera, homeTarget, homeDist]);
 

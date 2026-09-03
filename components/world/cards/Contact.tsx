@@ -7,8 +7,13 @@ export function Contact() {
     <>
       <p className="sheet__eyebrow">Parliamone</p>
       <h2 className="sheet__title" id="contatti-title">Lavoriamo insieme.</h2>
-      <p>Hai un progetto con agenti AI, automazione o Bitcoin? Orchestro il team di agenti giusto per portarlo dal prompt al deploy.</p>
-      <a href={`mailto:${site.email}`} className="cta__btn">Scrivimi una mail <ArrowRightIcon /></a>
+      <p>
+        Hai un progetto con agenti AI, automazione o Bitcoin? Orchestro il team di agenti giusto per
+        portarlo dal prompt al deploy.
+      </p>
+      <a href={`mailto:${site.email}`} className="cta__btn">
+        Scrivimi una mail <ArrowRightIcon />
+      </a>
       <p className="cta__links">
         {socials.map((s, i) => {
           const Icon = socialIcons[s.id];
@@ -21,8 +26,8 @@ export function Contact() {
         })}
       </p>
       <p className="colophon">
-        edi.md — rete di agenti orchestrata da Edi, costruita da agenti AI. Inter, Lato, Roboto Mono.
-        Carta #f7f7f4 su ink #12110d, accento #f54e00. © 2026 Edi — Fatto con cura.
+        edi.md — rete di agenti orchestrata da Edi, costruita da agenti AI. Inter · Roboto Mono ·
+        carta #f7f7f4 su ink #12110d · © 2026.
       </p>
     </>
   );

@@ -10,12 +10,7 @@ export function Experience() {
           <li className={stop.current ? "stop stop--current" : "stop"} key={stop.name}>
             <p className="stop__date">{stop.date}</p>
             <h3 className="stop__name">{stop.name}</h3>
-            <p className="stop__lead">{stop.lead}</p>
-            <div className="stop__body">
-              {stop.body.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
-            </div>
+            <p className="stop__line">{stop.line}</p>
             <ul className="tags stop__tags">
               {stop.tags.map((t) => (
                 <li key={t}>{t}</li>

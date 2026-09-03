@@ -72,8 +72,11 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
 
   const focus = useMemo(() => {
     if (!selected) return null;
+    if (inProjects && focusProject) {
+      return layout.sats.find((s) => s.slug === focusProject)?.v ?? layout.progetti.v;
+    }
     return layout.nodes.find((n) => n.id === selected)?.v ?? null;
-  }, [selected, layout]);
+  }, [selected, inProjects, focusProject, layout]);
 
   return (
     <Canvas
@@ -91,7 +94,7 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
 
       <SceneClock.Provider value={clock}>
         <Clock clock={clock} />
-        <CameraRig focus={focus} wide={inProjects} panelSide={panelSide} reduced={reduced} />
+        <CameraRig focus={focus} wide={inProjects && !focusProject} panelSide={panelSide} reduced={reduced} />
 
         <FarNetwork reduced={reduced} count={quality === "high" ? 90 : 50} dust={narrow ? 300 : quality === "high" ? 1400 : 500} lines={!narrow} />
         <Hub reduced={reduced} pulseKey={selected} haloScale={narrow ? 1.6 : 1} />

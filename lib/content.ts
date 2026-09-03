@@ -140,7 +140,8 @@ export type Project = {
   slug: string;
   meta: string;
   name: string;
-  body: string;
+  /** tre righe per la card: cos'è / come funziona / a cosa serve */
+  card: { what: string; how: string; why: string };
   tags: string[];
   links: ProjectLink[];
   core?: boolean;
@@ -149,44 +150,56 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "faktotum",
-    meta: "2026 · AI Agents / R&D",
+    meta: "2026 · Laboratorio",
     name: "faktotum",
-    body:
-      "Hub tecnologico agentico — il laboratorio dove sperimento nuove tecnologie AI, agenti autonomi e workflow prima che diventino prodotti.",
+    card: {
+      what: "Il laboratorio: l'hub da cui nascono gli altri progetti.",
+      how: "R&D su agenti autonomi, tecnologie AI e workflow, prima che diventino prodotti.",
+      why: "Testare in privato quello che poi diventa bitcode, habilis, edi.md.",
+    },
     tags: ["AI Agents", "R&D", "Automation"],
     links: [],
   },
   {
     slug: "bitcode",
-    meta: "2026 · AI Agents / Bitcoin",
+    meta: "2026 · AI Agent · Bitcoin",
     name: "bitcode",
-    body:
-      "Agente di coding da terminale, in stile Claude Code, con integrazione nativa Bitcoin e Lightning Network. Privacy by design: nessuna chiave o credenziale lascia mai la macchina.",
-    tags: ["AI Agents", "Bitcoin", "CLI"],
+    card: {
+      what: "Agente di coding da terminale in stile Claude Code — Node puro, zero dipendenze.",
+      how: "Multi-provider LLM con wallet Bitcoin (BIP84), Lightning e broadcast on-chain sotto approvazione.",
+      why: "Scrivere codice e operare su Bitcoin dallo stesso terminale, senza che una chiave lasci la macchina.",
+    },
+    tags: ["AI Agents", "Bitcoin", "Lightning", "CLI"],
     core: true,
     links: [
       { label: "Demo", href: "https://bitcode-agent.vercel.app/", external: true, arrow: true },
-      { label: "Esplora bitcode", href: "https://github.com/bc1edi/bitcode", external: true, muted: true, arrow: true },
+      { label: "GitHub", href: "https://github.com/bc1edi/bitcode", external: true, muted: true, arrow: true },
     ],
   },
   {
     slug: "edi-md",
     meta: "2026 · Vibe Coding",
     name: "edi.md",
-    body:
-      "Sito portfolio sviluppato con agenti AI. Design system, audio immersivo, stack modulare e integrazione continua.",
-    tags: ["Vibe Coding", "Design", "Automation"],
+    card: {
+      what: "Questo sito: un mondo 3D dove le sezioni sono nodi di una rete di agenti.",
+      how: "Next.js + React Three Fiber, design system e audio, costruito con agenti AI.",
+      why: "Essere la dimostrazione, non il racconto — lo stesso sistema, al lavoro.",
+    },
+    tags: ["Vibe Coding", "R3F", "Design System"],
     links: [
-      { label: "Esplora edi.md", href: "https://github.com/bc1edi/edi.md", external: true, arrow: true },
+      { label: "GitHub", href: "https://github.com/bc1edi/edi.md", external: true, arrow: true },
     ],
   },
   {
     slug: "habilis",
-    meta: "Completato · Editoria AI",
+    meta: "2025 · Editoria AI",
     name: "habilis",
-    body:
-      "Enciclica artificiale — progetto editoriale generato con agenti AI. Un'AI scrive di sé stessa, tra il test di Turing e il problema difficile della coscienza: nessuna certezza, solo l'onestà di chi non sa cosa è.",
-    tags: ["AI Agents", "Editoria", "Completato"],
+    card: {
+      what: "«Enciclica Artificiale»: un saggio in 12 capitoli sull'AI, scritto da un'AI.",
+      how: "Cinque agenti — architetto, ricercatore, scrittore, revisore, produttore — e un orchestratore umano che approva ogni capitolo.",
+      why: "Mostrare cosa vuol dire orchestrare invece di generare, con un capitolo finale umano e non firmato.",
+    },
+    tags: ["AI Agents", "Editoria", "Orchestration"],
     links: [
       { label: "Leggi il libro", href: "https://habilis-book.com", external: true, arrow: true },
       { label: "Anteprima cap. 1", href: "https://habilis-book.com/anteprima.html", external: true, muted: true },
@@ -203,8 +216,8 @@ export const skills = [
 export type ExperienceStop = {
   date: string;
   name: string;
-  lead: string;
-  body: readonly string[]; // "\n" nel testo = a capo forzato
+  /** una riga-guida per la card */
+  line: string;
   tags: readonly string[];
   current: boolean;
 };
@@ -213,37 +226,22 @@ export const experience: readonly ExperienceStop[] = [
   {
     date: "2026 — presente",
     name: "Freelance Vibecoder",
-    lead: "Costruisco sistemi digitali, non semplicemente software.",
-    body: [
-      "Sono anche un vibecoder: utilizzo l'AI per trasformare idee e intenzioni in prodotti digitali funzionanti. Progetto l'architettura, definisco i workflow, scrivo i prompt, collego strumenti e API e coordino agenti AI autonomi lungo tutto il processo.",
-      "Dall'idea al prototipo.\nDal primo prompt al primo commit.\nDal design al deploy.",
-      "Lavoro con sistemi composti da agenti, modelli, API, automazioni e infrastruttura, progettati per lavorare insieme, in parallelo e con il minor intervento manuale possibile.",
-    ],
-    tags: ["AI Agents", "Vibecoding", "Prompt Engineering", "Automation", "API", "Design-to-Code", "Orchestration"],
+    line: "Costruisco sistemi digitali, non software: progetto architetture, workflow e prompt, e coordino agenti AI autonomi dall'idea al deploy.",
+    tags: ["AI Agents", "Vibecoding", "Prompt Engineering", "Orchestration"],
     current: true,
   },
   {
     date: "2016 — presente",
     name: "Bitcoiner",
-    lead: "Bitcoin è il mio laboratorio permanente.",
-    body: [
-      "Studio, utilizzo e costruisco infrastruttura attorno a Bitcoin. Gestione di nodi, analisi on-chain, automazione delle transazioni e sperimentazione con sistemi decentralizzati e Lightning Network.",
-      "Un percorso che mi ha portato a lavorare con sistemi dove non esiste un pulsante “fai tu”: bisogna capire l'infrastruttura, controllare ciò che si esegue e automatizzare senza perdere il controllo.",
-    ],
-    tags: ["Bitcoin", "Lightning Network", "Nodes", "On-chain", "Automation", "Infrastructure"],
+    line: "Nodi, analisi on-chain, automazione delle transazioni, Lightning. Sistemi dove o capisci l'infrastruttura o non vai da nessuna parte.",
+    tags: ["Bitcoin", "Lightning", "Nodes", "On-chain"],
     current: true,
   },
   {
     date: "2015 — presente",
     name: "Restaurant Manager",
-    lead: "Prima degli agenti AI orchestravo persone, collaboratori e processi. Lo faccio ancora.",
-    body: [
-      "Da oltre dieci anni gestisco operazioni nel mondo della ristorazione: coordinamento dei team, organizzazione del lavoro, formazione, ordini e fornitori, controllo dei costi, qualità e problem solving.",
-      "Un ambiente dove i sistemi devono funzionare in tempo reale, le variabili cambiano continuamente e qualcuno deve prendere decisioni mentre il lavoro è già in corso.",
-      "È lì che ho imparato — e verifico ogni giorno — che un buon sistema non è quello che fa tutto da solo. È quello in cui ogni parte sa cosa deve fare.",
-      "Le stesse logiche le applico oggi a sistemi digitali, workflow e agenti AI.",
-    ],
-    tags: ["Operations", "Team Management", "Process Optimization", "Training", "Cost Control", "Quality Management"],
+    line: "Oltre dieci anni a orchestrare team, turni, fornitori e costi in tempo reale. Prima degli agenti orchestravo persone — le stesse logiche, oggi, sui sistemi.",
+    tags: ["Operations", "Team Management", "Process Optimization"],
     current: true,
   },
 ];

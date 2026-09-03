@@ -6,7 +6,7 @@ import type { SectionId } from "@/lib/content";
 import { useCapabilities } from "@/lib/useCapabilities";
 import { Hud } from "./Hud";
 import { Headline } from "./Headline";
-import { Panel } from "./Panel";
+import { NodeCard } from "./NodeCard";
 
 // three + R3F + drei + postprocessing in un chunk separato, caricato solo se c'è WebGL.
 const Scene = dynamic(() => import("./Scene").then((m) => m.Scene), { ssr: false, loading: () => null });
@@ -80,7 +80,7 @@ export function World() {
 
       <Hud selected={selected} hovered={hovered} onSelect={select} onHover={setHovered} reduced={caps.reducedMotion} />
       <Headline onContact={() => select("contatti")} />
-      <Panel selected={selected} focusProject={focusProject} onClose={() => select(null)} onHover={setHovered} isStatic={isStatic} />
+      <NodeCard selected={selected} focusProject={focusProject} onClose={() => select(null)} onHover={setHovered} isStatic={isStatic} />
     </div>
   );
 }
