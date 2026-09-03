@@ -17,6 +17,8 @@ type Props = {
   onHover: (on: boolean) => void;
   reduced: boolean;
   delay: number;
+  /** colore del nodo, default: arancione del brand */
+  accent?: string;
 };
 
 /**
@@ -24,12 +26,13 @@ type Props = {
  * Hover: la gabbia si accende. Selezione: il nucleo si scalda. Label mono a
  * billboard sotto, con la sintassi da shell (--about).
  */
-export function SectionNode({ label, position, satellite, selected, hovered, onSelect, onHover, reduced, delay }: Props) {
+export function SectionNode({ label, position, satellite, selected, hovered, onSelect, onHover, reduced, delay, accent }: Props) {
   const group = useRef<Group>(null);
   const cage = useRef<Mesh>(null);
   const clock = useSceneClock();
   const size = satellite ? 0.2 : 0.4;
   const lit = hovered || selected;
+  const glow = accent ?? P.accent;
 
   useFrame((_, dt) => {
     const t = clock.current;
@@ -66,21 +69,21 @@ export function SectionNode({ label, position, satellite, selected, hovered, onS
           color={P.paper}
           roughness={0.6}
           metalness={0}
-          emissive={P.accent}
+          emissive={glow}
           emissiveIntensity={selected ? 0.9 : hovered ? 0.35 : 0.06}
         />
       </mesh>
       <mesh ref={cage} scale={2}>
         <boxGeometry args={[size, size, size]} />
         <meshBasicMaterial transparent opacity={0} depthWrite={false} />
-        <Edges color={lit ? P.accent : P.paperDim} threshold={15} transparent opacity={lit ? 1 : 0.32} />
+        <Edges color={lit ? glow : P.paperDim} threshold={15} transparent opacity={lit ? 1 : 0.32} />
       </mesh>
       <Billboard position={[0, -size - 0.3, 0]}>
         <Text
           font={MONO_FONT}
           fontSize={satellite ? 0.13 : 0.17}
           letterSpacing={0.12}
-          color={lit ? P.accent : P.paper}
+          color={lit ? glow : P.paper}
           fillOpacity={satellite && !lit ? 0.75 : 1}
           anchorX="center"
           anchorY="top"

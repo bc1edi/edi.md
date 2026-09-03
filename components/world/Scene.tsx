@@ -81,6 +81,7 @@ export function Scene({ selected, hovered, onSelect, onHover, reduced, quality, 
             key={n.id}
             label={n.flag}
             position={n.position}
+            accent={n.accent}
             selected={selected === n.id}
             hovered={hovered === n.id}
             onSelect={() => onSelect(n.id)}

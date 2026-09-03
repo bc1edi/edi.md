@@ -48,6 +48,8 @@ export type SectionNode = {
   flag: string;
   title: string;
   position: [number, number, number];
+  /** colore del nodo, se diverso dall'arancione del brand */
+  accent?: string;
 };
 
 const RING = { rx: 4.0, ry: 2.7, tilt: (20 * Math.PI) / 180 };
@@ -70,15 +72,18 @@ function ringPosition(deg: number, offset: [number, number, number]): [number, n
   ];
 }
 
-export const sections: readonly SectionNode[] = (
-  [
-    { id: "about", flag: "--about", title: "About" },
-    { id: "progetti", flag: "--progetti", title: "Progetti" },
-    { id: "skills", flag: "--skills", title: "Skills" },
-    { id: "experience", flag: "--experience", title: "Experience" },
-    { id: "contatti", flag: "--contatti", title: "Contatti" },
-  ] as const
-).map((s) => ({ ...s, position: ringPosition(RING_NODES[s.id].deg, RING_NODES[s.id].offset) }));
+const BASE_SECTIONS: readonly Omit<SectionNode, "position">[] = [
+  { id: "about", flag: "--about", title: "About", accent: "#a3ff12" }, // verde lime fluo
+  { id: "progetti", flag: "--progetti", title: "Progetti" },
+  { id: "skills", flag: "--skills", title: "Skills" },
+  { id: "experience", flag: "--experience", title: "Experience", accent: "#ff3fb0" }, // rosa fluo
+  { id: "contatti", flag: "--contatti", title: "Contatti" },
+];
+
+export const sections: readonly SectionNode[] = BASE_SECTIONS.map((s) => ({
+  ...s,
+  position: ringPosition(RING_NODES[s.id].deg, RING_NODES[s.id].offset),
+}));
 
 /** Satelliti del nodo Progetti: mini-orbita di 4 punti (uno per progetto),
  *  raggio SAT.r, inclinata al contrario dell'anello così si leggono come un
@@ -176,26 +181,53 @@ export const skills = [
   { group: "Brand & Design", items: ["Design System", "Personal Brand", "Audio System"] },
 ] as const;
 
-export const experience = [
+export type ExperienceStop = {
+  date: string;
+  name: string;
+  lead: string;
+  body: readonly string[]; // "\n" nel testo = a capo forzato
+  tags: readonly string[];
+  current: boolean;
+};
+
+export const experience: readonly ExperienceStop[] = [
   {
     date: "2026 — presente",
     name: "Freelance Vibecoder",
-    body: "Sviluppo di prodotti digitali con agenti AI autonomi. Automazione di workflow, integrazione API, design-to-code.",
+    lead: "Costruisco sistemi digitali, non semplicemente software.",
+    body: [
+      "Sono anche un vibecoder: utilizzo l'AI per trasformare idee e intenzioni in prodotti digitali funzionanti. Progetto l'architettura, definisco i workflow, scrivo i prompt, collego strumenti e API e coordino agenti AI autonomi lungo tutto il processo.",
+      "Dall'idea al prototipo.\nDal primo prompt al primo commit.\nDal design al deploy.",
+      "Lavoro con sistemi composti da agenti, modelli, API, automazioni e infrastruttura, progettati per lavorare insieme, in parallelo e con il minor intervento manuale possibile.",
+    ],
+    tags: ["AI Agents", "Vibecoding", "Prompt Engineering", "Automation", "API", "Design-to-Code", "Orchestration"],
     current: true,
   },
   {
     date: "2016 — presente",
     name: "Bitcoiner",
-    body: "Gestione nodi, analisi on-chain, automazione transazioni, trading algoritmico e infrastruttura Bitcoin.",
-    current: false,
+    lead: "Bitcoin è il mio laboratorio permanente.",
+    body: [
+      "Studio, utilizzo e costruisco infrastruttura attorno a Bitcoin. Gestione di nodi, analisi on-chain, automazione delle transazioni e sperimentazione con sistemi decentralizzati e Lightning Network.",
+      "Un percorso che mi ha portato a lavorare con sistemi dove non esiste un pulsante “fai tu”: bisogna capire l'infrastruttura, controllare ciò che si esegue e automatizzare senza perdere il controllo.",
+    ],
+    tags: ["Bitcoin", "Lightning Network", "Nodes", "On-chain", "Automation", "Infrastructure"],
+    current: true,
   },
   {
-    date: "2015 — 2026",
+    date: "2015 — presente",
     name: "Restaurant Manager",
-    body: "Gestione operativa, coordinamento team, ottimizzazione processi e controllo qualità nel settore della ristorazione.",
-    current: false,
+    lead: "Prima degli agenti AI, orchestravo persone, collaboratori e processi.",
+    body: [
+      "Per oltre dieci anni ho gestito operazioni nel mondo della ristorazione: coordinamento dei team, organizzazione del lavoro, formazione, ordini e fornitori, controllo dei costi, qualità e problem solving.",
+      "Un ambiente dove i sistemi devono funzionare in tempo reale, le variabili cambiano continuamente e qualcuno deve prendere decisioni mentre il lavoro è già in corso.",
+      "È lì che ho imparato una cosa che ancora oggi mi porto dietro: un buon sistema non è quello che fa tutto da solo. È quello in cui ogni parte sa cosa deve fare.",
+      "Oggi quelle stesse logiche le applico a sistemi digitali, workflow e agenti AI.",
+    ],
+    tags: ["Operations", "Team Management", "Process Optimization", "Training", "Cost Control", "Quality Management"],
+    current: true,
   },
-] as const;
+];
 
 export const socials = [
   { id: "github", label: "GitHub", href: "https://github.com/bc1edi" },
