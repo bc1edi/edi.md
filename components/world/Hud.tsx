@@ -42,12 +42,17 @@ export function Hud({ selected, hovered, onSelect, onHover, reduced }: Props) {
   return (
     <div className="hud">
       <header className="hud__top">
-        <nav aria-label="Navigazione principale">
+        <nav aria-label="Sezioni">
           <p className="prompt">
             <span className="prompt__mark" aria-hidden="true">&gt;</span>
             <a href="/" className="prompt__brand" onClick={(e) => { e.preventDefault(); onSelect(null); }}>
               edi<span>.md</span>
             </a>
+            {!selected && <span className="prompt__caret" aria-hidden="true">▌</span>}
+          </p>
+          {/* I nodi 3D sono la navigazione principale; questi flag restano per
+              tastiera / screen reader / fallback senza JS e appaiono al focus. */}
+          <span className="prompt__nav">
             {sections.map((s) => (
               <button
                 key={s.id}
@@ -65,8 +70,7 @@ export function Hud({ selected, hovered, onSelect, onHover, reduced }: Props) {
                 {s.flag}
               </button>
             ))}
-            {!selected && <span className="prompt__caret" aria-hidden="true">▌</span>}
-          </p>
+          </span>
         </nav>
         <p className="readout" aria-hidden="true">
           <span>{time}</span>

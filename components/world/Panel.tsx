@@ -34,7 +34,7 @@ export function Panel({ selected, focusProject, onClose, isStatic }: Props) {
           <b>edi<span>.md</span></b> <em>{current?.flag}</em>
         </p>
         <button ref={closeRef} type="button" className="panel__close" onClick={onClose}>
-          chiudi [esc]
+          chiudi<span className="panel__close-key"> [esc]</span>
         </button>
       </div>
       <div className="panel__body" ref={bodyRef}>

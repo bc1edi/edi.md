@@ -56,9 +56,9 @@ export function Scene({ selected, hovered, onSelect, onHover, reduced, quality, 
 
   return (
     <Canvas
-      dpr={quality === "high" ? [1, 1.5] : 1}
+      dpr={quality === "high" ? [1, 1.5] : [1, 2]}
       camera={{ position: [0, 3, 22], fov: panelSide === "bottom" ? 52 : 38, near: 0.1, far: 80 }}
-      gl={{ antialias: quality === "high", powerPreference: "high-performance" }}
+      gl={{ antialias: true, powerPreference: "high-performance" }}
       onPointerMissed={(e) => {
         if (e.type === "click") onSelect(null);
       }}
