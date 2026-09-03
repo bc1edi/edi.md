@@ -40,9 +40,11 @@ type Props = {
   /** fallback statico: mostra tutti i progetti in colonna */
   isStatic?: boolean;
   onHover: (slug: string | null) => void;
+  onSelect: (slug: string) => void;
+  onBack: () => void;
 };
 
-export function Projects({ focus, isStatic, onHover }: Props) {
+export function Projects({ focus, isStatic, onHover, onSelect, onBack }: Props) {
   if (isStatic) {
     return (
       <>
@@ -67,17 +69,20 @@ export function Projects({ focus, isStatic, onHover }: Props) {
       <>
         <p className="sheet__eyebrow">Cosa costruisco</p>
         <h2 className="sheet__title" id="progetti-title">Progetti</h2>
-        <p>{projects.length} cose che ho costruito. Tocca un nodo per aprirlo.</p>
+        <p>{projects.length} cose che ho costruito. Tocca un nodo — o scegli qui.</p>
         <ul className="proj__index">
           {projects.map((p) => (
             <li key={p.slug}>
               <button
                 type="button"
                 className="proj__index-item"
+                onClick={() => onSelect(p.slug)}
                 onMouseEnter={() => onHover(p.slug)}
                 onMouseLeave={() => onHover(null)}
+                onFocus={() => onHover(p.slug)}
+                onBlur={() => onHover(null)}
               >
-                {p.name}
+                {p.name} <span aria-hidden="true">→</span>
               </button>
             </li>
           ))}
@@ -88,7 +93,9 @@ export function Projects({ focus, isStatic, onHover }: Props) {
 
   return (
     <>
-      <p className="sheet__eyebrow">Progetto</p>
+      <button type="button" className="proj__back" onClick={onBack}>
+        <span aria-hidden="true">‹</span> Progetti
+      </button>
       <h2 className="sheet__title" id="progetti-title">{current.name}</h2>
       <article className="proj proj--solo">
         <ProjectBody p={current} />

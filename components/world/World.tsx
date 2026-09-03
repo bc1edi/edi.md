@@ -80,7 +80,15 @@ export function World() {
 
       <Hud selected={selected} hovered={hovered} onSelect={select} onHover={setHovered} reduced={caps.reducedMotion} />
       <Headline onContact={() => select("contatti")} />
-      <NodeCard selected={selected} focusProject={focusProject} onClose={() => select(null)} onHover={setHovered} isStatic={isStatic} />
+      <NodeCard
+        selected={selected}
+        focusProject={focusProject}
+        onClose={() => select(null)}
+        onBack={stepBack}
+        onSelectProject={(slug) => select("progetti", slug)}
+        onHover={setHovered}
+        isStatic={isStatic}
+      />
     </div>
   );
 }

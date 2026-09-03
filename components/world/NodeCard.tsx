@@ -12,6 +12,10 @@ type Props = {
   selected: SectionId | null;
   focusProject: string | null;
   onClose: () => void;
+  /** un passo indietro (da progetto → indice progetti) */
+  onBack: () => void;
+  /** apri la card di un progetto dalla lista */
+  onSelectProject: (slug: string) => void;
   onHover: (id: string | null) => void;
   isStatic: boolean;
 };
@@ -30,7 +34,7 @@ const TITLE_ID: Record<SectionId, string> = {
  * scena che si oscura dietro. Sostituisce il vecchio pannello laterale.
  * Tutte le sezioni sono nel DOM; in `data-static` sono tutte in colonna.
  */
-export function NodeCard({ selected, focusProject, onClose, onHover, isStatic }: Props) {
+export function NodeCard({ selected, focusProject, onClose, onBack, onSelectProject, onHover, isStatic }: Props) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const touch = useRef<{ x: number; y: number } | null>(null);
@@ -82,7 +86,7 @@ export function NodeCard({ selected, focusProject, onClose, onHover, isStatic }:
         {/* sezioni: tutte nel DOM, hidden su quelle non attive */}
         <div className="node-card__body" ref={bodyRef}>
           <section className="node-card__section sheet" hidden={!isStatic && selected !== "about"} aria-labelledby="about-title"><About /></section>
-          <section className="node-card__section sheet" hidden={!isStatic && selected !== "progetti"} aria-labelledby="progetti-title"><Projects focus={focusProject} isStatic={isStatic} onHover={onHover} /></section>
+          <section className="node-card__section sheet" hidden={!isStatic && selected !== "progetti"} aria-labelledby="progetti-title"><Projects focus={focusProject} isStatic={isStatic} onHover={onHover} onSelect={onSelectProject} onBack={onBack} /></section>
           <section className="node-card__section sheet" hidden={!isStatic && selected !== "skills"} aria-labelledby="skills-title"><Skills /></section>
           <section className="node-card__section sheet" hidden={!isStatic && selected !== "experience"} aria-labelledby="experience-title"><Experience /></section>
           <section className="node-card__section sheet" hidden={!isStatic && selected !== "contatti"} aria-labelledby="contatti-title"><Contact /></section>
