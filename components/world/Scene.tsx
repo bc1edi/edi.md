@@ -1,0 +1,111 @@
+"use client";
+
+import { useMemo } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import dynamic from "next/dynamic";
+import { Vector3 } from "three";
+import { projectOffsets, projects, sections, type SectionId } from "@/lib/content";
+import { P } from "./palette";
+import { SceneClock } from "./useSceneClock";
+import { Hub } from "./Hub";
+import { SectionNode } from "./SectionNode";
+import { Links } from "./Links";
+import { FarNetwork } from "./FarNetwork";
+import { CameraRig } from "./CameraRig";
+
+export type SceneProps = {
+  selected: SectionId | null;
+  hovered: string | null;
+  onSelect: (id: SectionId | null, project?: string) => void;
+  onHover: (id: string | null) => void;
+  reduced: boolean;
+  /** low: mobile/touch — niente bloom, meno polvere */
+  quality: "high" | "low";
+  panelSide: "right" | "bottom";
+};
+
+const Effects = dynamic(() => import("./Effects").then((m) => m.Effects), { ssr: false });
+
+function Clock({ clock }: { clock: { current: number } }) {
+  useFrame((_, dt) => {
+    clock.current += Math.min(dt, 0.05);
+  });
+  return null;
+}
+
+/** Il mondo: hub, nodi-sezione, satelliti-progetto, connessioni, agenti, rete lontana. */
+export function Scene({ selected, hovered, onSelect, onHover, reduced, quality, panelSide }: SceneProps) {
+  const clock = useMemo(() => ({ current: 0 }), []);
+
+  const layout = useMemo(() => {
+    const nodes = sections.map((s) => ({ ...s, v: new Vector3(...s.position) }));
+    const progetti = nodes.find((n) => n.id === "progetti")!;
+    const sats = projects.map((p, i) => ({ ...p, v: progetti.v.clone().add(new Vector3(...projectOffsets[i])) }));
+    const pairs: [Vector3, Vector3][] = [
+      ...nodes.map((n) => [new Vector3(), n.v] as [Vector3, Vector3]),
+      ...sats.map((s) => [progetti.v, s.v] as [Vector3, Vector3]),
+    ];
+    const workers = nodes.map((n, i) => ({ to: n.v, speed: 0.28 + i * 0.07, offset: i * 1.7 }));
+    return { nodes, sats, pairs, workers };
+  }, []);
+
+  const focus = useMemo(() => {
+    if (!selected) return null;
+    return layout.nodes.find((n) => n.id === selected)?.v ?? null;
+  }, [selected, layout]);
+
+  return (
+    <Canvas
+      dpr={quality === "high" ? [1, 1.5] : 1}
+      camera={{ position: [0, 3, 22], fov: panelSide === "bottom" ? 52 : 38, near: 0.1, far: 80 }}
+      gl={{ antialias: quality === "high", powerPreference: "high-performance" }}
+      onPointerMissed={(e) => {
+        if (e.type === "click") onSelect(null);
+      }}
+    >
+      <color attach="background" args={[P.void]} />
+      <fog attach="fog" args={[P.void, 8, 34]} />
+      <ambientLight intensity={0.35} color={P.paper} />
+      <directionalLight position={[4, 8, 6]} intensity={0.9} color={P.paper} />
+
+      <SceneClock.Provider value={clock}>
+        <Clock clock={clock} />
+        <CameraRig focus={focus} panelSide={panelSide} reduced={reduced} />
+
+        <FarNetwork reduced={reduced} count={quality === "high" ? 90 : 50} dust={quality === "high" ? 1400 : 500} />
+        <Hub reduced={reduced} />
+        <Links pairs={layout.pairs} workers={layout.workers} reduced={reduced} />
+
+        {layout.nodes.map((n, i) => (
+          <SectionNode
+            key={n.id}
+            label={n.flag}
+            position={n.position}
+            selected={selected === n.id}
+            hovered={hovered === n.id}
+            onSelect={() => onSelect(n.id)}
+            onHover={(on) => onHover(on ? n.id : null)}
+            reduced={reduced}
+            delay={1.0 + i * 0.12}
+          />
+        ))}
+        {layout.sats.map((s, i) => (
+          <SectionNode
+            key={s.slug}
+            satellite
+            label={s.name}
+            position={s.v.toArray() as [number, number, number]}
+            selected={false}
+            hovered={hovered === s.slug}
+            onSelect={() => onSelect("progetti", s.slug)}
+            onHover={(on) => onHover(on ? s.slug : null)}
+            reduced={reduced}
+            delay={1.7 + i * 0.1}
+          />
+        ))}
+      </SceneClock.Provider>
+
+      {quality === "high" && <Effects />}
+    </Canvas>
+  );
+}
