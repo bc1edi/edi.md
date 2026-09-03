@@ -64,12 +64,13 @@ export function Projects({ focus, isStatic, onHover, onSelect, onBack }: Props) 
 
   const current = focus ? projects.find((p) => p.slug === focus) : null;
 
+  // --progetti da solo non apre la card (i sotto-nodi 3D sono la scelta);
+  // questo ramo serve solo come rete di sicurezza / lista di ripiego.
   if (!current) {
     return (
       <>
         <p className="sheet__eyebrow">Cosa costruisco</p>
         <h2 className="sheet__title" id="progetti-title">Progetti</h2>
-        <p>{projects.length} cose che ho costruito. Tocca un nodo — o scegli qui.</p>
         <ul className="proj__index">
           {projects.map((p) => (
             <li key={p.slug}>

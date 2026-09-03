@@ -39,15 +39,18 @@ export function NodeCard({ selected, focusProject, onClose, onBack, onSelectProj
   const bodyRef = useRef<HTMLDivElement>(null);
   const touch = useRef<{ x: number; y: number } | null>(null);
   const current = sections.find((s) => s.id === selected);
-  const open = selected !== null || isStatic;
-  const isDialog = selected !== null && !isStatic;
+  // --progetti da solo (senza un progetto scelto) non apre la card:
+  // si vedono solo i sotto-nodi 3D.
+  const bareProjects = selected === "progetti" && focusProject === null;
+  const open = isStatic || (selected !== null && !bareProjects);
+  const isDialog = open && !isStatic;
 
   useEffect(() => {
-    if (selected && !isStatic) {
+    if (open && !isStatic) {
       closeRef.current?.focus({ preventScroll: true });
       bodyRef.current?.scrollTo({ top: 0 });
     }
-  }, [selected, focusProject, isStatic]);
+  }, [open, selected, focusProject, isStatic]);
 
   return (
     <>

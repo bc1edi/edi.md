@@ -208,14 +208,15 @@
    semi-trasparente, con la scena che si oscura dietro (.world__scrim). */
 .world__scrim {
   position: fixed; inset: 0; z-index: 18; cursor: pointer;
-  background: rgb(18 17 13 / 0.55);
+  background: rgb(18 17 13 / 0.48);
   opacity: 0; animation: scrim-in var(--dur-short) var(--ease-out) forwards;
 }
 @keyframes scrim-in { to { opacity: 1; } }
 
 .node-card {
   position: fixed; z-index: 20; inset: 0;
-  background: var(--color-void);
+  background: color-mix(in srgb, var(--color-void) 72%, transparent);
+  backdrop-filter: blur(7px);
   transform: translateY(102%); transition: transform var(--dur-long) var(--ease-out);
   display: flex; flex-direction: column;
 }
@@ -238,7 +239,11 @@
   transition: border-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
 }
 .node-card__close:hover { border-color: var(--color-accent); color: var(--color-accent); }
-.node-card__body { overflow: auto; padding: var(--space-lg) var(--space-md) calc(var(--space-2xl) + 64px); overscroll-behavior: contain; }
+.node-card__body {
+  overflow: auto; overscroll-behavior: contain;
+  padding: var(--space-lg) var(--space-md) calc(var(--space-2xl) + 64px);
+  background: color-mix(in srgb, var(--color-void) 86%, transparent);
+}
 .node-card__section[hidden] { display: none; }
 
 .sheet__eyebrow { font-family: var(--font-outlier); font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin: 0 0 var(--space-2xs); }
@@ -341,8 +346,6 @@
     inset: 50% var(--space-lg) auto auto; height: auto; max-height: min(84vh, 780px);
     width: min(420px, 38vw);
     border: 1px solid var(--color-rule-2); border-radius: var(--radius-panel);
-    background: color-mix(in srgb, var(--color-void) 70%, transparent);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     overflow: hidden;
     transform: translateY(-50%) translateX(118%);
   }
