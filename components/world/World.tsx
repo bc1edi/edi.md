@@ -7,6 +7,7 @@ import { useCapabilities } from "@/lib/useCapabilities";
 import { Hud } from "./Hud";
 import { Headline } from "./Headline";
 import { NodeCard } from "./NodeCard";
+import { BootSequence } from "./BootSequence";
 
 // three + R3F + drei + postprocessing in un chunk separato, caricato solo se c'è WebGL.
 const Scene = dynamic(() => import("./Scene").then((m) => m.Scene), { ssr: false, loading: () => null });
@@ -39,8 +40,29 @@ export function World() {
   const [selected, setSelected] = useState<SectionId | null>(null);
   const [focusProject, setFocusProject] = useState<string | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
+  const [booting, setBooting] = useState(false);
   const stateRef = useRef<Nav>({ selected, focusProject });
   stateRef.current = { selected, focusProject };
+
+  // boot da terminale solo alla prima visita della sessione, mai reduced-motion
+  useEffect(() => {
+    try {
+      const seen = sessionStorage.getItem("edi:booted");
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!seen && !reduce && !window.location.hash) setBooting(true);
+    } catch {
+      /* sessionStorage non disponibile: niente boot */
+    }
+  }, []);
+
+  const endBoot = useCallback(() => {
+    setBooting(false);
+    try {
+      sessionStorage.setItem("edi:booted", "1");
+    } catch {
+      /* ignora */
+    }
+  }, []);
 
   const apply = useCallback((hash: string) => {
     const s = parseHash(hash);
@@ -132,6 +154,7 @@ export function World() {
         onHover={setHovered}
         isStatic={isStatic}
       />
+      {booting && <BootSequence onDone={endBoot} />}
     </div>
   );
 }

@@ -98,6 +98,24 @@
 }
 .skip-link:focus-visible { top: 0; }
 
+/* ── Boot da terminale (prima visita) ────────────────────────────────── */
+.boot {
+  position: fixed; inset: 0; z-index: 60;
+  display: grid; place-items: center;
+  background: var(--color-void);
+  transition: opacity var(--dur-long) var(--ease-out);
+}
+.boot.is-leaving { opacity: 0; pointer-events: none; }
+.boot__text {
+  margin: 0; padding: 0 var(--hud-pad);
+  font-family: var(--font-outlier); font-size: var(--text-sm); line-height: 2.1;
+  letter-spacing: 0.04em; color: var(--color-paper-dim);
+  white-space: pre;
+}
+.boot__cmd { color: var(--color-paper); font-weight: 700; }
+.boot__caret { color: var(--color-accent); animation: caret 1s steps(1) infinite; }
+@media (prefers-reduced-motion: reduce) { .boot { display: none; } }
+
 /* ── Layer del mondo ──────────────────────────────────────────────────── */
 .world { position: relative; min-height: 100dvh; }
 .world__canvas { position: fixed; inset: 0; z-index: 0; }
