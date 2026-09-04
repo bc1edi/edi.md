@@ -57,7 +57,11 @@ export function World() {
     [apply],
   );
 
-  const back = useCallback(() => window.history.back(), []);
+  // "indietro" solo se c'è qualcosa da chiudere: a casa non si esce dal sito.
+  const back = useCallback(() => {
+    const cur = stateRef.current;
+    if (cur.selected !== null || cur.focusProject !== null) window.history.back();
+  }, []);
 
   /** apertura/toggle di un nodo (o di un sotto-nodo progetto). null = indietro. */
   const select = useCallback(

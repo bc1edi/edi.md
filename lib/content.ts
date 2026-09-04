@@ -104,7 +104,7 @@ export function layoutNodes(ring: Ring): SectionNode[] {
  *  su un'ellisse — larga più che alta e quasi frontale alla camera, così le
  *  etichette non si sovrappongono. Offset dal nodo Progetti; `scale` la stringe
  *  su mobile. Layer che si apre al tap su `--progetti`; N non è fisso. */
-const SAT = { rx: 2.4, ry: 1.8, tilt: (-6 * Math.PI) / 180, phase: (45 * Math.PI) / 180 };
+const SAT = { rx: 1.9, ry: 1.8, tilt: (-6 * Math.PI) / 180, phase: (24 * Math.PI) / 180 };
 
 export function satelliteRing(count: number, scale = 1): [number, number, number][] {
   return Array.from({ length: count }, (_, i) => {

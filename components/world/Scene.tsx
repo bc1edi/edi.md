@@ -59,8 +59,8 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
     // La costellazione dei progetti è spinta verso l'esterno rispetto all'hub,
     // così i sotto-nodi non finiscono sopra l'asterisco (specie su mobile).
     const outward = new Vector3(progetti.v.x, progetti.v.y, 0).normalize();
-    const satCenter = progetti.v.clone().addScaledVector(outward, narrow ? 1.6 : 0.8);
-    const offsets = satelliteRing(projects.length, narrow ? 0.92 : 1);
+    const satCenter = progetti.v.clone().addScaledVector(outward, narrow ? 1.4 : 0.8);
+    const offsets = satelliteRing(projects.length, narrow ? 0.9 : 1);
     const sats = projects.map((p, i) => ({ ...p, v: satCenter.clone().add(new Vector3(...offsets[i])) }));
     // Le prime 5 coppie sono hub → nodo (indice = indice sezione), le altre progetti → satellite.
     const pairs: [Vector3, Vector3][] = [
