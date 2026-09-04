@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Lato, Roboto_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/lib/content";
 import { AudioPlayer } from "@/components/audio/AudioPlayer";
 import "./globals.css";
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#panel">Salta al contenuto</a>
         {children}
         <AudioPlayer />
+        <Analytics />
       </body>
     </html>
   );
