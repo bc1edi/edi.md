@@ -14,8 +14,6 @@ export type Capabilities = {
   coarsePointer: boolean;
   narrow: boolean;
   webgl: boolean;
-  /** true solo quando ha senso caricare e animare la scena 3D */
-  scene3d: boolean;
 };
 
 const initial: Capabilities = {
@@ -24,7 +22,6 @@ const initial: Capabilities = {
   coarsePointer: false,
   narrow: false,
   webgl: false,
-  scene3d: false,
 };
 
 function detectWebGL(): boolean {
@@ -53,14 +50,7 @@ export function useCapabilities(): Capabilities {
       const coarsePointer = pointerMq.matches;
       const narrow = !widthMq.matches;
       const webgl = detectWebGL();
-      setCaps({
-        ready: true,
-        reducedMotion,
-        coarsePointer,
-        narrow,
-        webgl,
-        scene3d: webgl && !reducedMotion && !coarsePointer && !narrow,
-      });
+      setCaps({ ready: true, reducedMotion, coarsePointer, narrow, webgl });
     };
 
     compute();

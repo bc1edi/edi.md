@@ -104,7 +104,7 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
         <Clock clock={clock} />
         <CameraRig focus={focus} wide={inProjects && !focusProject} panelSide={panelSide} reduced={reduced} />
 
-        <FarNetwork reduced={reduced} count={quality === "high" ? 90 : 50} dust={narrow ? 300 : quality === "high" ? 1400 : 500} lines={!narrow} />
+        <FarNetwork reduced={reduced} count={quality === "high" ? 80 : 45} dust={narrow ? 280 : quality === "high" ? 800 : 420} lines={!narrow} />
         <Hub reduced={reduced} pulseKey={selected} haloScale={narrow ? 1.6 : 1} dim={inProjects && !focusProject} />
         <Links
           pairs={layout.pairs}

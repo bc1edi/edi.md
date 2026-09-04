@@ -12,7 +12,7 @@ import { P, rng } from "./palette";
  */
 type Props = { reduced: boolean; count?: number; dust?: number; /** su mobile le linee lontane si spengono */ lines?: boolean };
 
-export function FarNetwork({ reduced, count = 90, dust = 1400, lines = true }: Props) {
+export function FarNetwork({ reduced, count = 90, dust = 800, lines = true }: Props) {
   const group = useRef<Group>(null);
 
   const { nodes, segments, dustPts } = useMemo(() => {
