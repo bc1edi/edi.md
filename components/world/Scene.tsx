@@ -56,16 +56,19 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
   const layout = useMemo(() => {
     const nodes = layoutNodes(narrow ? RING_MOBILE : RING_DESKTOP).map((s) => ({ ...s, v: new Vector3(...s.position) }));
     const progetti = nodes.find((n) => n.id === "progetti")!;
-    // La costellazione dei progetti è spinta verso l'esterno rispetto all'hub,
-    // così i sotto-nodi non finiscono sopra l'asterisco (specie su mobile).
-    const outward = new Vector3(progetti.v.x, progetti.v.y, 0).normalize();
-    const satCenter = progetti.v.clone().addScaledVector(outward, narrow ? 1.4 : 0.8);
-    const offsets = satelliteRing(projects.length, narrow ? 0.9 : 1);
+    // Centro della costellazione progetti: il nodo Progetti spostato in x
+    // (non in modo radiale — la spinta radiale annullava l'offset dei nodi
+    // di sinistra e li impilava sul genitore). Il genitore viene nascosto e
+    // l'hub attenuato quando il layer è aperto, quindi qui basta poco.
+    const satCenter = progetti.v.clone();
+    satCenter.x += narrow ? 1.4 : 0.7;
+    const offsets = satelliteRing(projects.length, narrow ? 0.82 : 0.9);
     const sats = projects.map((p, i) => ({ ...p, v: satCenter.clone().add(new Vector3(...offsets[i])) }));
-    // Le prime 5 coppie sono hub → nodo (indice = indice sezione), le altre progetti → satellite.
+    // Le prime 5 coppie sono hub → nodo (indice = indice sezione), le altre
+    // collegano il centro della costellazione ai 4 satelliti.
     const pairs: [Vector3, Vector3][] = [
       ...nodes.map((n) => [new Vector3(), n.v] as [Vector3, Vector3]),
-      ...sats.map((s) => [progetti.v, s.v] as [Vector3, Vector3]),
+      ...sats.map((s) => [satCenter.clone(), s.v] as [Vector3, Vector3]),
     ];
     const workers = nodes.map((n, i) => ({ to: n.v, speed: 0.28 + i * 0.07, offset: i * 1.7, agent: agentFor(n.id) }));
     return { nodes, progetti, satCenter, sats, pairs, workers };
@@ -102,7 +105,7 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
         <CameraRig focus={focus} wide={inProjects && !focusProject} panelSide={panelSide} reduced={reduced} />
 
         <FarNetwork reduced={reduced} count={quality === "high" ? 90 : 50} dust={narrow ? 300 : quality === "high" ? 1400 : 500} lines={!narrow} />
-        <Hub reduced={reduced} pulseKey={selected} haloScale={narrow ? 1.6 : 1} />
+        <Hub reduced={reduced} pulseKey={selected} haloScale={narrow ? 1.6 : 1} dim={inProjects && !focusProject} />
         <Links
           pairs={layout.pairs}
           workers={layout.workers}
@@ -113,18 +116,19 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
         />
 
         {layout.nodes.map((n, i) => {
-          // nel layer progetti il nodo Progetti è il "genitore": arretra e
-          // lascia la scena ai 4 sotto-nodi.
-          const parentDim = n.id === "progetti" && inProjects;
+          // nel layer progetti il nodo Progetti è il "genitore": sparisce e
+          // lascia tutta la scena ai 4 sotto-nodi.
+          const parentHidden = n.id === "progetti" && inProjects;
           return (
           <SectionNode
             key={n.id}
             label={n.flag}
             position={n.position}
             accent={n.accent}
-            selected={!parentDim && selected === n.id}
+            hidden={parentHidden}
+            selected={!parentHidden && selected === n.id}
             hovered={hovered === n.id}
-            dimmed={parentDim || (selected !== null && selected !== n.id)}
+            dimmed={selected !== null && selected !== n.id}
             onSelect={() => onSelect(n.id)}
             onHover={(on) => onHover(on ? n.id : null)}
             reduced={reduced}

@@ -58,7 +58,7 @@ export function CameraRig({ focus, wide = false, panelSide, reduced }: Props) {
       };
       return;
     }
-    const dist = wide ? (mobile ? 9.0 : 8.4) : mobile ? 5.6 : 5.4;
+    const dist = wide ? (mobile ? 10.0 : 9.2) : mobile ? 5.6 : 5.4;
     const dir = camera.position.clone().sub(focus).normalize();
     const pos = focus.clone().add(dir.multiplyScalar(dist));
     // Desktop: la card copre ~38vw a destra → il nodo si sposta a sinistra,

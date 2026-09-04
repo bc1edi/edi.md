@@ -15,6 +15,8 @@ type Props = {
   satellite?: boolean;
   /** satelliti: visibili solo quando il layer Progetti è aperto */
   revealed?: boolean;
+  /** nascondi del tutto (il nodo Progetti mentre sei nel suo layer) */
+  hidden?: boolean;
   selected: boolean;
   hovered: boolean;
   /** c'è una selezione e non è questo nodo: arretra */
@@ -49,6 +51,7 @@ export function SectionNode({
   origin,
   satellite,
   revealed = true,
+  hidden = false,
   selected,
   hovered,
   dimmed,
@@ -106,7 +109,7 @@ export function SectionNode({
     const p = easeOut((t - delay - motion.delayJitter) / motion.dur);
     const appear = satellite ? rv : p;
 
-    g.visible = appear > 0.01;
+    g.visible = !hidden && appear > 0.01;
 
     // posizione: origine → base, con lo scarto d'ingresso che si riassorbe,
     // più la deriva permanente (piena solo a nodo assestato)
@@ -128,7 +131,7 @@ export function SectionNode({
     );
 
     // scala
-    const targetScale = appear * (lit ? 1.1 : dimmed ? 0.78 : 1);
+    const targetScale = hidden ? 0 : appear * (lit ? 1.1 : dimmed ? 0.78 : 1);
     g.scale.setScalar(g.scale.x + (targetScale - g.scale.x) * Math.min(1, dt * 8));
 
     // gabbia: rotazione a scatti (P0.3)
@@ -167,13 +170,13 @@ export function SectionNode({
           roughness={0.6}
           metalness={0}
           emissive={glow}
-          emissiveIntensity={selected ? 0.9 : hovered ? 0.35 : 0.06}
+          emissiveIntensity={selected ? 1 : hovered ? 0.5 : satellite ? 0.12 : 0.22}
         />
       </mesh>
       <mesh ref={cage} scale={2}>
         <boxGeometry args={[size, size, size]} />
         <meshBasicMaterial transparent opacity={0} depthWrite={false} />
-        <Edges color={lit ? glow : P.paperDim} threshold={15} transparent opacity={lit ? 1 : dimmed ? 0.12 : 0.32} />
+        <Edges color={glow} threshold={15} transparent opacity={lit ? 1 : dimmed ? 0.14 : 0.5} />
       </mesh>
       <Billboard position={[0, -size - 0.3, 0]}>
         <Text

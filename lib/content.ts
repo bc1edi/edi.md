@@ -54,13 +54,15 @@ export type SectionMeta = {
 export type SectionNode = SectionMeta & { position: [number, number, number] };
 
 /** Le sezioni, nell'ordine della nav e dell'anello. Senza posizione: la
- *  posizione dipende dalla composizione (desktop/mobile), vedi `layoutNodes`. */
+ *  posizione dipende dalla composizione (desktop/mobile), vedi `layoutNodes`.
+ *  Ogni nodo ha un suo colore di stato fluo, distinti sulla ruota dei toni;
+ *  l'arancione del brand resta all'hub. */
 export const sections: readonly SectionMeta[] = [
-  { id: "about", flag: "--about", title: "About", accent: "#a3ff12" },
-  { id: "progetti", flag: "--progetti", title: "Progetti" },
-  { id: "skills", flag: "--skills", title: "Skills" },
-  { id: "experience", flag: "--experience", title: "Experience", accent: "#ff3fb0" },
-  { id: "contatti", flag: "--contatti", title: "Contatti" },
+  { id: "about", flag: "--about", title: "About", accent: "#a3ff12" }, // lime
+  { id: "progetti", flag: "--progetti", title: "Progetti", accent: "#12e3ff" }, // ciano
+  { id: "skills", flag: "--skills", title: "Skills", accent: "#a860ff" }, // viola
+  { id: "experience", flag: "--experience", title: "Experience", accent: "#ff3fb0" }, // magenta
+  { id: "contatti", flag: "--contatti", title: "Contatti", accent: "#ffe000" }, // giallo
 ];
 
 export type Ring = { rx: number; ry: number; tilt: number };
@@ -100,18 +102,31 @@ export function layoutNodes(ring: Ring): SectionNode[] {
   }));
 }
 
-/** Satelliti del nodo Progetti: mini-costellazione di N punti (uno per progetto)
- *  su un'ellisse — larga più che alta e quasi frontale alla camera, così le
- *  etichette non si sovrappongono. Offset dal nodo Progetti; `scale` la stringe
- *  su mobile. Layer che si apre al tap su `--progetti`; N non è fisso. */
-const SAT = { rx: 1.9, ry: 1.8, tilt: (-6 * Math.PI) / 180, phase: (24 * Math.PI) / 180 };
+/** Costellazione dei progetti: offset dal centro `satCenter` (vedi Scene).
+ *  Con 4 progetti usa una disposizione esplicita a quadrilatero sbilanciato —
+ *  nessuna coppia condivide x o y, quindi niente nodi impilati. Con un numero
+ *  diverso ripiega su un'ellisse ruotata. `scale` la stringe su mobile. */
+const SAT_QUAD: readonly [number, number][] = [
+  [1.7, 1.4], // faktotum
+  [-1.7, 1.6], // bitcode
+  [-1.9, -1.3], // edi.md
+  [1.5, -1.7], // habilis
+];
+const SAT_TILT = (-6 * Math.PI) / 180;
 
 export function satelliteRing(count: number, scale = 1): [number, number, number][] {
   return Array.from({ length: count }, (_, i) => {
-    const a = SAT.phase + (i * 2 * Math.PI) / Math.max(1, count);
-    const x = SAT.rx * scale * Math.cos(a);
-    const y = SAT.ry * scale * Math.sin(a);
-    return [x, y * Math.cos(SAT.tilt), -y * Math.sin(SAT.tilt)];
+    let x: number, y: number;
+    if (count === SAT_QUAD.length) {
+      [x, y] = SAT_QUAD[i];
+    } else {
+      const a = (24 * Math.PI) / 180 + (i * 2 * Math.PI) / count;
+      x = 1.9 * Math.cos(a);
+      y = 1.8 * Math.sin(a);
+    }
+    x *= scale;
+    y *= scale;
+    return [x, y * Math.cos(SAT_TILT), -y * Math.sin(SAT_TILT)];
   });
 }
 
