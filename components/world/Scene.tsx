@@ -56,15 +56,19 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
   const layout = useMemo(() => {
     const nodes = layoutNodes(narrow ? RING_MOBILE : RING_DESKTOP).map((s) => ({ ...s, v: new Vector3(...s.position) }));
     const progetti = nodes.find((n) => n.id === "progetti")!;
-    const offsets = satelliteRing(projects.length, narrow ? 0.72 : 1);
-    const sats = projects.map((p, i) => ({ ...p, v: progetti.v.clone().add(new Vector3(...offsets[i])) }));
+    // La costellazione dei progetti è spinta verso l'esterno rispetto all'hub,
+    // così i sotto-nodi non finiscono sopra l'asterisco (specie su mobile).
+    const outward = new Vector3(progetti.v.x, progetti.v.y, 0).normalize();
+    const satCenter = progetti.v.clone().addScaledVector(outward, narrow ? 1.6 : 0.8);
+    const offsets = satelliteRing(projects.length, narrow ? 0.92 : 1);
+    const sats = projects.map((p, i) => ({ ...p, v: satCenter.clone().add(new Vector3(...offsets[i])) }));
     // Le prime 5 coppie sono hub → nodo (indice = indice sezione), le altre progetti → satellite.
     const pairs: [Vector3, Vector3][] = [
       ...nodes.map((n) => [new Vector3(), n.v] as [Vector3, Vector3]),
       ...sats.map((s) => [progetti.v, s.v] as [Vector3, Vector3]),
     ];
     const workers = nodes.map((n, i) => ({ to: n.v, speed: 0.28 + i * 0.07, offset: i * 1.7, agent: agentFor(n.id) }));
-    return { nodes, progetti, sats, pairs, workers };
+    return { nodes, progetti, satCenter, sats, pairs, workers };
   }, [narrow]);
 
   const activeIndex = selected ? layout.nodes.findIndex((n) => n.id === selected) : -1;
@@ -73,8 +77,9 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
   const focus = useMemo(() => {
     if (!selected) return null;
     if (inProjects && focusProject) {
-      return layout.sats.find((s) => s.slug === focusProject)?.v ?? layout.progetti.v;
+      return layout.sats.find((s) => s.slug === focusProject)?.v ?? layout.satCenter;
     }
+    if (inProjects) return layout.satCenter; // vista larga: al centro della costellazione
     return layout.nodes.find((n) => n.id === selected)?.v ?? null;
   }, [selected, inProjects, focusProject, layout]);
 
@@ -107,21 +112,26 @@ export function Scene({ selected, focusProject, hovered, onSelect, onHover, redu
           satActive={inProjects}
         />
 
-        {layout.nodes.map((n, i) => (
+        {layout.nodes.map((n, i) => {
+          // nel layer progetti il nodo Progetti è il "genitore": arretra e
+          // lascia la scena ai 4 sotto-nodi.
+          const parentDim = n.id === "progetti" && inProjects;
+          return (
           <SectionNode
             key={n.id}
             label={n.flag}
             position={n.position}
             accent={n.accent}
-            selected={selected === n.id}
+            selected={!parentDim && selected === n.id}
             hovered={hovered === n.id}
-            dimmed={selected !== null && selected !== n.id}
+            dimmed={parentDim || (selected !== null && selected !== n.id)}
             onSelect={() => onSelect(n.id)}
             onHover={(on) => onHover(on ? n.id : null)}
             reduced={reduced}
             delay={1.0 + i * 0.12}
           />
-        ))}
+          );
+        })}
         {layout.sats.map((s) => (
           <SectionNode
             key={s.slug}

@@ -100,17 +100,18 @@ export function layoutNodes(ring: Ring): SectionNode[] {
   }));
 }
 
-/** Satelliti del nodo Progetti: mini-orbita di N punti (uno per progetto),
- *  inclinata al contrario dell'anello così si leggono come un sottosistema.
- *  Offset dal nodo Progetti; `scale` li stringe su mobile. È un layer che si
- *  apre al tap su `--progetti`; il numero di progetti non è fisso. */
-const SAT = { r: 1.4, tilt: (-22 * Math.PI) / 180, phase: (35 * Math.PI) / 180 };
+/** Satelliti del nodo Progetti: mini-costellazione di N punti (uno per progetto)
+ *  su un'ellisse — larga più che alta e quasi frontale alla camera, così le
+ *  etichette non si sovrappongono. Offset dal nodo Progetti; `scale` la stringe
+ *  su mobile. Layer che si apre al tap su `--progetti`; N non è fisso. */
+const SAT = { rx: 2.4, ry: 1.8, tilt: (-6 * Math.PI) / 180, phase: (45 * Math.PI) / 180 };
 
 export function satelliteRing(count: number, scale = 1): [number, number, number][] {
   return Array.from({ length: count }, (_, i) => {
     const a = SAT.phase + (i * 2 * Math.PI) / Math.max(1, count);
-    const r = SAT.r * scale;
-    return [r * Math.cos(a), r * Math.sin(a) * Math.cos(SAT.tilt), -r * Math.sin(a) * Math.sin(SAT.tilt)];
+    const x = SAT.rx * scale * Math.cos(a);
+    const y = SAT.ry * scale * Math.sin(a);
+    return [x, y * Math.cos(SAT.tilt), -y * Math.sin(SAT.tilt)];
   });
 }
 

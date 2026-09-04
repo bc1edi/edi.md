@@ -58,7 +58,7 @@ export function CameraRig({ focus, wide = false, panelSide, reduced }: Props) {
       };
       return;
     }
-    const dist = wide ? (mobile ? 7.0 : 7.6) : mobile ? 5.6 : 5.4;
+    const dist = wide ? (mobile ? 8.2 : 8.4) : mobile ? 5.6 : 5.4;
     const dir = camera.position.clone().sub(focus).normalize();
     const pos = focus.clone().add(dir.multiplyScalar(dist));
     // Desktop: la card copre ~38vw a destra → il nodo si sposta a sinistra,
@@ -67,7 +67,7 @@ export function CameraRig({ focus, wide = false, panelSide, reduced }: Props) {
     const halfH = dist * Math.tan((cam.fov * Math.PI) / 360);
     const halfW = halfH * cam.aspect;
     const right = new Vector3().setFromMatrixColumn(camera.matrixWorld, 0).normalize();
-    const target = mobile ? focus.clone() : focus.clone().add(right.multiplyScalar(halfW * 0.33));
+    const target = mobile ? focus.clone() : focus.clone().add(right.multiplyScalar(halfW * 0.3));
     flight.current = { active: true, pos, target };
   }, [focus, wide, mobile, camera, homeTarget, homeDist]);
 
