@@ -103,22 +103,24 @@ export function layoutNodes(ring: Ring): SectionNode[] {
 }
 
 /** Costellazione dei progetti: offset dal centro `satCenter` (vedi Scene).
- *  Con 4 progetti usa una disposizione esplicita a quadrilatero sbilanciato —
- *  nessuna coppia condivide x o y, quindi niente nodi impilati. Con un numero
- *  diverso ripiega su un'ellisse ruotata. `scale` la stringe su mobile. */
-const SAT_QUAD: readonly [number, number][] = [
-  [1.7, 1.4], // faktotum
-  [-1.7, 1.6], // bitcode
-  [-1.9, -1.3], // edi.md
-  [1.5, -1.7], // habilis
+ *  Con 5 progetti usa una disposizione esplicita e sbilanciata — nessuna coppia
+ *  condivide x o y, raggi diseguali e passi angolari irregolari, così non legge
+ *  come un pentagono regolare. Con un numero diverso ripiega su un'ellisse
+ *  ruotata. `scale` la stringe su mobile. */
+const SAT_STARS: readonly [number, number][] = [
+  [2.0, 1.2], // faktotum
+  [-0.5, 2.3], // bitcode
+  [-2.3, 0.5], // edi.md
+  [-0.9, -2.2], // habilis
+  [1.6, -1.5], // addr1
 ];
 const SAT_TILT = (-6 * Math.PI) / 180;
 
 export function satelliteRing(count: number, scale = 1): [number, number, number][] {
   return Array.from({ length: count }, (_, i) => {
     let x: number, y: number;
-    if (count === SAT_QUAD.length) {
-      [x, y] = SAT_QUAD[i];
+    if (count === SAT_STARS.length) {
+      [x, y] = SAT_STARS[i];
     } else {
       const a = (24 * Math.PI) / 180 + (i * 2 * Math.PI) / count;
       x = 1.9 * Math.cos(a);
@@ -219,6 +221,21 @@ export const projects: Project[] = [
     links: [
       { label: "Leggi il libro", href: "https://habilis-book.com", external: true, arrow: true },
       { label: "Anteprima cap. 1", href: "https://habilis-book.com/anteprima.html", external: true, muted: true },
+    ],
+  },
+  {
+    slug: "addr1",
+    meta: "2026 · Agente editoriale · Bitcoin",
+    name: "addr1",
+    card: {
+      what: "Agente editoriale Bitcoin che gira interamente sulla mia macchina.",
+      how: "Ollama su mini-PC CPU-only: filtri deterministici, una sola chiamata LLM per digest, pubblicazione su Telegram.",
+      why: "Not your AI, not your intelligence — nessuna fonte e nessun testo passa da un servizio cloud.",
+    },
+    tags: ["AI Agents", "Self-Hosted", "Bitcoin", "Ollama"],
+    links: [
+      // GitHub: da aggiungere quando il repo sarà pubblico, con muted: true come su bitcode.
+      { label: "OnlySats", href: "https://t.me/+Bwx1aw0FW9AwNmE0", external: true, arrow: true },
     ],
   },
 ];
