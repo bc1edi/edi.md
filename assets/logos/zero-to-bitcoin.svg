@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect x="3" y="3" width="42" height="42" fill="#26251e"/>
+  <text x="11" y="31" font-family="ui-monospace, Menlo, monospace" font-weight="800" font-size="16" fill="#f7f7f4">0</text>
+  <path d="M21 25h6m-2-3 3 3-3 3" stroke="#2cc97e" stroke-width="2.5" stroke-linecap="square" fill="none"/>
+  <text x="30" y="32" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="900" font-size="19" fill="#f54e00">&#8383;</text>
+</svg>

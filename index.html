@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>edi.md — Vibecoder, Orchestrator, Enthusiast</title>
+  <meta name="description" content="I build digital products with code, AI agents, and human direction. Explore Edi's projects across vibecoding, automation, and Bitcoin.">
+  <link rel="canonical" href="https://edimd.vercel.app/">
+  <meta name="theme-color" content="#f54e00">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://edimd.vercel.app/">
+  <meta property="og:title" content="edi.md — Vibecoder, Orchestrator, Enthusiast">
+  <meta property="og:description" content="I build digital products with code, AI agents, and human direction. Explore Edi's projects across vibecoding, automation, local AI, and Bitcoin.">
+  <meta property="og:image" content="https://edimd.vercel.app/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <script>
+    (() => {
+      try {
+        const q = new URLSearchParams(window.location.search).get("lang");
+        const saved = window.localStorage.getItem("edimd-lang");
+        const l = q === "it" || q === "en" ? q : (saved === "it" || saved === "en" ? saved : "en");
+        document.documentElement.lang = l;
+      } catch {}
+    })();
+  </script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="pattern-grid">
+  <div class="page-frame">
+    <a href="#main" class="skip-link" data-i18n="skipLink">Skip to content</a>
+
+    <header id="site-header" class="site-header">
+      <div class="container-shell header-inner">
+        <a href="#hero" class="brand-link" data-i18n-aria="brandAria" aria-label="edi.md, back to top">
+          <svg viewBox="0 0 120 120" shape-rendering="crispEdges" class="brand-mark" aria-hidden="true" focusable="false"><rect x="80" y="0" width="40" height="40" fill="#c73a00"/><rect x="0" y="80" width="40" height="40" fill="#c73a00"/><rect x="0" y="0" width="90" height="90" fill="#f54e00"/><rect x="30" y="30" width="90" height="90" fill="#26251e"/><rect x="20" y="20" width="80" height="80" fill="#ffffff"/><rect x="40" y="40" width="40" height="10" fill="#f54e00"/><rect x="40" y="70" width="60" height="10" fill="#26251e"/></svg>
+          <span class="brand-name">edi.md</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#who-we-are" class="nav-link" data-i18n="nav.who">about</a></li>
+            <li><a href="#projects" class="nav-link" data-i18n="nav.projects">projects</a></li>
+            <li><a href="#skills" class="nav-link" data-i18n="nav.skills">skills</a></li>
+            <li><a href="#team" class="nav-link" data-i18n="nav.team">crew</a></li>
+            <li><a href="#contacts" class="nav-link" data-i18n="nav.contacts">contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-switch" role="group" data-i18n-aria="cta.langGroupAria" aria-label="Language">
+            <button type="button" class="lang-switch__btn" data-set-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-switch__btn" data-set-lang="it" aria-pressed="false">IT</button>
+          </div>
+
+          <a href="#contacts" class="pixel-btn pixel-btn--sm header-cta" data-i18n="cta.talk">let's talk!</a>
+
+          <button type="button" id="menu-toggle" class="menu-toggle" data-i18n-aria="cta.openMenuAria" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg viewBox="0 0 7 5" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M0 0h7v1h-7zM0 2h7v1h-7zM0 4h7v1h-7z" style="fill:var(--ink)"></path></svg>
+          </button>
+        </div>
+      </div>
+      <div class="scroll-progress" aria-hidden="true">
+        <div id="scroll-progress" class="scroll-progress__bar"></div>
+      </div>
+    </header>
+
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Main menu" hidden>
+      <div>
+        <div class="mobile-menu__top">
+          <a href="#hero" class="brand-link" aria-label="edi.md">
+            <svg viewBox="0 0 120 120" shape-rendering="crispEdges" class="brand-mark" aria-hidden="true" focusable="false"><rect x="80" y="0" width="40" height="40" fill="#c73a00"/><rect x="0" y="80" width="40" height="40" fill="#c73a00"/><rect x="0" y="0" width="90" height="90" fill="#f54e00"/><rect x="30" y="30" width="90" height="90" fill="#26251e"/><rect x="20" y="20" width="80" height="80" fill="#ffffff"/><rect x="40" y="40" width="40" height="10" fill="#f54e00"/><rect x="40" y="70" width="60" height="10" fill="#26251e"/></svg>
+            <span class="brand-name">edi.md</span>
+          </a>
+          <button type="button" id="menu-close" class="pixel-btn pixel-btn--paper pixel-btn--sm" data-i18n="cta.closeMenu" data-i18n-aria="cta.closeMenuAria" aria-label="Close menu">close ×</button>
+        </div>
+
+        <nav aria-label="Mobile menu">
+          <ul class="mobile-menu__links">
+            <li><a href="#who-we-are" class="mobile-menu__link" data-i18n="nav.who">about</a></li>
+            <li><a href="#projects" class="mobile-menu__link" data-i18n="nav.projects">projects</a></li>
+            <li><a href="#skills" class="mobile-menu__link" data-i18n="nav.skills">skills</a></li>
+            <li><a href="#process" class="mobile-menu__link" data-i18n="nav.process">workflow</a></li>
+            <li><a href="#team" class="mobile-menu__link" data-i18n="nav.team">crew</a></li>
+            <li><a href="#contacts" class="mobile-menu__link" data-i18n="nav.contacts">contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="mobile-menu__bottom">
+        <div>
+          <p class="field-label" data-i18n="cta.langGroupAria">Language</p>
+          <div class="lang-switch" role="group" data-i18n-aria="cta.langGroupAria" aria-label="Language">
+            <button type="button" class="lang-switch__btn" data-set-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-switch__btn" data-set-lang="it" aria-pressed="false">IT</button>
+          </div>
+        </div>
+        <a href="#contacts" class="pixel-btn pixel-btn--md"><span data-i18n="cta.talk">let's talk!</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a>
+      </div>
+    </div>
+
+    <main id="main">
+      <!-- ── 1. HERO ──────────────────────────────────────────────────── -->
+      <section id="hero" class="hero-runway" aria-labelledby="hero-title" data-collision-runway>
+        <div class="hero">
+          <div class="hero-bg" aria-hidden="true">
+            <svg viewBox="0 0 26 10" shape-rendering="crispEdges" class="hero-cloud-1 animate-drift" aria-hidden="true" focusable="false"><path d="M9 0h6v1h-6zM7 1h2v1h-2zM15 1h2v1h-2zM6 2h1v1h-1zM17 2h1v1h-1zM19 2h3v1h-3zM3 3h3v1h-3zM18 3h1v1h-1zM22 3h1v1h-1zM2 4h1v1h-1zM23 4h1v1h-1zM1 5h1v1h-1zM24 5h1v1h-1zM0 6h1v1h-1zM25 6h1v1h-1zM0 7h1v1h-1zM25 7h1v1h-1zM1 8h1v1h-1zM24 8h1v1h-1zM2 9h22v1h-22z" style="fill:var(--cloud-border)"></path><path d="M9 1h6v1h-6zM7 2h10v1h-10zM6 3h12v1h-12zM19 3h3v1h-3zM3 4h20v1h-20zM2 5h22v1h-22zM2 6h22v1h-22z" style="fill:var(--cloud)"></path><path d="M1 6h1v1h-1zM24 6h1v1h-1zM1 7h24v1h-24zM2 8h22v1h-22z" style="fill:var(--cloud-shade)"></path></svg>
+            <svg viewBox="0 0 18 8" shape-rendering="crispEdges" class="hero-cloud-2 animate-drift" aria-hidden="true" focusable="false"><path d="M5 0h4v1h-4zM3 1h2v1h-2zM9 1h2v1h-2zM12 1h2v1h-2zM2 2h1v1h-1zM11 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM15 3h2v1h-2zM0 4h1v1h-1zM17 4h1v1h-1zM0 5h1v1h-1zM17 5h1v1h-1zM1 6h1v1h-1zM16 6h1v1h-1zM2 7h14v1h-14z" style="fill:var(--cloud-border)"></path><path d="M5 1h4v1h-4zM3 2h8v1h-8zM12 2h2v1h-2zM2 3h13v1h-13zM2 4h14v1h-14z" style="fill:var(--cloud)"></path><path d="M1 4h1v1h-1zM16 4h1v1h-1zM1 5h16v1h-16zM2 6h14v1h-14z" style="fill:var(--cloud-shade)"></path></svg>
+            <svg viewBox="0 0 26 10" shape-rendering="crispEdges" class="hero-cloud-3 animate-drift" aria-hidden="true" focusable="false"><path d="M9 0h6v1h-6zM7 1h2v1h-2zM15 1h2v1h-2zM6 2h1v1h-1zM17 2h1v1h-1zM19 2h3v1h-3zM3 3h3v1h-3zM18 3h1v1h-1zM22 3h1v1h-1zM2 4h1v1h-1zM23 4h1v1h-1zM1 5h1v1h-1zM24 5h1v1h-1zM0 6h1v1h-1zM25 6h1v1h-1zM0 7h1v1h-1zM25 7h1v1h-1zM1 8h1v1h-1zM24 8h1v1h-1zM2 9h22v1h-22z" style="fill:var(--cloud-border)"></path><path d="M9 1h6v1h-6zM7 2h10v1h-10zM6 3h12v1h-12zM19 3h3v1h-3zM3 4h20v1h-20zM2 5h22v1h-22zM2 6h22v1h-22z" style="fill:var(--cloud)"></path><path d="M1 6h1v1h-1zM24 6h1v1h-1zM1 7h24v1h-24zM2 8h22v1h-22z" style="fill:var(--cloud-shade)"></path></svg>
+            <svg viewBox="0 0 18 8" shape-rendering="crispEdges" class="hero-cloud-4 animate-drift" aria-hidden="true" focusable="false"><path d="M5 0h4v1h-4zM3 1h2v1h-2zM9 1h2v1h-2zM12 1h2v1h-2zM2 2h1v1h-1zM11 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM15 3h2v1h-2zM0 4h1v1h-1zM17 4h1v1h-1zM0 5h1v1h-1zM17 5h1v1h-1zM1 6h1v1h-1zM16 6h1v1h-1zM2 7h14v1h-14z" style="fill:var(--cloud-border)"></path><path d="M5 1h4v1h-4zM3 2h8v1h-8zM12 2h2v1h-2zM2 3h13v1h-13zM2 4h14v1h-14z" style="fill:var(--cloud)"></path><path d="M1 4h1v1h-1zM16 4h1v1h-1zM1 5h16v1h-16zM2 6h14v1h-14z" style="fill:var(--cloud-shade)"></path></svg>
+            <svg viewBox="0 0 27 27" shape-rendering="crispEdges" class="hero-star-1 animate-spin-slow" aria-hidden="true" focusable="false"><path d="M11 1h5v1h-5zM10 2h1v1h-1zM16 2h1v1h-1zM9 3h1v1h-1zM17 3h1v1h-1zM8 4h1v1h-1zM18 4h1v1h-1zM8 5h1v1h-1zM18 5h1v1h-1zM4 6h5v1h-5zM18 6h5v1h-5zM3 7h1v1h-1zM9 7h1v1h-1zM17 7h1v1h-1zM23 7h1v1h-1zM2 8h1v1h-1zM9 8h1v1h-1zM17 8h1v1h-1zM24 8h1v1h-1zM1 9h1v1h-1zM10 9h1v1h-1zM16 9h1v1h-1zM25 9h1v1h-1zM1 10h1v1h-1zM10 10h1v1h-1zM13 10h1v1h-1zM16 10h1v1h-1zM25 10h1v1h-1zM1 11h1v1h-1zM11 11h5v1h-5zM25 11h1v1h-1zM1 12h1v1h-1zM11 12h1v1h-1zM15 12h1v1h-1zM25 12h1v1h-1zM1 13h1v1h-1zM10 13h2v1h-2zM15 13h2v1h-2zM25 13h1v1h-1zM2 14h1v1h-1zM9 14h2v1h-2zM11 14h1v1h-1zM15 14h1v1h-1zM16 14h2v1h-2zM24 14h1v1h-1zM3 15h1v1h-1zM6 15h3v1h-3zM11 15h5v1h-5zM18 15h3v1h-3zM23 15h1v1h-1zM4 16h2v1h-2zM13 16h1v1h-1zM21 16h2v1h-2zM4 17h1v1h-1zM13 17h1v1h-1zM22 17h1v1h-1zM4 18h1v1h-1zM13 18h1v1h-1zM22 18h1v1h-1zM4 19h1v1h-1zM13 19h1v1h-1zM22 19h1v1h-1zM4 20h1v1h-1zM13 20h1v1h-1zM22 20h1v1h-1zM4 21h1v1h-1zM13 21h1v1h-1zM22 21h1v1h-1zM5 22h1v1h-1zM13 22h1v1h-1zM21 22h1v1h-1zM6 23h1v1h-1zM12 23h1v1h-1zM14 23h1v1h-1zM20 23h1v1h-1zM7 24h5v1h-5zM15 24h5v1h-5z" style="fill:var(--secondary)"></path></svg>
+            <svg viewBox="0 0 27 27" shape-rendering="crispEdges" class="hero-star-2 animate-sway" aria-hidden="true" focusable="false"><path d="M11 1h5v1h-5zM10 2h1v1h-1zM16 2h1v1h-1zM9 3h1v1h-1zM17 3h1v1h-1zM8 4h1v1h-1zM18 4h1v1h-1zM8 5h1v1h-1zM18 5h1v1h-1zM4 6h5v1h-5zM18 6h5v1h-5zM3 7h1v1h-1zM9 7h1v1h-1zM17 7h1v1h-1zM23 7h1v1h-1zM2 8h1v1h-1zM9 8h1v1h-1zM17 8h1v1h-1zM24 8h1v1h-1zM1 9h1v1h-1zM10 9h1v1h-1zM16 9h1v1h-1zM25 9h1v1h-1zM1 10h1v1h-1zM10 10h1v1h-1zM16 10h1v1h-1zM25 10h1v1h-1zM1 11h1v1h-1zM25 11h1v1h-1zM1 12h1v1h-1zM25 12h1v1h-1zM1 13h1v1h-1zM25 13h1v1h-1zM2 14h1v1h-1zM9 14h2v1h-2zM16 14h2v1h-2zM24 14h1v1h-1zM3 15h1v1h-1zM6 15h3v1h-3zM18 15h3v1h-3zM23 15h1v1h-1zM4 16h2v1h-2zM21 16h2v1h-2zM4 17h1v1h-1zM13 17h1v1h-1zM22 17h1v1h-1zM4 18h1v1h-1zM13 18h1v1h-1zM22 18h1v1h-1zM4 19h1v1h-1zM13 19h1v1h-1zM22 19h1v1h-1zM4 20h1v1h-1zM13 20h1v1h-1zM22 20h1v1h-1zM4 21h1v1h-1zM13 21h1v1h-1zM22 21h1v1h-1zM5 22h1v1h-1zM13 22h1v1h-1zM21 22h1v1h-1zM6 23h1v1h-1zM12 23h1v1h-1zM14 23h1v1h-1zM20 23h1v1h-1zM7 24h5v1h-5zM15 24h5v1h-5z" style="fill:var(--secondary)"></path><path d="M13 10h1v1h-1zM11 11h5v1h-5zM11 12h1v1h-1zM15 12h1v1h-1zM10 13h2v1h-2zM15 13h2v1h-2zM11 14h1v1h-1zM15 14h1v1h-1zM11 15h5v1h-5zM13 16h1v1h-1z" style="fill:var(--accent)"></path></svg>
+          </div>
+
+          <div class="container-shell hero-center">
+            <p class="hero-badge">
+              <span class="hero-badge__dot" aria-hidden="true"></span>
+              vibecoder · orchestrator · enthusiast
+            </p>
+
+            <h1 id="hero-title" class="hero-title">
+              <span class="sr-only" data-i18n="hero.srTitle">Vibe first, code follows</span>
+              <span aria-hidden="true" class="hero-title__line1"><span class="hero-char" style="animation-delay:60ms">V</span><span class="hero-char" style="animation-delay:95ms">I</span><span class="hero-char" style="animation-delay:130ms">B</span><span class="hero-char" style="animation-delay:165ms">E</span><span class="hero-char--space"></span><span class="hero-char" style="animation-delay:235ms">F</span><span class="hero-char" style="animation-delay:270ms">I</span><span class="hero-char" style="animation-delay:305ms">R</span><span class="hero-char" style="animation-delay:340ms">S</span><span class="hero-char" style="animation-delay:375ms">T</span></span>
+              <span aria-hidden="true" class="hero-title__line2"><span class="hero-char" style="animation-delay:240ms">C</span><span class="hero-char" style="animation-delay:272ms">O</span><span class="hero-char" style="animation-delay:304ms">D</span><span class="hero-char" style="animation-delay:336ms">E</span><span class="hero-char--space"></span><span class="hero-char" style="animation-delay:400ms">F</span><span class="hero-char" style="animation-delay:432ms">O</span><span class="hero-char" style="animation-delay:464ms">L</span><span class="hero-char" style="animation-delay:496ms">L</span><span class="hero-char" style="animation-delay:528ms">O</span><span class="hero-char" style="animation-delay:560ms">W</span><span class="hero-char" style="animation-delay:592ms">S</span></span>
+            </h1>
+
+            <p class="hero-sub" data-i18n="hero.sub">human direction, autonomous execution</p>
+
+            <div class="hero-ctas">
+              <a href="#contacts" class="pixel-btn pixel-btn--lg"><span data-i18n="cta.talk">let's talk!</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a>
+              <a href="#projects" class="inline-cta"><span data-i18n="hero.explore">explore projects</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a>
+            </div>
+          </div>
+
+          <div class="collision-stage" data-collision-stage>
+            <div class="collision-stage__floor" aria-hidden="true"></div>
+
+            <div class="actor actor--edi" data-actor="edi">
+              <button type="button" class="mascot-btn" data-edi-tap data-i18n-aria="hero.ediAria" aria-label="Tap Edi">
+                <span class="actor__sprite actor__sprite--active"><img src="./assets/sprites/edi-stand.svg" alt="" class="pixel-sprite animate-bob" width="45" height="86"></span>
+                <span class="actor__sprite actor__sprite--fallen"><svg viewBox="0 0 36 8" shape-rendering="crispEdges" class="dizzy-stars-overlay" aria-hidden="true" focusable="false"><g class="dizzy-star dizzy-star--1"><path d="M7 1h1v1H7zM6 2h3v1H6zM7 3h1v1H7z" style="fill:#f54e00"/><path d="M7 2h1v1H7z" style="fill:#ffffff"/></g><g class="dizzy-star dizzy-star--2"><path d="M17 3h1v1h-1zM16 4h3v1h-3zM17 5h1v1h-1z" style="fill:#f7931a"/><path d="M17 4h1v1h-1z" style="fill:#fff1e6"/></g><g class="dizzy-star dizzy-star--3"><path d="M27 1h1v1h-1zM26 2h3v1h-3zM27 3h1v1h-1z" style="fill:#2cc97e"/><path d="M27 2h1v1h-1z" style="fill:#ffffff"/></g></svg><img src="./assets/sprites/edi-fallen.svg" alt="" class="pixel-sprite" width="88" height="80"></span>
+              </button>
+              <span class="mascot-bubble mascot-bubble--left" aria-hidden="true">
+                <span class="mascot-bubble__box">
+                  <span data-edi-bubble>vibe coding...</span>
+                  <span class="mascot-bubble__tail-1"></span>
+                  <span class="mascot-bubble__tail-2"></span>
+                </span>
+              </span>
+              <span class="sr-only" aria-live="polite" data-edi-live></span>
+            </div>
+
+            <div class="collision-burst" data-collision-burst aria-hidden="true">
+              <svg viewBox="0 0 96 64" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><polygon points="48,2 58,16 78,6 72,24 94,28 76,40 88,56 64,48 54,62 44,48 22,60 28,42 4,38 24,26 10,8 34,18" fill="#fff1e6" stroke="#26251e" stroke-width="4" stroke-linejoin="miter"/><polygon points="48,10 55,21 71,14 66,27 83,30 69,38 77,50 59,44 52,55 44,44 29,52 33,39 15,36 30,27 20,16 37,23" fill="#f54e00"/><text x="48" y="38" text-anchor="middle" font-family="'Pixelify Sans', monospace" font-weight="700" font-size="22" fill="#ffffff" stroke="#14130e" stroke-width="3" paint-order="stroke">BONK!</text></svg>
+            </div>
+
+            <div class="actor actor--bitcode mascot-stage--hero" data-actor="bitcode" data-mascot-stage>
+              <div class="actor__entry">
+                <button type="button" class="mascot-btn" data-mascot-kickflip data-i18n-aria="hero.mascotAria" aria-label="Tap BITCODE">
+                  <span class="mascot-flip">
+                    <span class="actor__sprite actor__sprite--active"><img src="./assets/sprites/bitcode-parachute.svg" alt="" class="pixel-sprite" width="83" height="136"></span>
+                    <span class="actor__sprite actor__sprite--fallen"><svg viewBox="0 0 36 8" shape-rendering="crispEdges" class="dizzy-stars-overlay" aria-hidden="true" focusable="false"><g class="dizzy-star dizzy-star--1"><path d="M7 1h1v1H7zM6 2h3v1H6zM7 3h1v1H7z" style="fill:#f54e00"/><path d="M7 2h1v1H7z" style="fill:#ffffff"/></g><g class="dizzy-star dizzy-star--2"><path d="M17 3h1v1h-1zM16 4h3v1h-3zM17 5h1v1h-1z" style="fill:#f7931a"/><path d="M17 4h1v1h-1z" style="fill:#fff1e6"/></g><g class="dizzy-star dizzy-star--3"><path d="M27 1h1v1h-1zM26 2h3v1h-3zM27 3h1v1h-1z" style="fill:#2cc97e"/><path d="M27 2h1v1h-1z" style="fill:#ffffff"/></g></svg><img src="./assets/sprites/bitcode-fallen.svg" alt="" class="pixel-sprite" width="111" height="47"></span>
+                  </span>
+                </button>
+                <span class="mascot-bubble" aria-hidden="true">
+                  <span class="mascot-bubble__box">
+                    <span data-mascot-bubble>dropping in! · tap me</span>
+                    <span class="mascot-bubble__tail-1"></span>
+                    <span class="mascot-bubble__tail-2"></span>
+                  </span>
+                </span>
+              </div>
+              <span class="sr-only" aria-live="polite" data-mascot-live></span>
+            </div>
+          </div>
+
+          <div class="container-shell hero-bottom">
+            <p class="hero-bottom__desc" data-i18n="hero.desc">
+              Digital products built with code, AI agents, and human direction — between the faktotum lab, AI publishing, and Bitcoin infrastructure.
+            </p>
+            <a href="#about" class="hero-scroll-cue"><span data-i18n="hero.scroll">scroll</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 2. ABOUT (SCROLL-LIT + STATS) ────────────────────────────── -->
+      <section id="about" class="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="sr-only" data-i18n="about.srTitle">About edi.md</h2>
+        <svg viewBox="0 0 27 27" shape-rendering="crispEdges" class="about-star-tl animate-spin-slow" aria-hidden="true" focusable="false"><path d="M11 1h5v1h-5zM10 2h1v1h-1zM16 2h1v1h-1zM9 3h1v1h-1zM17 3h1v1h-1zM8 4h1v1h-1zM18 4h1v1h-1zM8 5h1v1h-1zM18 5h1v1h-1zM4 6h5v1h-5zM18 6h5v1h-5zM3 7h1v1h-1zM9 7h1v1h-1zM17 7h1v1h-1zM23 7h1v1h-1zM2 8h1v1h-1zM9 8h1v1h-1zM17 8h1v1h-1zM24 8h1v1h-1zM1 9h1v1h-1zM10 9h1v1h-1zM16 9h1v1h-1zM25 9h1v1h-1zM1 10h1v1h-1zM10 10h1v1h-1zM13 10h1v1h-1zM16 10h1v1h-1zM25 10h1v1h-1zM1 11h1v1h-1zM11 11h5v1h-5zM25 11h1v1h-1zM1 12h1v1h-1zM11 12h1v1h-1zM15 12h1v1h-1zM25 12h1v1h-1zM1 13h1v1h-1zM10 13h2v1h-2zM15 13h2v1h-2zM25 13h1v1h-1zM2 14h1v1h-1zM9 14h2v1h-2zM11 14h1v1h-1zM15 14h1v1h-1zM16 14h2v1h-2zM24 14h1v1h-1zM3 15h1v1h-1zM6 15h3v1h-3zM11 15h5v1h-5zM18 15h3v1h-3zM23 15h1v1h-1zM4 16h2v1h-2zM13 16h1v1h-1zM21 16h2v1h-2zM4 17h1v1h-1zM13 17h1v1h-1zM22 17h1v1h-1zM4 18h1v1h-1zM13 18h1v1h-1zM22 18h1v1h-1zM4 19h1v1h-1zM13 19h1v1h-1zM22 19h1v1h-1zM4 20h1v1h-1zM13 20h1v1h-1zM22 20h1v1h-1zM4 21h1v1h-1zM13 21h1v1h-1zM22 21h1v1h-1zM5 22h1v1h-1zM13 22h1v1h-1zM21 22h1v1h-1zM6 23h1v1h-1zM12 23h1v1h-1zM14 23h1v1h-1zM20 23h1v1h-1zM7 24h5v1h-5zM15 24h5v1h-5z" style="fill:var(--secondary)"></path></svg>
+
+        <div class="word-lit-wrap">
+          <p class="word-lit" data-word-lit>
+            <span class="word-lit__word">I</span> <span class="word-lit__word">don&#x27;t</span> <span class="word-lit__word">spend</span> <span class="word-lit__word">my</span> <span class="word-lit__word">day</span> <span class="word-lit__word">typing</span> <span class="word-lit__word">code</span> <span class="word-lit__word">line</span> <span class="word-lit__word">by</span> <span class="word-lit__word">line:</span> <span class="word-lit__word">I</span> <span class="word-lit__word">decide</span> <span class="word-lit__word">what</span> <span class="word-lit__word">needs</span> <span class="word-lit__word">to</span> <span class="word-lit__word">happen.</span> <span class="word-lit__word">I</span> <span class="word-lit__word">design</span> <span class="word-lit__word">systems,</span> <span class="word-lit__word">shape</span> <span class="word-lit__word">architectures,</span> <span class="word-lit__word">write</span> <span class="word-lit__word">the</span> <span class="word-lit__word">right</span> <span class="word-lit__word">prompts,</span> <span class="word-lit__word">and</span> <span class="word-lit__word">set</span> <span class="word-lit__word">AI</span> <span class="word-lit__word word-lit__word--hi">agents</span> <span class="word-lit__word">up</span> <span class="word-lit__word">to</span> <span class="word-lit__word">build</span> <span class="word-lit__word">real</span> <span class="word-lit__word">products.</span> <span class="word-lit__word">It&#x27;s</span> <span class="word-lit__word">not</span> <span class="word-lit__word">delegation,</span> <span class="word-lit__word">it&#x27;s</span> <span class="word-lit__word word-lit__word--hi">orchestration:</span> <span class="word-lit__word">understanding</span> <span class="word-lit__word">the</span> <span class="word-lit__word">problem</span> <span class="word-lit__word">stays</span> <span class="word-lit__word">human,</span> <span class="word-lit__word">turning</span> <span class="word-lit__word">it</span> <span class="word-lit__word">into</span> <span class="word-lit__word word-lit__word--hi">reality</span> <span class="word-lit__word">becomes</span> <span class="word-lit__word">a</span> <span class="word-lit__word">team</span> <span class="word-lit__word">effort</span> <span class="word-lit__word">between</span> <span class="word-lit__word">human</span> <span class="word-lit__word">and</span> <span class="word-lit__word">machines.</span>
+          </p>
+        </div>
+
+        <dl class="stats-grid">
+          <div class="stat-item" data-reveal="up" data-shown="false" style="--reveal-delay:0ms">
+            <dt class="stat-label" data-i18n="about.stat1">mandatory cloud — everything can run locally</dt>
+            <dd class="stat-value"><span data-count-to="0">0</span></dd>
+          </div>
+          <div class="stat-item" data-reveal="up" data-shown="false" style="--reveal-delay:140ms">
+            <dt class="stat-label" data-i18n="about.stat2">years on Bitcoin (since 2016)</dt>
+            <dd class="stat-value"><span data-count-to="10">10</span><span class="stat-suffix">+</span></dd>
+          </div>
+          <div class="stat-item" data-reveal="up" data-shown="false" style="--reveal-delay:280ms">
+            <dt class="stat-label" data-i18n="about.stat3">open systems shipped across AI &amp; Bitcoin</dt>
+            <dd class="stat-value"><span data-count-to="7">7</span><span class="stat-suffix">+</span></dd>
+          </div>
+        </dl>
+
+        <svg viewBox="0 0 27 27" shape-rendering="crispEdges" class="about-star-br animate-sway" aria-hidden="true" focusable="false"><path d="M11 1h5v1h-5zM10 2h1v1h-1zM16 2h1v1h-1zM9 3h1v1h-1zM17 3h1v1h-1zM8 4h1v1h-1zM18 4h1v1h-1zM8 5h1v1h-1zM18 5h1v1h-1zM4 6h5v1h-5zM18 6h5v1h-5zM3 7h1v1h-1zM9 7h1v1h-1zM17 7h1v1h-1zM23 7h1v1h-1zM2 8h1v1h-1zM9 8h1v1h-1zM17 8h1v1h-1zM24 8h1v1h-1zM1 9h1v1h-1zM10 9h1v1h-1zM16 9h1v1h-1zM25 9h1v1h-1zM1 10h1v1h-1zM10 10h1v1h-1zM13 10h1v1h-1zM16 10h1v1h-1zM25 10h1v1h-1zM1 11h1v1h-1zM11 11h5v1h-5zM25 11h1v1h-1zM1 12h1v1h-1zM11 12h1v1h-1zM15 12h1v1h-1zM25 12h1v1h-1zM1 13h1v1h-1zM10 13h2v1h-2zM15 13h2v1h-2zM25 13h1v1h-1zM2 14h1v1h-1zM9 14h2v1h-2zM11 14h1v1h-1zM15 14h1v1h-1zM16 14h2v1h-2zM24 14h1v1h-1zM3 15h1v1h-1zM6 15h3v1h-3zM11 15h5v1h-5zM18 15h3v1h-3zM23 15h1v1h-1zM4 16h2v1h-2zM13 16h1v1h-1zM21 16h2v1h-2zM4 17h1v1h-1zM13 17h1v1h-1zM22 17h1v1h-1zM4 18h1v1h-1zM13 18h1v1h-1zM22 18h1v1h-1zM4 19h1v1h-1zM13 19h1v1h-1zM22 19h1v1h-1zM4 20h1v1h-1zM13 20h1v1h-1zM22 20h1v1h-1zM4 21h1v1h-1zM13 21h1v1h-1zM22 21h1v1h-1zM5 22h1v1h-1zM13 22h1v1h-1zM21 22h1v1h-1zM6 23h1v1h-1zM12 23h1v1h-1zM14 23h1v1h-1zM20 23h1v1h-1zM7 24h5v1h-5zM15 24h5v1h-5z" style="fill:var(--secondary)"></path></svg>
+      </section>
+
+      <!-- ── 3. MARQUEE RIBBONS ───────────────────────────────────────── -->
+      <section id="what-we-do" class="marquees" aria-label="Skills and approach">
+        <div class="ribbon ribbon--accent">
+          <div class="marquee-track">
+            <ul class="marquee-list"><li class="marquee-item"><span class="marquee-word">AI agents</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">vibecoding</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">local LLM</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">CLI</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">bitcoin</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">lightning</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">local hardware setup</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">self-hosted</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li></ul><ul class="marquee-list" aria-hidden="true"><li class="marquee-item"><span class="marquee-word">AI agents</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">vibecoding</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">local LLM</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">CLI</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">bitcoin</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">lightning</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">local hardware setup</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li><li class="marquee-item"><span class="marquee-word">self-hosted</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></li></ul>
+          </div>
+        </div>
+        <div class="ribbon ribbon--ink">
+          <div class="marquee-track marquee-track--reverse">
+            <ul class="marquee-list"><li class="marquee-item"><span class="marquee-word">human direction</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">zero cloud</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">prompt to deploy</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">autonomous systems</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">web MVP</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">open source</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li></ul><ul class="marquee-list" aria-hidden="true"><li class="marquee-item"><span class="marquee-word">human direction</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">zero cloud</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">prompt to deploy</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">autonomous systems</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">web MVP</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li><li class="marquee-item"><span class="marquee-word">open source</span><svg viewBox="0 0 7 7" shape-rendering="crispEdges" class="marquee-sparkle" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--accent)"></path></svg></li></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 4. WHO WE ARE (WHO AM I) ─────────────────────────────────── -->
+      <section id="who-we-are" class="who-we-are" aria-labelledby="who-title">
+        <svg viewBox="0 0 18 8" shape-rendering="crispEdges" class="who-cloud animate-drift" aria-hidden="true" focusable="false"><path d="M5 0h4v1h-4zM3 1h2v1h-2zM9 1h2v1h-2zM12 1h2v1h-2zM2 2h1v1h-1zM11 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM15 3h2v1h-2zM0 4h1v1h-1zM17 4h1v1h-1zM0 5h1v1h-1zM17 5h1v1h-1zM1 6h1v1h-1zM16 6h1v1h-1zM2 7h14v1h-14z" style="fill:var(--cloud-border)"></path><path d="M5 1h4v1h-4zM3 2h8v1h-8zM12 2h2v1h-2zM2 3h13v1h-13zM2 4h14v1h-14z" style="fill:var(--cloud)"></path><path d="M1 4h1v1h-1zM16 4h1v1h-1zM1 5h16v1h-16zM2 6h14v1h-14z" style="fill:var(--cloud-shade)"></path></svg>
+        <div class="container-shell">
+          <h2 id="who-title" class="typewriter-title" data-typewriter="WHO AM I?">
+            <span class="sr-only">WHO AM I?</span>
+            <span aria-hidden="true"><span data-tw-typed></span><span class="typewriter-caret"></span><span style="opacity:0" data-tw-rest>WHO AM I?</span></span>
+          </h2>
+
+          <div class="who-grid">
+            <div data-reveal="left" data-shown="false">
+              <div class="retro-window">
+                <div class="retro-window__bar">
+                  <span class="retro-window__title">
+                    <span class="retro-window__square" aria-hidden="true"></span>
+                    <span class="truncate">about_edi.md</span>
+                  </span>
+                  <span class="retro-window__controls" aria-hidden="true">
+                    <span class="retro-window__ctrl"><svg viewBox="0 0 5 5" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M0 3h5v1h-5z" style="fill:var(--ink)"></path></svg></span>
+                    <span class="retro-window__ctrl"><svg viewBox="0 0 5 5" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M0 0h5v1h-5zM0 1h1v1h-1zM4 1h1v1h-1zM0 2h1v1h-1zM4 2h1v1h-1zM0 3h1v1h-1zM4 3h1v1h-1zM0 4h5v1h-5z" style="fill:var(--ink)"></path></svg></span>
+                    <span class="retro-window__ctrl"><svg viewBox="0 0 5 5" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M0 0h1v1h-1zM4 0h1v1h-1zM1 1h1v1h-1zM3 1h1v1h-1zM2 2h1v1h-1zM1 3h1v1h-1zM3 3h1v1h-1zM0 4h1v1h-1zM4 4h1v1h-1z" style="fill:var(--ink)"></path></svg></span>
+                  </span>
+                </div>
+                <div class="retro-window__body who-copy">
+                  <p data-i18n-html="who.p1">
+                    <strong>Hi, I'm Edi.</strong> Before AI agents existed, I spent over ten years leading
+                    real-world operations teams — and since 2016 I've been building and running Bitcoin
+                    infrastructure hands-on.
+                  </p>
+                  <p data-i18n-html="who.p2">
+                    Today I run the <strong>faktotum</strong> personal lab: local CPU/GPU rigs, self-hosted LLMs,
+                    custom CLIs, and Lightning/RGB tools shipped in the open. No agency layers, no endless slide decks —
+                    straight from real constraints to running code.
+                  </p>
+                  <p data-i18n-html="who.p3">
+                    When you work with me, you get a working product fast and keep full ownership of everything:
+                    <strong>clean repo, local-first stack, zero mandatory cloud lock-in.</strong>
+                  </p>
+                  <p class="who-prompt">
+                    <span aria-hidden="true">&gt;</span>
+                    <span>edi.md · IT · local agents · online</span>
+                    <span class="who-prompt__caret" aria-hidden="true"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <ul class="pillars">
+              <li data-reveal="right" data-shown="false" style="--reveal-delay:0ms">
+                <div class="pillar-card pillar-card--tilt-left">
+                  <span class="pillar-icon pillar-icon--accent" aria-hidden="true"><svg viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM2 2h3v1h-3zM0 3h7v1h-7zM2 4h3v1h-3zM3 5h1v1h-1zM3 6h1v1h-1z" style="fill:var(--ink)"></path></svg></span>
+                  <div>
+                    <h3 class="pillar-title" data-i18n="who.pillar1Title">idea to live MVP</h3>
+                    <p class="pillar-text" data-i18n="who.pillar1Text">From brief to a working prototype, CLI, or web app in days — tested in the real world, not stuck in slides.</p>
+                  </div>
+                </div>
+              </li>
+              <li data-reveal="right" data-shown="false" style="--reveal-delay:130ms">
+                <div class="pillar-card pillar-card--tilt-right">
+                  <span class="pillar-icon pillar-icon--secondary" aria-hidden="true"><svg viewBox="0 0 8 6" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:var(--ink)"></path></svg></span>
+                  <div>
+                    <h3 class="pillar-title" data-i18n="who.pillar2Title">you own your stack</h3>
+                    <p class="pillar-text" data-i18n="who.pillar2Text">Local-first, self-hosted, and open systems: your code, models, and keys stay yours with zero cloud lock-in.</p>
+                  </div>
+                </div>
+              </li>
+              <li data-reveal="right" data-shown="false" style="--reveal-delay:260ms">
+                <div class="pillar-card pillar-card--tilt-soft">
+                  <span class="pillar-icon pillar-icon--paper" aria-hidden="true"><svg viewBox="0 0 15 12" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M2 0h3v1h-3zM10 0h3v1h-3zM1 1h1v1h-1zM5 1h1v1h-1zM9 1h1v1h-1zM13 1h1v1h-1zM0 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM14 2h1v1h-1zM0 3h1v1h-1zM7 3h1v1h-1zM14 3h1v1h-1zM0 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM13 5h1v1h-1zM2 6h1v1h-1zM12 6h1v1h-1zM3 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM10 8h1v1h-1zM5 9h1v1h-1zM9 9h1v1h-1zM6 10h1v1h-1zM8 10h1v1h-1zM7 11h1v1h-1z" style="fill:var(--accent-deep)"></path></svg></span>
+                  <div>
+                    <h3 class="pillar-title" data-i18n="who.pillar3Title">metal to agents</h3>
+                    <p class="pillar-text" data-i18n="who.pillar3Text">End-to-end execution: from local hardware setup and on-device LLMs to autonomous agents and Bitcoin/Lightning rails.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 5. PROJECTS ACCORDION ────────────────────────────────────── -->
+      <section id="projects" class="projects-section pattern-dots" aria-labelledby="projects-title">
+        <svg viewBox="0 0 360 8" preserveAspectRatio="xMidYMax slice" shape-rendering="crispEdges" class="jagged-top" aria-hidden="true" focusable="false"><path d="M0 5h2v3h-2zM2 4h1v4h-1zM3 5h5v3h-5zM8 6h5v2h-5zM13 5h2v3h-2zM15 6h1v2h-1zM16 3h1v5h-1zM17 6h3v2h-3zM20 7h1v1h-1zM21 6h1v2h-1zM22 7h1v1h-1zM23 6h3v2h-3zM26 7h2v1h-2zM28 5h1v3h-1zM29 7h8v1h-8zM37 4h1v4h-1zM38 7h1v1h-1zM39 6h3v2h-3zM42 5h2v3h-2zM44 6h2v2h-2zM46 7h2v1h-2zM48 6h4v2h-4zM52 5h1v3h-1zM53 6h1v2h-1zM54 4h1v4h-1zM55 5h1v3h-1zM56 4h1v4h-1zM57 5h3v3h-3zM60 4h1v4h-1zM61 5h2v3h-2zM63 1h1v7h-1zM64 5h1v3h-1zM65 4h1v4h-1zM66 3h1v5h-1zM67 4h2v4h-2zM69 3h1v5h-1zM70 1h1v7h-1zM71 3h1v5h-1zM72 1h1v7h-1zM73 4h3v4h-3zM76 5h1v3h-1zM77 6h1v2h-1zM78 5h2v3h-2zM80 3h1v5h-1zM81 5h3v3h-3zM84 6h1v2h-1zM85 7h3v1h-3zM88 6h1v2h-1zM89 5h1v3h-1zM90 6h1v2h-1zM91 7h2v1h-2zM93 6h1v2h-1zM94 5h1v3h-1zM95 4h2v4h-2zM97 5h1v3h-1zM98 6h1v2h-1zM99 7h1v1h-1zM100 6h2v2h-2zM102 7h1v1h-1zM103 6h1v2h-1zM104 5h1v3h-1zM105 4h1v4h-1zM106 1h1v7h-1zM107 3h1v5h-1zM108 4h1v4h-1zM109 5h1v3h-1zM110 4h2v4h-2zM112 3h2v5h-2zM114 4h3v4h-3zM117 3h1v5h-1zM118 1h1v7h-1zM119 3h1v5h-1zM120 4h1v4h-1zM121 3h2v5h-2zM123 4h2v4h-2zM125 5h1v3h-1zM126 6h4v2h-4zM130 5h2v3h-2zM132 6h2v2h-2zM134 7h1v1h-1zM135 6h1v2h-1zM136 5h1v3h-1zM137 4h1v4h-1zM138 1h1v7h-1zM139 4h1v4h-1zM140 3h1v5h-1zM141 4h1v4h-1zM142 5h1v3h-1zM143 4h1v4h-1zM144 3h1v5h-1zM145 4h1v4h-1zM146 5h1v3h-1zM147 4h3v4h-3zM150 3h7v5h-7zM157 4h1v4h-1zM158 5h1v3h-1zM159 6h3v2h-3zM162 7h2v1h-2zM164 6h1v2h-1zM165 5h2v3h-2zM167 6h2v2h-2zM169 5h1v3h-1zM170 4h1v4h-1zM171 5h1v3h-1zM172 6h1v2h-1zM173 5h1v3h-1zM174 6h1v2h-1zM175 5h1v3h-1zM176 6h1v2h-1zM177 7h1v1h-1zM178 6h1v2h-1zM179 7h3v1h-3zM182 6h1v2h-1zM183 7h3v1h-3zM186 6h5v2h-5zM191 5h2v3h-2zM193 4h4v4h-4zM197 3h1v5h-1zM198 2h1v6h-1zM199 4h1v4h-1zM200 5h1v3h-1zM201 6h1v2h-1zM202 5h1v3h-1zM203 6h3v2h-3zM206 7h5v1h-5zM211 4h1v4h-1zM212 6h2v2h-2zM214 7h7v1h-7zM221 6h1v2h-1zM222 5h2v3h-2zM224 4h1v4h-1zM225 3h1v5h-1zM226 2h1v6h-1zM227 5h1v3h-1zM228 4h1v4h-1zM229 5h4v3h-4zM233 3h1v5h-1zM234 6h3v2h-3zM237 5h1v3h-1zM238 6h1v2h-1zM239 5h4v3h-4zM243 3h1v5h-1zM244 6h1v2h-1zM245 5h1v3h-1zM246 6h2v2h-2zM248 5h3v3h-3zM251 4h2v4h-2zM253 3h1v5h-1zM254 4h1v4h-1zM255 5h1v3h-1zM256 4h1v4h-1zM257 5h1v3h-1zM258 6h1v2h-1zM259 7h1v1h-1zM260 4h1v4h-1zM261 6h2v2h-2zM263 7h4v1h-4zM267 6h1v2h-1zM268 5h1v3h-1zM269 6h3v2h-3zM272 5h2v3h-2zM274 6h1v2h-1zM275 5h1v3h-1zM276 6h2v2h-2zM278 3h1v5h-1zM279 5h2v3h-2zM281 6h1v2h-1zM282 7h3v1h-3zM285 6h2v2h-2zM287 7h1v1h-1zM288 6h3v2h-3zM291 5h1v3h-1zM292 3h1v5h-1zM293 4h1v4h-1zM294 3h3v5h-3zM297 4h4v4h-4zM301 5h1v3h-1zM302 4h2v4h-2zM304 5h1v3h-1zM305 6h2v2h-2zM307 7h1v1h-1zM308 6h1v2h-1zM309 5h1v3h-1zM310 6h1v2h-1zM311 3h1v5h-1zM312 7h5v1h-5zM317 5h1v3h-1zM318 7h4v1h-4zM322 6h2v2h-2zM324 3h1v5h-1zM325 5h1v3h-1zM326 3h1v5h-1zM327 7h6v1h-6zM333 6h1v2h-1zM334 3h1v5h-1zM335 5h1v3h-1zM336 2h1v6h-1zM337 4h1v4h-1zM338 5h4v3h-4zM342 6h2v2h-2zM344 4h2v4h-2zM346 7h1v1h-1zM347 6h1v2h-1zM348 5h2v3h-2zM350 6h1v2h-1zM351 7h3v1h-3zM354 4h1v4h-1zM355 7h2v1h-2zM357 6h3v2h-3z" style="fill:var(--accent)"></path></svg>
+
+        <div class="container-shell">
+          <div class="section-header-split">
+            <h2 id="projects-title" class="projects-title" data-i18n="projects.title">projects</h2>
+            <p class="projects-lead" data-i18n="projects.lead">
+              Eight systems ordered from newest to oldest across local AI wallets, autonomous Bitcoin agents, publishing, CLIs, and R&amp;D. Open any card to see how it works.
+            </p>
+          </div>
+
+          <ul class="accordion-list">
+            <li class="accordion-item">
+  <h3>
+    <button type="button" class="accordion-trigger" id="proj-btn-metevo"
+      aria-expanded="true" aria-controls="proj-panel-metevo"
+      data-accordion-trigger>
+      <span class="accordion-num">01</span>
+      <span class="project-logo" aria-hidden="true"><img src="./assets/logos/metevo.svg" alt="" width="56" height="56" loading="lazy"></span>
+      <span class="accordion-heading-wrap">
+        <span class="accordion-name-row">
+          <span class="accordion-name">METEVO</span>
+          <span class="accordion-meta" data-i18n="projects.items.metevo.meta">Oct 2026 · Hackathon BLOX Turin · Local AI &amp; Bitcoin</span>
+        </span>
+        <span class="accordion-summary" style="display:block" data-i18n="projects.items.metevo.summary">Voice-native, screen-free self-custodial USDm wallet on Bitcoin L2 (RGB + Lightning), powered by 100% on-device QVAC AI.</span>
+      </span>
+      <span class="accordion-toggle-box" aria-hidden="true"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" class="accordion-toggle-icon" aria-hidden="true" focusable="false"><path d="M2 0h2v1h-2zM2 1h2v1h-2zM0 2h6v1h-6zM0 3h6v1h-6zM2 4h2v1h-2zM2 5h2v1h-2z" style="fill:currentColor"></path></svg></span>
+    </button>
+  </h3>
+  <div id="proj-panel-metevo" role="region" aria-labelledby="proj-btn-metevo"
+    class="accordion-panel is-open">
+    <div class="accordion-panel__inner">
+      <div class="accordion-panel__content">
+        <div class="project-details-grid">
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhatHow">What it is &amp; How it works</p>
+            <p class="project-detail__text" data-i18n="projects.items.metevo.whatHow">Built at the «Agentic Dollars on Bitcoin – Powered by Local AI» hackathon (Oct 17–18, 2026 at BLOX Turin, organized by RGB Protocol Association &amp; BitPolito, sponsored by Tether WDK/QVAC &amp; Utexo). React Native/Expo app + Go LSP fork + Docker RGB-Lightning stack running Whisper STT, Qwen intent parsing, and TTS 100% on-device, with biometric confirmation and phone-to-phone invoice relay.</p>
+          </div>
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhy">Why it exists</p>
+            <p class="project-detail__text" data-i18n="projects.items.metevo.why">Financial inclusion for visually impaired and low-literacy users: sovereign digital dollars over Bitcoin without screens, custodians, or cloud AI. Role in Team METEVO: marketability, frontend implementation, and protocol.</p>
+          </div>
+        </div>
+        <div class="project-tags"><span class="project-tag">QVAC Local AI</span><span class="project-tag">RGB / Lightning</span><span class="project-tag">React Native</span><span class="project-tag">Hackathon BLOX</span></div>
+        <div class="project-links"><a class="pixel-btn pixel-btn--sm " href="https://github.com/METEVO" target="_blank" rel="noopener noreferrer"><span>GitHub</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a><a class="pixel-btn pixel-btn--sm pixel-btn--paper" href="https://github.com/METEVO/metevo-app" target="_blank" rel="noopener noreferrer"><span>metevo-app</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a></div>
+      </div>
+    </div>
+  </div>
+</li>
+<li class="accordion-item">
+  <h3>
+    <button type="button" class="accordion-trigger" id="proj-btn-addr-onlysats"
+      aria-expanded="false" aria-controls="proj-panel-addr-onlysats"
+      data-accordion-trigger>
+      <span class="accordion-num">02</span>
+      <span class="project-logo" aria-hidden="true"><img src="./assets/logos/onlysats.png" alt="" width="56" height="56" loading="lazy"></span>
+      <span class="accordion-heading-wrap">
+        <span class="accordion-name-row">
+          <span class="accordion-name">addr1 + addr2 / OnlySats</span>
+          <span class="accordion-meta" data-i18n="projects.items.addr-onlysats.meta">Sep 2026 · Autonomous Bitcoin Agents</span>
+        </span>
+        <span class="accordion-summary" style="display:block" data-i18n="projects.items.addr-onlysats.summary">Two complementary Bitcoin editorial &amp; analysis agents: local Ollama news digests (addr1) and autonomous 1w/1M technical + on-chain reports (addr2).</span>
+      </span>
+      <span class="accordion-toggle-box" aria-hidden="true"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" class="accordion-toggle-icon" aria-hidden="true" focusable="false"><path d="M2 0h2v1h-2zM2 1h2v1h-2zM0 2h6v1h-6zM0 3h6v1h-6zM2 4h2v1h-2zM2 5h2v1h-2z" style="fill:currentColor"></path></svg></span>
+    </button>
+  </h3>
+  <div id="proj-panel-addr-onlysats" role="region" aria-labelledby="proj-btn-addr-onlysats"
+    class="accordion-panel ">
+    <div class="accordion-panel__inner">
+      <div class="accordion-panel__content">
+        <div class="project-details-grid">
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhatHow">What it is &amp; How it works</p>
+            <p class="project-detail__text" data-i18n="projects.items.addr-onlysats.whatHow">addr1 runs 100% locally on a CPU-only mini-PC with Ollama (deterministic filters, one LLM call per digest to Telegram). addr2-analyst automates weekly (1w) and monthly (1M) closed-candle BTC technical &amp; on-chain analysis into a static Italian blog with Beginner/Pro views, charts, store-of-value metrics grounded strictly in report numbers, GitHub Actions scheduling, and Telegram alerts.</p>
+          </div>
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhy">Why it exists</p>
+            <p class="project-detail__text" data-i18n="projects.items.addr-onlysats.why">Not your AI, not your intelligence — deterministic, zero-hallucination Bitcoin publishing under full human and local control.</p>
+          </div>
+        </div>
+        <div class="project-tags"><span class="project-tag">Ollama</span><span class="project-tag">Bitcoin TA</span><span class="project-tag">On-Chain</span><span class="project-tag">Telegram</span><span class="project-tag">Self-Hosted</span></div>
+        <div class="project-links"><a class="pixel-btn pixel-btn--sm " href="https://addr2-analyst.vercel.app" target="_blank" rel="noopener noreferrer"><span>OnlySats Blog</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a><a class="pixel-btn pixel-btn--sm pixel-btn--paper" href="https://github.com/faktotum-project/addr2-analyst" target="_blank" rel="noopener noreferrer"><span>GitHub (addr2)</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a><a class="pixel-btn pixel-btn--sm pixel-btn--paper" href="https://t.me/+Bwx1aw0FW9AwNmE0" target="_blank" rel="noopener noreferrer"><span>Telegram</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a></div>
+      </div>
+    </div>
+  </div>
+</li>
+<li class="accordion-item">
+  <h3>
+    <button type="button" class="accordion-trigger" id="proj-btn-habilis"
+      aria-expanded="false" aria-controls="proj-panel-habilis"
+      data-accordion-trigger>
+      <span class="accordion-num">03</span>
+      <span class="project-logo project-logo--cover" aria-hidden="true"><img src="./assets/logos/habilis.png" alt="" width="56" height="56" loading="lazy"></span>
+      <span class="accordion-heading-wrap">
+        <span class="accordion-name-row">
+          <span class="accordion-name">habilis</span>
+          <span class="accordion-meta" data-i18n="projects.items.habilis.meta">Jul 2026 · Orchestrated AI Book</span>
+        </span>
+        <span class="accordion-summary" style="display:block" data-i18n="projects.items.habilis.summary">«Habilis — Enciclica Artificiale» (definitive edition Jul 2026): 12 AI chapters + handwritten human Ch. 13 + 64 verified claims.</span>
+      </span>
+      <span class="accordion-toggle-box" aria-hidden="true"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" class="accordion-toggle-icon" aria-hidden="true" focusable="false"><path d="M2 0h2v1h-2zM2 1h2v1h-2zM0 2h6v1h-6zM0 3h6v1h-6zM2 4h2v1h-2zM2 5h2v1h-2z" style="fill:currentColor"></path></svg></span>
+    </button>
+  </h3>
+  <div id="proj-panel-habilis" role="region" aria-labelledby="proj-btn-habilis"
+    class="accordion-panel ">
+    <div class="accordion-panel__inner">
+      <div class="accordion-panel__content">
+        <div class="project-details-grid">
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhatHow">What it is &amp; How it works</p>
+            <p class="project-detail__text" data-i18n="projects.items.habilis.whatHow">Intro plus 12 AI-authored chapters (~51,500 words) orchestrated across architect, researcher, writer, reviewer, and producer roles — closed by Chapter 13 («La penna»), handwritten outside any AI model by an anonymous human reader. Ships in A5 PDF &amp; ePub with 5 appendices, 64 tracked claims in claims.md, and the full public orchestration audit trail.</p>
+          </div>
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhy">Why it exists</p>
+            <p class="project-detail__text" data-i18n="projects.items.habilis.why">Prove the difference between blind AI generation and verifiable human orchestration — down to every source, voice rule, and human signature.</p>
+          </div>
+        </div>
+        <div class="project-tags"><span class="project-tag">Multi-Agent</span><span class="project-tag">Publishing</span><span class="project-tag">64 Verified Claims</span><span class="project-tag">PDF &amp; ePub</span></div>
+        <div class="project-links"><a class="pixel-btn pixel-btn--sm " href="https://habilis-book.com" target="_blank" rel="noopener noreferrer"><span data-i18n="projects.items.habilis.link1">Read the book</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a><a class="pixel-btn pixel-btn--sm pixel-btn--paper" href="https://habilis-book.com/anteprima.html" target="_blank" rel="noopener noreferrer"><span data-i18n="projects.items.habilis.link2">Ch. 1 preview</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a><a class="pixel-btn pixel-btn--sm pixel-btn--paper" href="https://github.com/faktotum-project/habilis" target="_blank" rel="noopener noreferrer"><span>GitHub</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a></div>
+      </div>
+    </div>
+  </div>
+</li>
+<li class="accordion-item">
+  <h3>
+    <button type="button" class="accordion-trigger" id="proj-btn-bitcode"
+      aria-expanded="false" aria-controls="proj-panel-bitcode"
+      data-accordion-trigger>
+      <span class="accordion-num">04</span>
+      <span class="project-logo" aria-hidden="true"><img src="./assets/logos/bitcode.svg" alt="" width="56" height="56" loading="lazy"></span>
+      <span class="accordion-heading-wrap">
+        <span class="accordion-name-row">
+          <span class="accordion-name">bitcode</span>
+          <span class="accordion-meta" data-i18n="projects.items.bitcode.meta">Jul 2026 · CLI Coding Agent · Bitcoin</span>
+        </span>
+        <span class="accordion-summary" style="display:block" data-i18n="projects.items.bitcode.summary">«Not your code, not your Sats.» Terminal coding agent &amp; Linux desktop workspace for Bitcoin, Lightning, RGB, Cashu &amp; QVAC local AI.</span>
+      </span>
+      <span class="accordion-toggle-box" aria-hidden="true"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" class="accordion-toggle-icon" aria-hidden="true" focusable="false"><path d="M2 0h2v1h-2zM2 1h2v1h-2zM0 2h6v1h-6zM0 3h6v1h-6zM2 4h2v1h-2zM2 5h2v1h-2z" style="fill:currentColor"></path></svg></span>
+    </button>
+  </h3>
+  <div id="proj-panel-bitcode" role="region" aria-labelledby="proj-btn-bitcode"
+    class="accordion-panel ">
+    <div class="accordion-panel__inner">
+      <div class="accordion-panel__content">
+        <div class="project-details-grid">
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhatHow">What it is &amp; How it works</p>
+            <p class="project-detail__text" data-i18n="projects.items.bitcode.whatHow">Node.js 22+ terminal coding agent and Linux desktop workspace supporting Bitcoin, Lightning, RGB assets, plus optional Cashu (cdk-cli) and Wavelength wallet binaries. Runs cloud providers (Anthropic, OpenAI, OpenRouter, Groq, Kimi) or 100% locally via Ollama, LM Studio, and QVAC local inference. Testnet by default, explicit approval per payment, code-enforced spending caps, keys kept in ~/.bitcode.</p>
+          </div>
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhy">Why it exists</p>
+            <p class="project-detail__text" data-i18n="projects.items.bitcode.why">Write code and transact on Bitcoin from the same sovereign terminal, without trusting prompts for spending limits or leaking a single key.</p>
+          </div>
+        </div>
+        <div class="project-tags"><span class="project-tag">CLI Agent</span><span class="project-tag">Bitcoin / LN / RGB</span><span class="project-tag">Cashu</span><span class="project-tag">QVAC / Ollama</span><span class="project-tag">Linux</span></div>
+        <div class="project-links"><a class="pixel-btn pixel-btn--sm " href="https://bitcode-agent.vercel.app/" target="_blank" rel="noopener noreferrer"><span>Demo</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a><a class="pixel-btn pixel-btn--sm pixel-btn--paper" href="https://github.com/faktotum-project/bitcode" target="_blank" rel="noopener noreferrer"><span>GitHub</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a></div>
+      </div>
+    </div>
+  </div>
+</li>
+<li class="accordion-item">
+  <h3>
+    <button type="button" class="accordion-trigger" id="proj-btn-edi-md"
+      aria-expanded="false" aria-controls="proj-panel-edi-md"
+      data-accordion-trigger>
+      <span class="accordion-num">05</span>
+      <span class="project-logo" aria-hidden="true"><img src="./assets/logos/edi-md.svg" alt="" width="56" height="56" loading="lazy"></span>
+      <span class="accordion-heading-wrap">
+        <span class="accordion-name-row">
+          <span class="accordion-name">edi.md</span>
+          <span class="accordion-meta" data-i18n="projects.items.edi-md.meta">Jun 2026 · Vibe Coding · Lab</span>
+        </span>
+        <span class="accordion-summary" style="display:block" data-i18n="projects.items.edi-md.summary">My personal portfolio &amp; design playground — built end-to-end with AI agent orchestration.</span>
+      </span>
+      <span class="accordion-toggle-box" aria-hidden="true"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" class="accordion-toggle-icon" aria-hidden="true" focusable="false"><path d="M2 0h2v1h-2zM2 1h2v1h-2zM0 2h6v1h-6zM0 3h6v1h-6zM2 4h2v1h-2zM2 5h2v1h-2z" style="fill:currentColor"></path></svg></span>
+    </button>
+  </h3>
+  <div id="proj-panel-edi-md" role="region" aria-labelledby="proj-btn-edi-md"
+    class="accordion-panel ">
+    <div class="accordion-panel__inner">
+      <div class="accordion-panel__content">
+        <div class="project-details-grid">
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhatHow">What it is &amp; How it works</p>
+            <p class="project-detail__text" data-i18n="projects.items.edi-md.whatHow">Static, zero-dependency portfolio built with custom 16-bit pixel sprites, scroll-driven animation, bilingual EN/IT switching, custom design tokens, and automated Playwright visual verification — zero cloud backend required.</p>
+          </div>
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhy">Why it exists</p>
+            <p class="project-detail__text" data-i18n="projects.items.edi-md.why">Be the working proof, not the pitch — the exact same orchestration workflow on display.</p>
+          </div>
+        </div>
+        <div class="project-tags"><span class="project-tag">Vibe Coding</span><span class="project-tag">Static HTML/CSS</span><span class="project-tag">Design System</span><span class="project-tag">AI Orchestration</span></div>
+        <div class="project-links"><a class="pixel-btn pixel-btn--sm " href="https://edimd.vercel.app" target="_blank" rel="noopener noreferrer"><span>Live</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a><a class="pixel-btn pixel-btn--sm pixel-btn--paper" href="https://github.com/bc1edi/edi.md" target="_blank" rel="noopener noreferrer"><span>GitHub</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a></div>
+      </div>
+    </div>
+  </div>
+</li>
+<li class="accordion-item">
+  <h3>
+    <button type="button" class="accordion-trigger" id="proj-btn-faktotum"
+      aria-expanded="false" aria-controls="proj-panel-faktotum"
+      data-accordion-trigger>
+      <span class="accordion-num">06</span>
+      <span class="project-logo project-logo--cover" aria-hidden="true"><img src="./assets/logos/faktotum.svg" alt="" width="56" height="56" loading="lazy"></span>
+      <span class="accordion-heading-wrap">
+        <span class="accordion-name-row">
+          <span class="accordion-name">faktotum</span>
+          <span class="accordion-meta" data-i18n="projects.items.faktotum.meta">2026 · Private R&amp;D Lab</span>
+        </span>
+        <span class="accordion-summary" style="display:block" data-i18n="projects.items.faktotum.summary">The incubator behind bitcode, habilis, and addr2 — private R&amp;D on autonomous agents, local hardware, and workflows.</span>
+      </span>
+      <span class="accordion-toggle-box" aria-hidden="true"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" class="accordion-toggle-icon" aria-hidden="true" focusable="false"><path d="M2 0h2v1h-2zM2 1h2v1h-2zM0 2h6v1h-6zM0 3h6v1h-6zM2 4h2v1h-2zM2 5h2v1h-2z" style="fill:currentColor"></path></svg></span>
+    </button>
+  </h3>
+  <div id="proj-panel-faktotum" role="region" aria-labelledby="proj-btn-faktotum"
+    class="accordion-panel ">
+    <div class="accordion-panel__inner">
+      <div class="accordion-panel__content">
+        <div class="project-details-grid">
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhatHow">What it is &amp; How it works</p>
+            <p class="project-detail__text" data-i18n="projects.items.faktotum.whatHow">Internal R&amp;D lab where multi-agent pipelines, local LLM benchmarks, hardware setups, and Bitcoin tooling are prototyped and stress-tested before becoming public open-source releases.</p>
+          </div>
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhy">Why it exists</p>
+            <p class="project-detail__text" data-i18n="projects.items.faktotum.why">Break things fast on local metal so every public release ships battle-tested.</p>
+          </div>
+        </div>
+        <div class="project-tags"><span class="project-tag">R&amp;D</span><span class="project-tag">Multi-Agent</span><span class="project-tag">Local Hardware</span><span class="project-tag">Automation</span></div>
+        <div class="project-links"><a class="pixel-btn pixel-btn--sm " href="https://github.com/faktotum-project" target="_blank" rel="noopener noreferrer"><span>GitHub</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a></div>
+      </div>
+    </div>
+  </div>
+</li>
+<li class="accordion-item">
+  <h3>
+    <button type="button" class="accordion-trigger" id="proj-btn-promptos"
+      aria-expanded="false" aria-controls="proj-panel-promptos"
+      data-accordion-trigger>
+      <span class="accordion-num">07</span>
+      <span class="project-logo" aria-hidden="true"><img src="./assets/logos/promptos.svg" alt="" width="56" height="56" loading="lazy"></span>
+      <span class="accordion-heading-wrap">
+        <span class="accordion-name-row">
+          <span class="accordion-name">promptOS</span>
+          <span class="accordion-meta" data-i18n="projects.items.promptos.meta">Apr 2026 · Open-Source Web App</span>
+        </span>
+        <span class="accordion-summary" style="display:block" data-i18n="projects.items.promptos.summary">Single-file offline Prompt Engineering Hub aggregating 58 techniques from the 2024 Prompt Report.</span>
+      </span>
+      <span class="accordion-toggle-box" aria-hidden="true"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" class="accordion-toggle-icon" aria-hidden="true" focusable="false"><path d="M2 0h2v1h-2zM2 1h2v1h-2zM0 2h6v1h-6zM0 3h6v1h-6zM2 4h2v1h-2zM2 5h2v1h-2z" style="fill:currentColor"></path></svg></span>
+    </button>
+  </h3>
+  <div id="proj-panel-promptos" role="region" aria-labelledby="proj-btn-promptos"
+    class="accordion-panel ">
+    <div class="accordion-panel__inner">
+      <div class="accordion-panel__content">
+        <div class="project-details-grid">
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhatHow">What it is &amp; How it works</p>
+            <p class="project-detail__text" data-i18n="projects.items.promptos.whatHow">Zero-dependency single HTML file packing 58 research-backed prompting techniques (Schulhoff et al., 2024): searchable Library, interactive Builder, LLM Advisor, Output Comparison, Prompt Analyzer, Academy, and localStorage Favorites — works completely offline in Demo Mode without any API key.</p>
+          </div>
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhy">Why it exists</p>
+            <p class="project-detail__text" data-i18n="projects.items.promptos.why">Turn academic prompt research into a fast, portable workbench anyone can open locally in one click.</p>
+          </div>
+        </div>
+        <div class="project-tags"><span class="project-tag">Prompt Engineering</span><span class="project-tag">58 Techniques</span><span class="project-tag">Single-File</span><span class="project-tag">Offline</span></div>
+        <div class="project-links"><a class="pixel-btn pixel-btn--sm " href="https://github.com/bc1edi/promptOS" target="_blank" rel="noopener noreferrer"><span>GitHub</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a></div>
+      </div>
+    </div>
+  </div>
+</li>
+<li class="accordion-item">
+  <h3>
+    <button type="button" class="accordion-trigger" id="proj-btn-zero-to-bitcoin"
+      aria-expanded="false" aria-controls="proj-panel-zero-to-bitcoin"
+      data-accordion-trigger>
+      <span class="accordion-num">08</span>
+      <span class="project-logo project-logo--cover" aria-hidden="true"><img src="./assets/logos/zero-to-bitcoin.svg" alt="" width="56" height="56" loading="lazy"></span>
+      <span class="accordion-heading-wrap">
+        <span class="accordion-name-row">
+          <span class="accordion-name">zero_to_Bitcoin</span>
+          <span class="accordion-meta" data-i18n="projects.items.zero-to-bitcoin.meta">Mar 2026 · Open Course · 20 Lessons</span>
+        </span>
+        <span class="accordion-summary" style="display:block" data-i18n="projects.items.zero-to-bitcoin.summary">20-lesson structured Bitcoin course in Markdown, built for self-study and AI-assisted learning.</span>
+      </span>
+      <span class="accordion-toggle-box" aria-hidden="true"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" class="accordion-toggle-icon" aria-hidden="true" focusable="false"><path d="M2 0h2v1h-2zM2 1h2v1h-2zM0 2h6v1h-6zM0 3h6v1h-6zM2 4h2v1h-2zM2 5h2v1h-2z" style="fill:currentColor"></path></svg></span>
+    </button>
+  </h3>
+  <div id="proj-panel-zero-to-bitcoin" role="region" aria-labelledby="proj-btn-zero-to-bitcoin"
+    class="accordion-panel ">
+    <div class="accordion-panel__inner">
+      <div class="accordion-panel__content">
+        <div class="project-details-grid">
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhatHow">What it is &amp; How it works</p>
+            <p class="project-detail__text" data-i18n="projects.items.zero-to-bitcoin.whatHow">Modular 20-lesson open curriculum (lezione-01.md through lezione-20.md) formatted cleanly as an AI Agent Course in plain Markdown so humans and local models alike can study, query, and remix every concept.</p>
+          </div>
+          <div>
+            <p class="project-detail__label" data-i18n="projects.detailWhy">Why it exists</p>
+            <p class="project-detail__text" data-i18n="projects.items.zero-to-bitcoin.why">Make solid Bitcoin fundamentals accessible, versioned, and machine-readable without paywalls.</p>
+          </div>
+        </div>
+        <div class="project-tags"><span class="project-tag">Bitcoin</span><span class="project-tag">20 Lessons</span><span class="project-tag">Markdown</span><span class="project-tag">AI Course</span></div>
+        <div class="project-links"><a class="pixel-btn pixel-btn--sm " href="https://github.com/bc1edi/zero_to_Bitcoin" target="_blank" rel="noopener noreferrer"><span>GitHub</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a></div>
+      </div>
+    </div>
+  </div>
+</li>
+          </ul>
+        </div>
+
+        <svg viewBox="0 0 360 8" preserveAspectRatio="xMidYMax slice" shape-rendering="crispEdges" class="jagged-bottom" aria-hidden="true" focusable="false"><path d="M0 6h3v2h-3zM3 3h1v5h-1zM4 7h2v1h-2zM6 6h2v2h-2zM8 7h1v1h-1zM9 5h1v3h-1zM10 6h1v2h-1zM11 7h3v1h-3zM14 6h1v2h-1zM15 5h2v3h-2zM17 4h2v4h-2zM19 0h1v8h-1zM20 3h3v5h-3zM23 4h1v4h-1zM24 3h1v5h-1zM25 4h3v4h-3zM28 5h1v3h-1zM29 6h1v2h-1zM30 7h1v1h-1zM31 6h1v2h-1zM32 7h1v1h-1zM33 6h2v2h-2zM35 5h1v3h-1zM36 4h1v4h-1zM37 5h2v3h-2zM39 6h1v2h-1zM40 7h1v1h-1zM41 5h1v3h-1zM42 6h1v2h-1zM43 4h2v4h-2zM45 6h1v2h-1zM46 7h2v1h-2zM48 6h2v2h-2zM50 7h1v1h-1zM51 4h1v4h-1zM52 7h1v1h-1zM53 6h2v2h-2zM55 7h1v1h-1zM56 6h1v2h-1zM57 7h1v1h-1zM58 6h1v2h-1zM59 7h7v1h-7zM66 6h1v2h-1zM67 7h7v1h-7zM74 6h1v2h-1zM75 7h1v1h-1zM76 6h1v2h-1zM77 5h1v3h-1zM78 4h1v4h-1zM79 3h4v5h-4zM83 4h1v4h-1zM84 3h2v5h-2zM86 4h1v4h-1zM87 5h1v3h-1zM88 6h1v2h-1zM89 7h1v1h-1zM90 5h1v3h-1zM91 7h1v1h-1zM92 6h1v2h-1zM93 7h6v1h-6zM99 6h2v2h-2zM101 5h1v3h-1zM102 4h2v4h-2zM104 3h4v5h-4zM108 4h2v4h-2zM110 5h2v3h-2zM112 4h1v4h-1zM113 1h1v7h-1zM114 3h2v5h-2zM116 4h1v4h-1zM117 3h10v5h-10zM127 4h1v4h-1zM128 3h1v5h-1zM129 4h3v4h-3zM132 5h1v3h-1zM133 6h1v2h-1zM134 5h1v3h-1zM135 6h1v2h-1zM136 5h2v3h-2zM138 6h2v2h-2zM140 7h1v1h-1zM141 6h2v2h-2zM143 5h1v3h-1zM144 4h4v4h-4zM148 5h2v3h-2zM150 4h2v4h-2zM152 5h2v3h-2zM154 4h1v4h-1zM155 5h1v3h-1zM156 4h1v4h-1zM157 3h1v5h-1zM158 5h2v3h-2zM160 2h2v6h-2zM162 6h1v2h-1zM163 5h2v3h-2zM165 4h1v4h-1zM166 5h1v3h-1zM167 4h1v4h-1zM168 3h1v5h-1zM169 4h1v4h-1zM170 5h2v3h-2zM172 4h1v4h-1zM173 5h3v3h-3zM176 6h2v2h-2zM178 5h1v3h-1zM179 4h1v4h-1zM180 5h1v3h-1zM181 6h2v2h-2zM183 4h1v4h-1zM184 7h6v1h-6zM190 4h1v4h-1zM191 6h1v2h-1zM192 7h1v1h-1zM193 6h1v2h-1zM194 5h1v3h-1zM195 1h1v7h-1zM196 3h1v5h-1zM197 4h3v4h-3zM200 1h1v7h-1zM201 3h6v5h-6zM207 4h1v4h-1zM208 5h2v3h-2zM210 4h1v4h-1zM211 3h1v5h-1zM212 5h1v3h-1zM213 6h1v2h-1zM214 7h1v1h-1zM215 6h1v2h-1zM216 5h2v3h-2zM218 6h1v2h-1zM219 5h1v3h-1zM220 6h1v2h-1zM221 7h1v1h-1zM222 4h1v4h-1zM223 5h2v3h-2zM225 4h1v4h-1zM226 3h1v5h-1zM227 0h1v8h-1zM228 4h5v4h-5zM233 5h1v3h-1zM234 4h3v4h-3zM237 5h2v3h-2zM239 6h3v2h-3zM242 7h8v1h-8zM250 6h1v2h-1zM251 7h1v1h-1zM252 6h1v2h-1zM253 7h1v1h-1zM254 4h1v4h-1zM255 7h2v1h-2zM257 6h1v2h-1zM258 7h4v1h-4zM262 6h2v2h-2zM264 5h1v3h-1zM265 6h1v2h-1zM266 7h1v1h-1zM267 6h1v2h-1zM268 4h1v4h-1zM269 5h2v3h-2zM271 6h1v2h-1zM272 5h1v3h-1zM273 4h1v4h-1zM274 5h1v3h-1zM275 6h1v2h-1zM276 7h4v1h-4zM280 6h1v2h-1zM281 7h8v1h-8zM289 6h3v2h-3zM292 5h1v3h-1zM293 4h3v4h-3zM296 3h3v5h-3zM299 4h1v4h-1zM300 5h1v3h-1zM301 4h1v4h-1zM302 3h2v5h-2zM304 4h1v4h-1zM305 5h1v3h-1zM306 4h1v4h-1zM307 5h2v3h-2zM309 6h1v2h-1zM310 5h2v3h-2zM312 4h1v4h-1zM313 5h1v3h-1zM314 4h1v4h-1zM315 3h1v5h-1zM316 4h1v4h-1zM317 3h1v5h-1zM318 1h1v7h-1zM319 3h2v5h-2zM321 4h1v4h-1zM322 2h1v6h-1zM323 5h3v3h-3zM326 4h1v4h-1zM327 3h4v5h-4zM331 4h1v4h-1zM332 5h1v3h-1zM333 4h1v4h-1zM334 3h3v5h-3zM337 1h1v7h-1zM338 3h1v5h-1zM339 4h1v4h-1zM340 3h9v5h-9zM349 4h1v4h-1zM350 2h1v6h-1zM351 5h2v3h-2zM353 4h1v4h-1zM354 3h1v5h-1zM355 4h2v4h-2zM357 3h1v5h-1zM358 4h1v4h-1zM359 5h1v3h-1z" style="fill:var(--accent)"></path></svg>
+      </section>
+
+      <!-- ── 6. SKILLS ────────────────────────────────────────────────── -->
+      <section id="skills" class="skills-section" aria-labelledby="skills-title">
+        <svg viewBox="0 0 27 27" shape-rendering="crispEdges" class="skills-star animate-sway" aria-hidden="true" focusable="false"><path d="M11 1h5v1h-5zM10 2h1v1h-1zM16 2h1v1h-1zM9 3h1v1h-1zM17 3h1v1h-1zM8 4h1v1h-1zM18 4h1v1h-1zM8 5h1v1h-1zM18 5h1v1h-1zM4 6h5v1h-5zM18 6h5v1h-5zM3 7h1v1h-1zM9 7h1v1h-1zM17 7h1v1h-1zM23 7h1v1h-1zM2 8h1v1h-1zM9 8h1v1h-1zM17 8h1v1h-1zM24 8h1v1h-1zM1 9h1v1h-1zM10 9h1v1h-1zM16 9h1v1h-1zM25 9h1v1h-1zM1 10h1v1h-1zM10 10h1v1h-1zM13 10h1v1h-1zM16 10h1v1h-1zM25 10h1v1h-1zM1 11h1v1h-1zM11 11h5v1h-5zM25 11h1v1h-1zM1 12h1v1h-1zM11 12h1v1h-1zM15 12h1v1h-1zM25 12h1v1h-1zM1 13h1v1h-1zM10 13h2v1h-2zM15 13h2v1h-2zM25 13h1v1h-1zM2 14h1v1h-1zM9 14h2v1h-2zM11 14h1v1h-1zM15 14h1v1h-1zM16 14h2v1h-2zM24 14h1v1h-1zM3 15h1v1h-1zM6 15h3v1h-3zM11 15h5v1h-5zM18 15h3v1h-3zM23 15h1v1h-1zM4 16h2v1h-2zM13 16h1v1h-1zM21 16h2v1h-2zM4 17h1v1h-1zM13 17h1v1h-1zM22 17h1v1h-1zM4 18h1v1h-1zM13 18h1v1h-1zM22 18h1v1h-1zM4 19h1v1h-1zM13 19h1v1h-1zM22 19h1v1h-1zM4 20h1v1h-1zM13 20h1v1h-1zM22 20h1v1h-1zM4 21h1v1h-1zM13 21h1v1h-1zM22 21h1v1h-1zM5 22h1v1h-1zM13 22h1v1h-1zM21 22h1v1h-1zM6 23h1v1h-1zM12 23h1v1h-1zM14 23h1v1h-1zM20 23h1v1h-1zM7 24h5v1h-5zM15 24h5v1h-5z" style="fill:var(--secondary)"></path></svg>
+
+        <div class="container-shell">
+          <p class="skills-eyebrow" data-i18n="skills.eyebrow">what I build</p>
+          <h2 id="skills-title" class="skills-title" data-i18n-html="skills.title">what I<br>ship for you</h2>
+          <p class="skills-lead" data-i18n="skills.lead">
+            Four concrete areas where I take you from raw idea to running software — cloud-optional, hardware-aware, and built to last.
+          </p>
+
+          <ul class="skills-grid">
+            <li data-reveal="up" data-shown="false" style="--reveal-delay:0ms">
+              <article>
+                <div class="skill-card">
+                  <svg viewBox="0 0 17 10" shape-rendering="crispEdges" class="skill-card__art skill-card__art--robot animate-hop" aria-hidden="true" focusable="false"><g><path d="M0 0h1v1h-1zM16 0h1v1h-1zM1 1h1v1h-1zM15 1h1v1h-1zM2 2h1v1h-1zM14 2h1v1h-1zM2 3h13v1h-13zM2 4h1v1h-1zM14 4h1v1h-1zM2 5h1v1h-1zM14 5h1v1h-1zM2 6h1v1h-1zM14 6h1v1h-1zM2 7h1v1h-1zM14 7h1v1h-1zM2 8h1v1h-1zM14 8h1v1h-1zM2 9h13v1h-13z" style="fill:var(--ink)"></path></g><g class="animate-look"><path d="M5 5h2v1h-2zM10 5h2v1h-2zM5 6h2v1h-2zM10 6h2v1h-2z" style="fill:var(--ink)"></path></g></svg>
+                  <h3 class="skill-card__title" data-i18n="skills.c1Title">AI Agents &amp; Workflows</h3>
+                </div>
+                <div class="skill-list">
+                  <span class="skill-chip">Multi-Agent Swarms</span>
+                  <span class="skill-chip">CLI Agents</span>
+                  <span class="skill-chip">Deterministic Pipelines</span>
+                  <span class="skill-chip">Automation</span>
+                </div>
+                <p class="skill-desc" data-i18n="skills.c1Desc">Multi-agent pipelines, custom CLIs, and deterministic automations orchestrated around your real workflow.</p>
+              </article>
+            </li>
+
+            <li class="skill-col--offset" data-reveal="up" data-shown="false" style="--reveal-delay:130ms">
+              <article>
+                <div class="skill-card">
+                  <svg viewBox="0 0 17 7" shape-rendering="crispEdges" class="skill-card__art skill-card__art--eye" aria-hidden="true" focusable="false"><g class="animate-blink"><path d="M5 0h7v1h-7zM3 1h2v1h-2zM12 1h2v1h-2zM1 2h2v1h-2zM7 2h3v1h-3zM14 2h2v1h-2zM0 3h1v1h-1zM6 3h5v1h-5zM16 3h1v1h-1zM1 4h2v1h-2zM7 4h3v1h-3zM14 4h2v1h-2zM3 5h2v1h-2zM12 5h2v1h-2zM5 6h7v1h-7z" style="fill:var(--ink)"></path></g><g class="animate-blink-closed opacity-0"><path d="M0 3h2v1h-2zM15 3h2v1h-2zM2 4h2v1h-2zM13 4h2v1h-2zM4 5h9v1h-9zM5 6h1v1h-1zM8 6h1v1h-1zM11 6h1v1h-1z" style="fill:var(--ink)"></path></g></svg>
+                  <h3 class="skill-card__title" data-i18n="skills.c2Title">Web App &amp; MVP</h3>
+                </div>
+                <div class="skill-list">
+                  <span class="skill-chip">Next.js &amp; Static</span>
+                  <span class="skill-chip">Clickable Prototypes</span>
+                  <span class="skill-chip">Design Systems</span>
+                  <span class="skill-chip">Prompt to Deploy</span>
+                </div>
+                <p class="skill-desc" data-i18n="skills.c2Desc">Clickable prototypes, web apps, and bespoke design systems shipped in days with full code ownership.</p>
+              </article>
+            </li>
+
+            <li data-reveal="up" data-shown="false" style="--reveal-delay:260ms">
+              <article>
+                <div class="skill-card">
+                  <svg viewBox="0 0 17 10" shape-rendering="crispEdges" class="skill-card__art skill-card__art--cloud animate-float" aria-hidden="true" focusable="false"><path d="M3 0h1v1h-1zM4 1h1v1h-1zM7 1h4v1h-4zM5 2h2v1h-2zM11 2h1v1h-1zM5 3h2v1h-2zM12 3h1v1h-1zM2 4h3v1h-3zM7 4h1v1h-1zM13 4h2v1h-2zM1 5h1v1h-1zM8 5h1v1h-1zM15 5h1v1h-1zM0 6h1v1h-1zM9 6h1v1h-1zM16 6h1v1h-1zM0 7h1v1h-1zM10 7h1v1h-1zM16 7h1v1h-1zM1 8h9v1h-9zM11 8h1v1h-1zM13 8h3v1h-3zM12 9h1v1h-1z" style="fill:var(--ink)"/></svg>
+                  <h3 class="skill-card__title" data-i18n="skills.c3Title">Local AI &amp; Hardware Setup</h3>
+                </div>
+                <div class="skill-list">
+                  <span class="skill-chip">Ollama / QVAC</span>
+                  <span class="skill-chip">Zero Cloud</span>
+                  <span class="skill-chip">Local LLM Rigs</span>
+                  <span class="skill-chip">Self-Hosted Ops</span>
+                </div>
+                <p class="skill-desc" data-i18n="skills.c3Desc">Local LLM rigs with Ollama or QVAC, self-hosted services, and private stacks with zero mandatory cloud.</p>
+              </article>
+            </li>
+
+            <li class="skill-col--offset" data-reveal="up" data-shown="false" style="--reveal-delay:390ms">
+              <article>
+                <div class="skill-card">
+                  <svg viewBox="0 0 11 12" shape-rendering="crispEdges" class="skill-card__art skill-card__art--bolt animate-heartbeat" aria-hidden="true" focusable="false"><path d="M5 0h5v1h-5zM4 1h1v1h-1zM8 1h1v1h-1zM3 2h1v1h-1zM7 2h1v1h-1zM2 3h1v1h-1zM6 3h1v1h-1zM1 4h1v1h-1zM5 4h5v1h-5zM0 5h1v1h-1zM9 5h1v1h-1zM0 6h5v1h-5zM8 6h1v1h-1zM4 7h1v1h-1zM7 7h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM2 9h1v1h-1zM5 9h1v1h-1zM2 10h1v1h-1zM4 10h1v1h-1zM2 11h2v1h-2z" style="fill:var(--ink)"/></svg>
+                  <h3 class="skill-card__title" data-i18n="skills.c4Title">Bitcoin / Lightning Tools</h3>
+                </div>
+                <div class="skill-list">
+                  <span class="skill-chip">Lightning &amp; RGB</span>
+                  <span class="skill-chip">Nodes &amp; On-Chain</span>
+                  <span class="skill-chip">Cashu &amp; WDK</span>
+                  <span class="skill-chip">Code-Enforced Caps</span>
+                </div>
+                <p class="skill-desc" data-i18n="skills.c4Desc">Lightning, RGB, Cashu, and on-chain tooling wired into agents with explicit approval and code-enforced limits.</p>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── 7. PROCESS / WORKFLOW LEVELS ─────────────────────────────── -->
+      <section id="process" class="process-section section-dark" aria-labelledby="process-title">
+        <svg viewBox="0 0 360 8" preserveAspectRatio="xMidYMax slice" shape-rendering="crispEdges" class="jagged-top" aria-hidden="true" focusable="false"><path d="M0 5h1v3h-1zM1 6h1v2h-1zM2 7h1v1h-1zM3 6h1v2h-1zM4 5h1v3h-1zM5 4h3v4h-3zM8 3h2v5h-2zM10 4h1v4h-1zM11 3h1v5h-1zM12 4h1v4h-1zM13 2h1v6h-1zM14 5h2v3h-2zM16 4h2v4h-2zM18 3h3v5h-3zM21 4h2v4h-2zM23 3h1v5h-1zM24 2h1v6h-1zM25 4h1v4h-1zM26 5h1v3h-1zM27 4h1v4h-1zM28 3h3v5h-3zM31 4h1v4h-1zM32 3h1v5h-1zM33 2h1v6h-1zM34 1h1v7h-1zM35 3h4v5h-4zM39 4h1v4h-1zM40 5h1v3h-1zM41 4h1v4h-1zM42 5h1v3h-1zM43 4h2v4h-2zM45 3h1v5h-1zM46 4h1v4h-1zM47 5h1v3h-1zM48 4h1v4h-1zM49 5h4v3h-4zM53 6h1v2h-1zM54 7h1v1h-1zM55 6h3v2h-3zM58 7h2v1h-2zM60 6h2v2h-2zM62 7h4v1h-4zM66 6h1v2h-1zM67 5h1v3h-1zM68 6h1v2h-1zM69 7h3v1h-3zM72 6h1v2h-1zM73 7h1v1h-1zM74 4h1v4h-1zM75 7h2v1h-2zM77 6h2v2h-2zM79 7h13v1h-13zM92 6h2v2h-2zM94 7h1v1h-1zM95 6h2v2h-2zM97 7h1v1h-1zM98 6h1v2h-1zM99 7h4v1h-4zM103 6h1v2h-1zM104 7h3v1h-3zM107 6h1v2h-1zM108 7h1v1h-1zM109 6h1v2h-1zM110 5h3v3h-3zM113 6h4v2h-4zM117 7h2v1h-2zM119 6h1v2h-1zM120 2h1v6h-1zM121 5h1v3h-1zM122 6h3v2h-3zM125 7h1v1h-1zM126 6h1v2h-1zM127 7h1v1h-1zM128 3h1v5h-1zM129 6h1v2h-1zM130 5h1v3h-1zM131 4h1v4h-1zM132 5h1v3h-1zM133 2h1v6h-1zM134 5h2v3h-2zM136 6h3v2h-3zM139 7h3v1h-3zM142 6h1v2h-1zM143 7h2v1h-2zM145 6h1v2h-1zM146 7h1v1h-1zM147 6h1v2h-1zM148 5h1v3h-1zM149 4h3v4h-3zM152 5h1v3h-1zM153 6h2v2h-2zM155 7h4v1h-4zM159 6h4v2h-4zM163 5h2v3h-2zM165 6h3v2h-3zM168 7h1v1h-1zM169 6h2v2h-2zM171 7h2v1h-2zM173 6h1v2h-1zM174 4h1v4h-1zM175 6h3v2h-3zM178 5h1v3h-1zM179 4h1v4h-1zM180 3h1v5h-1zM181 4h1v4h-1zM182 3h4v5h-4zM186 4h1v4h-1zM187 3h2v5h-2zM189 4h1v4h-1zM190 3h2v5h-2zM192 4h1v4h-1zM193 5h1v3h-1zM194 4h1v4h-1zM195 3h3v5h-3zM198 4h1v4h-1zM199 3h1v5h-1zM200 2h1v6h-1zM201 4h2v4h-2zM203 5h1v3h-1zM204 6h3v2h-3zM207 5h1v3h-1zM208 4h1v4h-1zM209 3h4v5h-4zM213 4h1v4h-1zM214 5h1v3h-1zM215 6h2v2h-2zM217 7h2v1h-2zM219 6h2v2h-2zM221 5h3v3h-3zM224 4h3v4h-3zM227 3h9v5h-9zM236 4h2v4h-2zM238 5h1v3h-1zM239 4h2v4h-2zM241 3h2v5h-2zM243 0h1v8h-1zM244 1h1v7h-1zM245 3h1v5h-1zM246 2h1v6h-1zM247 1h1v7h-1zM248 5h1v3h-1zM249 6h1v2h-1zM250 5h1v3h-1zM251 6h4v2h-4zM255 7h6v1h-6zM261 6h3v2h-3zM264 5h4v3h-4zM268 4h2v4h-2zM270 5h3v3h-3zM273 4h1v4h-1zM274 3h1v5h-1zM275 1h1v7h-1zM276 3h3v5h-3zM279 4h1v4h-1zM280 3h1v5h-1zM281 6h1v2h-1zM282 4h1v4h-1zM283 7h2v1h-2zM285 6h1v2h-1zM286 5h1v3h-1zM287 6h2v2h-2zM289 5h3v3h-3zM292 6h2v2h-2zM294 7h5v1h-5zM299 3h1v5h-1zM300 5h1v3h-1zM301 6h2v2h-2zM303 5h3v3h-3zM306 6h2v2h-2zM308 5h2v3h-2zM310 4h1v4h-1zM311 3h1v5h-1zM312 6h2v2h-2zM314 7h1v1h-1zM315 4h1v4h-1zM316 7h2v1h-2zM318 6h2v2h-2zM320 5h1v3h-1zM321 4h1v4h-1zM322 7h3v1h-3zM325 6h4v2h-4zM329 7h1v1h-1zM330 6h2v2h-2zM332 5h2v3h-2zM334 4h1v4h-1zM335 5h2v3h-2zM337 6h1v2h-1zM338 7h1v1h-1zM339 6h1v2h-1zM340 7h1v1h-1zM341 6h3v2h-3zM344 7h1v1h-1zM345 6h1v2h-1zM346 5h1v3h-1zM347 6h1v2h-1zM348 5h1v3h-1zM349 6h2v2h-2zM351 5h1v3h-1zM352 6h2v2h-2zM354 7h1v1h-1zM355 5h1v3h-1zM356 6h3v2h-3zM359 5h1v3h-1z" style="fill:var(--ink)"></path></svg>
+
+        <div class="container-shell">
+          <p class="process-eyebrow" data-i18n="process.eyebrow">how a project ships</p>
+          <h2 id="process-title" class="process-title" data-i18n-html="process.title">from idea to <span>deploy</span></h2>
+          <p class="process-lead" data-i18n="process.lead">
+            Four clear levels to turn a raw brief into working software — fast feedback loops, zero bureaucracy, full ownership.
+          </p>
+
+          <ol id="process-grid" class="process-grid">
+            <li>
+              <article class="level-card">
+                <div class="level-card__top">
+                  <span class="level-card__num" data-i18n="process.lv1">level 01</span>
+                  <span class="level-badge" aria-hidden="true"><svg viewBox="0 0 9 9" shape-rendering="crispEdges" class="level-badge__lock" aria-hidden="true" focusable="false"><path d="M2 0h5v1h-5zM1 1h1v1h-1zM7 1h1v1h-1zM1 2h1v1h-1zM7 2h1v1h-1zM0 3h9v1h-9zM0 4h1v1h-1zM8 4h1v1h-1zM0 5h1v1h-1zM4 5h1v1h-1zM8 5h1v1h-1zM0 6h1v1h-1zM4 6h1v1h-1zM8 6h1v1h-1zM0 7h1v1h-1zM8 7h1v1h-1zM0 8h9v1h-9z" style="fill:#8a8a8a"></path></svg><svg viewBox="0 0 8 6" shape-rendering="crispEdges" class="level-badge__check" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:var(--secondary)"></path></svg><span data-level-state>locked</span></span>
+                </div>
+                <div class="level-tile" aria-hidden="true"><svg viewBox="0 0 11 11" shape-rendering="crispEdges" class="level-anim-egg" aria-hidden="true" focusable="false"><path d="M4 0h3v1h-3zM3 1h1v1h-1zM7 1h1v1h-1zM2 2h1v1h-1zM8 2h1v1h-1zM1 3h1v1h-1zM9 3h1v1h-1zM1 4h1v1h-1zM9 4h1v1h-1zM0 5h1v1h-1zM10 5h1v1h-1zM0 6h1v1h-1zM10 6h1v1h-1zM0 7h1v1h-1zM10 7h1v1h-1zM0 8h1v1h-1zM10 8h1v1h-1zM1 9h1v1h-1zM9 9h1v1h-1zM2 10h7v1h-7z" class="px-outline"></path><path d="M4 1h3v1h-3zM3 2h2v1h-2zM6 2h2v1h-2zM2 3h7v1h-7zM2 4h1v1h-1zM4 4h5v1h-5zM1 5h6v1h-6zM8 5h2v1h-2zM1 6h9v1h-9zM1 7h2v1h-2zM4 7h6v1h-6zM1 8h9v1h-9zM2 9h7v1h-7z" class="px-dark"></path><path d="M5 2h1v1h-1zM3 4h1v1h-1zM7 5h1v1h-1zM3 7h1v1h-1z" class="px-mid"></path></svg></div>
+                <p class="level-card__stage" data-i18n="process.s1Date">step 01 · brief</p>
+                <h3 class="level-card__title" data-i18n="process.s1Title">Idea &amp; Constraints</h3>
+                <p class="level-card__text" data-i18n="process.s1Text">We lock down the real problem, security/privacy constraints, and system architecture before a single line of code is written.</p>
+                <div class="level-card__tags">
+                  <span class="level-tag">Brief</span>
+                  <span class="level-tag">Architecture</span>
+                  <span class="level-tag">Scope</span>
+                </div>
+              </article>
+            </li>
+
+            <li>
+              <article class="level-card">
+                <div class="level-card__top">
+                  <span class="level-card__num" data-i18n="process.lv2">level 02</span>
+                  <span class="level-badge" aria-hidden="true"><svg viewBox="0 0 9 9" shape-rendering="crispEdges" class="level-badge__lock" aria-hidden="true" focusable="false"><path d="M2 0h5v1h-5zM1 1h1v1h-1zM7 1h1v1h-1zM1 2h1v1h-1zM7 2h1v1h-1zM0 3h9v1h-9zM0 4h1v1h-1zM8 4h1v1h-1zM0 5h1v1h-1zM4 5h1v1h-1zM8 5h1v1h-1zM0 6h1v1h-1zM4 6h1v1h-1zM8 6h1v1h-1zM0 7h1v1h-1zM8 7h1v1h-1zM0 8h9v1h-9z" style="fill:#8a8a8a"></path></svg><svg viewBox="0 0 8 6" shape-rendering="crispEdges" class="level-badge__check" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:var(--secondary)"></path></svg><span data-level-state>locked</span></span>
+                </div>
+                <div class="level-tile" aria-hidden="true"><svg viewBox="0 0 11 11" shape-rendering="crispEdges" class="level-anim-hatch" aria-hidden="true" focusable="false"><path d="M4 0h3v1h-3zM3 1h1v1h-1zM7 1h1v1h-1zM2 2h1v1h-1zM8 2h1v1h-1zM1 3h1v1h-1zM9 3h1v1h-1zM1 4h1v1h-1zM3 4h1v1h-1zM7 4h1v1h-1zM9 4h1v1h-1zM0 5h3v1h-3zM4 5h1v1h-1zM6 5h1v1h-1zM8 5h3v1h-3zM0 6h1v1h-1zM5 6h1v1h-1zM10 6h1v1h-1zM0 7h1v1h-1zM10 7h1v1h-1zM0 8h1v1h-1zM10 8h1v1h-1zM1 9h1v1h-1zM9 9h1v1h-1zM2 10h7v1h-7z" class="px-outline"></path><path d="M4 1h3v1h-3zM3 2h5v1h-5zM2 3h7v1h-7zM2 4h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM3 5h1v1h-1zM5 5h1v1h-1zM7 5h1v1h-1zM1 6h4v1h-4zM6 6h4v1h-4zM1 7h9v1h-9zM1 8h9v1h-9zM2 9h7v1h-7z" class="px-dark"></path></svg></div>
+                <p class="level-card__stage" data-i18n="process.s2Date">step 02 · prototype</p>
+                <h3 class="level-card__title" data-i18n="process.s2Title">Vibe &amp; Prototype</h3>
+                <p class="level-card__text" data-i18n="process.s2Text">Interactive interface or CLI spike built fast so you can click, test, and steer the product while it takes shape.</p>
+                <div class="level-card__tags">
+                  <span class="level-tag">Prototype</span>
+                  <span class="level-tag">Design System</span>
+                  <span class="level-tag">UX</span>
+                </div>
+              </article>
+            </li>
+
+            <li>
+              <article class="level-card">
+                <div class="level-card__top">
+                  <span class="level-card__num" data-i18n="process.lv3">level 03</span>
+                  <span class="level-badge" aria-hidden="true"><svg viewBox="0 0 9 9" shape-rendering="crispEdges" class="level-badge__lock" aria-hidden="true" focusable="false"><path d="M2 0h5v1h-5zM1 1h1v1h-1zM7 1h1v1h-1zM1 2h1v1h-1zM7 2h1v1h-1zM0 3h9v1h-9zM0 4h1v1h-1zM8 4h1v1h-1zM0 5h1v1h-1zM4 5h1v1h-1zM8 5h1v1h-1zM0 6h1v1h-1zM4 6h1v1h-1zM8 6h1v1h-1zM0 7h1v1h-1zM8 7h1v1h-1zM0 8h9v1h-9z" style="fill:#8a8a8a"></path></svg><svg viewBox="0 0 8 6" shape-rendering="crispEdges" class="level-badge__check" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:var(--secondary)"></path></svg><span data-level-state>locked</span></span>
+                </div>
+                <div class="level-tile" aria-hidden="true"><svg viewBox="0 0 11 8" shape-rendering="crispEdges" class="level-anim-run" aria-hidden="true" focusable="false"><path d="M1 0h1v1h-1zM5 0h1v1h-1zM9 0h1v1h-1zM1 1h1v1h-1zM5 1h1v1h-1zM9 1h1v1h-1zM1 2h2v1h-2zM5 2h1v1h-1zM8 2h2v1h-2zM2 3h1v1h-1zM4 3h3v1h-3zM8 3h1v1h-1zM2 4h7v1h-7zM3 5h5v1h-5zM3 6h5v1h-5zM4 7h3v1h-3z" class="px-outline"></path></svg></div>
+                <p class="level-card__stage" data-i18n="process.s3Date">step 03 · build</p>
+                <h3 class="level-card__title" data-i18n="process.s3Title">Agents &amp; Code</h3>
+                <p class="level-card__text" data-i18n="process.s3Text">Multi-agent orchestration handles code, local LLM/Bitcoin integrations, and automated checks under human review.</p>
+                <div class="level-card__tags">
+                  <span class="level-tag">AI Agents</span>
+                  <span class="level-tag">CLI</span>
+                  <span class="level-tag">Local LLM</span>
+                  <span class="level-tag">Testing</span>
+                </div>
+              </article>
+            </li>
+
+            <li>
+              <article class="level-card">
+                <div class="level-card__top">
+                  <span class="level-card__num" data-i18n="process.lv4">level 04</span>
+                  <span class="level-badge" aria-hidden="true"><svg viewBox="0 0 9 9" shape-rendering="crispEdges" class="level-badge__lock" aria-hidden="true" focusable="false"><path d="M2 0h5v1h-5zM1 1h1v1h-1zM7 1h1v1h-1zM1 2h1v1h-1zM7 2h1v1h-1zM0 3h9v1h-9zM0 4h1v1h-1zM8 4h1v1h-1zM0 5h1v1h-1zM4 5h1v1h-1zM8 5h1v1h-1zM0 6h1v1h-1zM4 6h1v1h-1zM8 6h1v1h-1zM0 7h1v1h-1zM8 7h1v1h-1zM0 8h9v1h-9z" style="fill:#8a8a8a"></path></svg><svg viewBox="0 0 8 6" shape-rendering="crispEdges" class="level-badge__check" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:var(--secondary)"></path></svg><span data-level-state>locked</span></span>
+                </div>
+                <div class="level-tile" aria-hidden="true"><svg viewBox="0 0 11 7" shape-rendering="crispEdges" class="level-anim-crown" aria-hidden="true" focusable="false"><path d="M0 0h1v1h-1zM5 0h1v1h-1zM10 0h1v1h-1zM0 1h2v1h-2zM4 1h1v1h-1zM6 1h1v1h-1zM9 1h2v1h-2zM0 2h1v1h-1zM2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM10 2h1v1h-1zM0 3h1v1h-1zM3 3h1v1h-1zM7 3h1v1h-1zM10 3h1v1h-1zM0 4h1v1h-1zM10 4h1v1h-1zM0 5h1v1h-1zM10 5h1v1h-1zM0 6h11v1h-11z" class="px-outline"></path><path d="M5 1h1v1h-1zM1 2h1v1h-1zM5 2h1v1h-1zM9 2h1v1h-1zM1 3h2v1h-2zM4 3h3v1h-3zM8 3h2v1h-2zM1 4h9v1h-9zM1 5h1v1h-1zM3 5h2v1h-2zM6 5h2v1h-2zM9 5h1v1h-1z" class="px-mid"></path><path d="M2 5h1v1h-1zM5 5h1v1h-1zM8 5h1v1h-1z" class="px-dark"></path></svg></div>
+                <p class="level-card__stage" data-i18n="process.s4Date">step 04 · ship</p>
+                <h3 class="level-card__title" data-i18n="process.s4Title">Deploy &amp; Ownership</h3>
+                <p class="level-card__text" data-i18n="process.s4Text">Clean handover to your server, local hardware, or production host — full repo, docs, and zero vendor lock-in.</p>
+                <div class="level-card__tags">
+                  <span class="level-tag">Deploy</span>
+                  <span class="level-tag">Self-Hosted</span>
+                  <span class="level-tag">Hand-off</span>
+                </div>
+              </article>
+            </li>
+          </ol>
+
+          <div class="xp-bar-row">
+            <div class="xp-meter" aria-hidden="true">
+              <span class="font-heading" style="font-size:0.875rem">xp</span>
+              <div id="xp-blocks" class="xp-blocks">
+                <span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span><span class="xp-block"></span>
+              </div>
+              <span id="xp-counter" class="font-heading" style="font-size:0.875rem;font-variant-numeric:tabular-nums">0/4</span>
+            </div>
+
+            <a id="xp-cta" href="#contacts" class="xp-cta">
+              <span id="xp-cta-text">start at level 01</span>
+              <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <svg viewBox="0 0 360 8" preserveAspectRatio="xMidYMax slice" shape-rendering="crispEdges" class="jagged-bottom" aria-hidden="true" focusable="false"><path d="M0 6h1v2h-1zM1 7h1v1h-1zM2 6h1v2h-1zM3 7h3v1h-3zM6 5h1v3h-1zM7 6h2v2h-2zM9 5h2v3h-2zM11 6h2v2h-2zM13 5h2v3h-2zM15 6h1v2h-1zM16 5h1v3h-1zM17 6h2v2h-2zM19 7h1v1h-1zM20 6h1v2h-1zM21 7h2v1h-2zM23 6h3v2h-3zM26 7h3v1h-3zM29 6h1v2h-1zM30 7h2v1h-2zM32 4h1v4h-1zM33 6h1v2h-1zM34 7h1v1h-1zM35 6h1v2h-1zM36 5h1v3h-1zM37 4h1v4h-1zM38 3h2v5h-2zM40 4h4v4h-4zM44 3h1v5h-1zM45 0h1v8h-1zM46 4h2v4h-2zM48 5h1v3h-1zM49 4h1v4h-1zM50 5h1v3h-1zM51 6h1v2h-1zM52 7h2v1h-2zM54 6h1v2h-1zM55 5h1v3h-1zM56 4h1v4h-1zM57 3h3v5h-3zM60 1h1v7h-1zM61 3h5v5h-5zM66 1h1v7h-1zM67 3h4v5h-4zM71 4h2v4h-2zM73 3h4v5h-4zM77 4h2v4h-2zM79 3h2v5h-2zM81 4h1v4h-1zM82 5h1v3h-1zM83 4h1v4h-1zM84 5h1v3h-1zM85 6h1v2h-1zM86 5h1v3h-1zM87 4h1v4h-1zM88 5h1v3h-1zM89 6h1v2h-1zM90 5h2v3h-2zM92 4h1v4h-1zM93 1h1v7h-1zM94 5h1v3h-1zM95 6h1v2h-1zM96 7h3v1h-3zM99 6h2v2h-2zM101 5h1v3h-1zM102 4h1v4h-1zM103 5h1v3h-1zM104 6h1v2h-1zM105 5h1v3h-1zM106 6h1v2h-1zM107 5h1v3h-1zM108 6h2v2h-2zM110 5h1v3h-1zM111 4h2v4h-2zM113 3h10v5h-10zM123 0h1v8h-1zM124 3h2v5h-2zM126 4h2v4h-2zM128 3h3v5h-3zM131 4h2v4h-2zM133 3h3v5h-3zM136 4h3v4h-3zM139 3h1v5h-1zM140 4h1v4h-1zM141 5h3v3h-3zM144 4h1v4h-1zM145 3h1v5h-1zM146 4h1v4h-1zM147 3h1v5h-1zM148 4h1v4h-1zM149 3h4v5h-4zM153 1h1v7h-1zM154 3h1v5h-1zM155 4h1v4h-1zM156 5h1v3h-1zM157 4h1v4h-1zM158 3h3v5h-3zM161 4h1v4h-1zM162 3h3v5h-3zM165 1h1v7h-1zM166 3h6v5h-6zM172 4h2v4h-2zM174 2h1v6h-1zM175 5h2v3h-2zM177 2h1v6h-1zM178 6h2v2h-2zM180 7h2v1h-2zM182 6h1v2h-1zM183 7h1v1h-1zM184 6h1v2h-1zM185 5h1v3h-1zM186 6h1v2h-1zM187 4h2v4h-2zM189 6h2v2h-2zM191 5h1v3h-1zM192 4h1v4h-1zM193 3h3v5h-3zM196 4h1v4h-1zM197 5h1v3h-1zM198 4h1v4h-1zM199 3h1v5h-1zM200 4h1v4h-1zM201 3h1v5h-1zM202 4h1v4h-1zM203 5h1v3h-1zM204 4h1v4h-1zM205 5h1v3h-1zM206 6h1v2h-1zM207 5h1v3h-1zM208 6h2v2h-2zM210 7h8v1h-8zM218 6h1v2h-1zM219 3h1v5h-1zM220 6h1v2h-1zM221 5h5v3h-5zM226 4h2v4h-2zM228 3h1v5h-1zM229 4h1v4h-1zM230 3h1v5h-1zM231 4h1v4h-1zM232 5h1v3h-1zM233 2h1v6h-1zM234 6h2v2h-2zM236 7h1v1h-1zM237 6h2v2h-2zM239 7h1v1h-1zM240 6h1v2h-1zM241 5h1v3h-1zM242 6h1v2h-1zM243 3h1v5h-1zM244 5h2v3h-2zM246 4h1v4h-1zM247 3h3v5h-3zM250 4h1v4h-1zM251 5h1v3h-1zM252 4h2v4h-2zM254 5h2v3h-2zM256 4h4v4h-4zM260 5h2v3h-2zM262 4h1v4h-1zM263 3h2v5h-2zM265 2h1v6h-1zM266 3h1v5h-1zM267 4h2v4h-2zM269 2h1v6h-1zM270 6h2v2h-2zM272 7h5v1h-5zM277 6h1v2h-1zM278 5h1v3h-1zM279 4h1v4h-1zM280 3h3v5h-3zM283 1h1v7h-1zM284 3h3v5h-3zM287 1h1v7h-1zM288 4h1v4h-1zM289 0h1v8h-1zM290 3h2v5h-2zM292 4h1v4h-1zM293 3h1v5h-1zM294 5h2v3h-2zM296 6h2v2h-2zM298 5h1v3h-1zM299 4h1v4h-1zM300 5h1v3h-1zM301 6h3v2h-3zM304 5h1v3h-1zM305 6h1v2h-1zM306 7h1v1h-1zM307 6h1v2h-1zM308 5h1v3h-1zM309 6h1v2h-1zM310 5h1v3h-1zM311 6h1v2h-1zM312 7h4v1h-4zM316 6h1v2h-1zM317 7h1v1h-1zM318 6h1v2h-1zM319 2h1v6h-1zM320 6h1v2h-1zM321 7h1v1h-1zM322 4h1v4h-1zM323 6h1v2h-1zM324 5h2v3h-2zM326 4h1v4h-1zM327 5h2v3h-2zM329 6h2v2h-2zM331 7h1v1h-1zM332 6h1v2h-1zM333 5h3v3h-3zM336 6h1v2h-1zM337 7h1v1h-1zM338 6h2v2h-2zM340 7h8v1h-8zM348 6h1v2h-1zM349 5h1v3h-1zM350 4h2v4h-2zM352 3h1v5h-1zM353 1h1v7h-1zM354 4h1v4h-1zM355 3h1v5h-1zM356 4h1v4h-1zM357 3h3v5h-3z" style="fill:var(--ink)"></path></svg>
+      </section>
+
+      <!-- ── 8. TEAM / AGENT NETWORK ──────────────────────────────────── -->
+      <section id="team" class="team-section" aria-labelledby="team-title">
+        <svg viewBox="0 0 26 10" shape-rendering="crispEdges" class="team-cloud-1 animate-drift" aria-hidden="true" focusable="false"><path d="M9 0h6v1h-6zM7 1h2v1h-2zM15 1h2v1h-2zM6 2h1v1h-1zM17 2h1v1h-1zM19 2h3v1h-3zM3 3h3v1h-3zM18 3h1v1h-1zM22 3h1v1h-1zM2 4h1v1h-1zM23 4h1v1h-1zM1 5h1v1h-1zM24 5h1v1h-1zM0 6h1v1h-1zM25 6h1v1h-1zM0 7h1v1h-1zM25 7h1v1h-1zM1 8h1v1h-1zM24 8h1v1h-1zM2 9h22v1h-22z" style="fill:var(--cloud-border)"></path><path d="M9 1h6v1h-6zM7 2h10v1h-10zM6 3h12v1h-12zM19 3h3v1h-3zM3 4h20v1h-20zM2 5h22v1h-22zM2 6h22v1h-22z" style="fill:var(--cloud)"></path><path d="M1 6h1v1h-1zM24 6h1v1h-1zM1 7h24v1h-24zM2 8h22v1h-22z" style="fill:var(--cloud-shade)"></path></svg>
+        <svg viewBox="0 0 18 8" shape-rendering="crispEdges" class="team-cloud-2 animate-drift" aria-hidden="true" focusable="false"><path d="M5 0h4v1h-4zM3 1h2v1h-2zM9 1h2v1h-2zM12 1h2v1h-2zM2 2h1v1h-1zM11 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM15 3h2v1h-2zM0 4h1v1h-1zM17 4h1v1h-1zM0 5h1v1h-1zM17 5h1v1h-1zM1 6h1v1h-1zM16 6h1v1h-1zM2 7h14v1h-14z" style="fill:var(--cloud-border)"></path><path d="M5 1h4v1h-4zM3 2h8v1h-8zM12 2h2v1h-2zM2 3h13v1h-13zM2 4h14v1h-14z" style="fill:var(--cloud)"></path><path d="M1 4h1v1h-1zM16 4h1v1h-1zM1 5h16v1h-16zM2 6h14v1h-14z" style="fill:var(--cloud-shade)"></path></svg>
+
+        <div class="container-shell">
+          <div class="team-header">
+            <p class="team-eyebrow" data-i18n="team.eyebrow">choose your agent</p>
+            <h2 id="team-title" class="team-title" data-i18n="team.title">crew</h2>
+            <p class="team-lead" data-i18n="team.lead">
+              One human orchestrator and his network of agents. Each player levels up the project in a different way.
+            </p>
+          </div>
+
+          <ul class="team-grid">
+            <li data-reveal="up" data-shown="false" style="--reveal-delay:0ms">
+  <article class="player-card">
+    <div class="player-card__bar">
+      <span data-i18n="team.p1Bar">player 1</span>
+      <span class="player-card__status" data-i18n="team.ready">ready</span>
+    </div>
+    <div class="player-card__portrait"><img src="./assets/sprites/crew-edi.svg" alt="Ritratto pixel-art di Edi, orchestratore umano con felpa e laptop" class="pixel-sprite" width="135" height="258" loading="lazy"></div>
+    <div class="player-card__body">
+      <h3 class="player-card__name">Edi</h3>
+      <p class="player-card__role" data-i18n="team.p1Role">human orchestrator</p>
+      <dl class="player-stats"><div class="player-stat-row">
+  <dt data-i18n="team.p1Stat1">vision</dt>
+  <dd><span class="sr-only">10 / 10</span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span></dd>
+</div><div class="player-stat-row">
+  <dt data-i18n="team.p1Stat2">direction</dt>
+  <dd><span class="sr-only">10 / 10</span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span></dd>
+</div></dl>
+      <p class="player-move"><span data-i18n="team.moveLabel">special move:</span> <span class="player-move__copy" style="font-family:var(--font-sans);color:var(--ink)" data-i18n="team.p1Move">turns a 2am napkin sketch into a working repo before the espresso cools</span></p>
+    </div>
+  </article>
+</li>
+<li data-reveal="up" data-shown="false" style="--reveal-delay:110ms">
+  <article class="player-card">
+    <div class="player-card__bar">
+      <span data-i18n="team.p2Bar">player 2</span>
+      <span class="player-card__status" data-i18n="team.ready">ready</span>
+    </div>
+    <div class="player-card__portrait"><img src="./assets/sprites/crew-code.svg" alt="Ritratto pixel-art di AGENT: CODE" class="pixel-sprite" width="141" height="258" loading="lazy"></div>
+    <div class="player-card__body">
+      <h3 class="player-card__name">AGENT: CODE</h3>
+      <p class="player-card__role" data-i18n="team.p2Role">architecture &amp; engineering</p>
+      <dl class="player-stats"><div class="player-stat-row">
+  <dt data-i18n="team.p2Stat1">code</dt>
+  <dd><span class="sr-only">10 / 10</span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span></dd>
+</div><div class="player-stat-row">
+  <dt data-i18n="team.p2Stat2">speed</dt>
+  <dd><span class="sr-only">9 / 10</span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip "></span></dd>
+</div></dl>
+      <p class="player-move"><span data-i18n="team.moveLabel">special move:</span> <span class="player-move__copy" style="font-family:var(--font-sans);color:var(--ink)" data-i18n="team.p2Move">spawns 5 subagents, nukes boilerplate, and gets green tests on the first clean diff</span></p>
+    </div>
+  </article>
+</li>
+<li data-reveal="up" data-shown="false" style="--reveal-delay:220ms">
+  <article class="player-card">
+    <div class="player-card__bar">
+      <span data-i18n="team.p3Bar">player 3</span>
+      <span class="player-card__status" data-i18n="team.ready">ready</span>
+    </div>
+    <div class="player-card__portrait"><img src="./assets/sprites/crew-design.svg" alt="Ritratto pixel-art di AGENT: DESIGN" class="pixel-sprite" width="129" height="264" loading="lazy"></div>
+    <div class="player-card__body">
+      <h3 class="player-card__name">AGENT: DESIGN</h3>
+      <p class="player-card__role" data-i18n="team.p3Role">visual systems &amp; UI</p>
+      <dl class="player-stats"><div class="player-stat-row">
+  <dt data-i18n="team.p3Stat1">craft</dt>
+  <dd><span class="sr-only">9 / 10</span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip "></span></dd>
+</div><div class="player-stat-row">
+  <dt data-i18n="team.p3Stat2">coherence</dt>
+  <dd><span class="sr-only">10 / 10</span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span></dd>
+</div></dl>
+      <p class="player-move"><span data-i18n="team.moveLabel">special move:</span> <span class="player-move__copy" style="font-family:var(--font-sans);color:var(--ink)" data-i18n="team.p3Move">terminates generic purple SaaS gradients on sight and locks contrast to WCAG AA+</span></p>
+    </div>
+  </article>
+</li>
+<li data-reveal="up" data-shown="false" style="--reveal-delay:330ms">
+  <article class="player-card">
+    <div class="player-card__bar">
+      <span data-i18n="team.p4Bar">player 4</span>
+      <span class="player-card__status" data-i18n="team.ready">ready</span>
+    </div>
+    <div class="player-card__portrait"><img src="./assets/sprites/crew-bitcode.svg" alt="Ritratto pixel-art di BITCODE con logo B pixel" class="pixel-sprite" width="141" height="258" loading="lazy"></div>
+    <div class="player-card__body">
+      <h3 class="player-card__name">BITCODE</h3>
+      <p class="player-card__role" data-i18n="team.p4Role">cli agent · bitcoin &amp; rgb</p>
+      <dl class="player-stats"><div class="player-stat-row">
+  <dt data-i18n="team.p4Stat1">sovereignty</dt>
+  <dd><span class="sr-only">10 / 10</span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span><span aria-hidden="true" class="stat-pip stat-pip--accent"></span></dd>
+</div><div class="player-stat-row">
+  <dt data-i18n="team.p4Stat2">security</dt>
+  <dd><span class="sr-only">10 / 10</span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span><span aria-hidden="true" class="stat-pip stat-pip--secondary"></span></dd>
+</div></dl>
+      <p class="player-move"><span data-i18n="team.moveLabel">special move:</span> <span class="player-move__copy" style="font-family:var(--font-sans);color:var(--ink)" data-i18n="team.p4Move">signs Lightning &amp; RGB txs with code-enforced sat caps — 0 private keys ever leave localhost</span></p>
+    </div>
+  </article>
+</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── 9. CONTACTS ──────────────────────────────────────────────── -->
+      <section id="contacts" class="contacts-section pattern-dots" aria-labelledby="contact-title">
+        <svg viewBox="0 0 360 8" preserveAspectRatio="xMidYMax slice" shape-rendering="crispEdges" class="jagged-top" aria-hidden="true" focusable="false"><path d="M0 5h1v3h-1zM1 4h2v4h-2zM3 2h1v6h-1zM4 5h1v3h-1zM5 4h2v4h-2zM7 5h1v3h-1zM8 4h1v4h-1zM9 5h1v3h-1zM10 4h1v4h-1zM11 0h1v8h-1zM12 3h1v5h-1zM13 4h1v4h-1zM14 3h1v5h-1zM15 4h1v4h-1zM16 1h1v7h-1zM17 3h11v5h-11zM28 4h2v4h-2zM30 3h16v5h-16zM46 4h1v4h-1zM47 5h4v3h-4zM51 6h1v2h-1zM52 5h2v3h-2zM54 2h1v6h-1zM55 5h1v3h-1zM56 4h1v4h-1zM57 5h1v3h-1zM58 6h3v2h-3zM61 7h4v1h-4zM65 6h1v2h-1zM66 7h3v1h-3zM69 4h1v4h-1zM70 6h1v2h-1zM71 5h3v3h-3zM74 4h1v4h-1zM75 5h1v3h-1zM76 6h1v2h-1zM77 5h1v3h-1zM78 4h1v4h-1zM79 3h1v5h-1zM80 4h1v4h-1zM81 5h1v3h-1zM82 6h6v2h-6zM88 7h3v1h-3zM91 6h1v2h-1zM92 7h5v1h-5zM97 6h1v2h-1zM98 5h1v3h-1zM99 7h3v1h-3zM102 6h1v2h-1zM103 7h2v1h-2zM105 6h1v2h-1zM106 7h3v1h-3zM109 6h2v2h-2zM111 5h1v3h-1zM112 4h1v4h-1zM113 5h2v3h-2zM115 6h1v2h-1zM116 4h1v4h-1zM117 6h1v2h-1zM118 7h5v1h-5zM123 6h1v2h-1zM124 7h1v1h-1zM125 5h1v3h-1zM126 7h2v1h-2zM128 6h1v2h-1zM129 3h1v5h-1zM130 4h1v4h-1zM131 5h2v3h-2zM133 4h1v4h-1zM134 5h1v3h-1zM135 6h2v2h-2zM137 7h1v1h-1zM138 6h2v2h-2zM140 7h1v1h-1zM141 6h3v2h-3zM144 7h2v1h-2zM146 6h2v2h-2zM148 5h1v3h-1zM149 6h1v2h-1zM150 7h2v1h-2zM152 6h4v2h-4zM156 5h2v3h-2zM158 4h4v4h-4zM162 5h1v3h-1zM163 4h2v4h-2zM165 5h1v3h-1zM166 4h1v4h-1zM167 5h1v3h-1zM168 4h3v4h-3zM171 3h4v5h-4zM175 4h1v4h-1zM176 5h1v3h-1zM177 6h1v2h-1zM178 7h10v1h-10zM188 6h1v2h-1zM189 7h1v1h-1zM190 6h1v2h-1zM191 7h3v1h-3zM194 6h3v2h-3zM197 4h1v4h-1zM198 5h2v3h-2zM200 7h1v1h-1zM201 6h1v2h-1zM202 7h1v1h-1zM203 4h1v4h-1zM204 7h7v1h-7zM211 6h4v2h-4zM215 5h2v3h-2zM217 4h1v4h-1zM218 5h2v3h-2zM220 6h1v2h-1zM221 4h1v4h-1zM222 5h1v3h-1zM223 4h1v4h-1zM224 2h1v6h-1zM225 5h1v3h-1zM226 4h2v4h-2zM228 3h2v5h-2zM230 1h1v7h-1zM231 4h2v4h-2zM233 5h1v3h-1zM234 6h1v2h-1zM235 5h3v3h-3zM238 6h1v2h-1zM239 7h5v1h-5zM244 6h1v2h-1zM245 5h1v3h-1zM246 4h1v4h-1zM247 1h1v7h-1zM248 5h1v3h-1zM249 6h1v2h-1zM250 5h1v3h-1zM251 4h1v4h-1zM252 3h2v5h-2zM254 4h1v4h-1zM255 5h1v3h-1zM256 2h1v6h-1zM257 4h1v4h-1zM258 3h1v5h-1zM259 4h2v4h-2zM261 5h1v3h-1zM262 6h2v2h-2zM264 5h1v3h-1zM265 4h2v4h-2zM267 3h2v5h-2zM269 4h1v4h-1zM270 5h1v3h-1zM271 6h1v2h-1zM272 5h1v3h-1zM273 2h1v6h-1zM274 6h1v2h-1zM275 4h1v4h-1zM276 6h1v2h-1zM277 4h1v4h-1zM278 5h1v3h-1zM279 3h1v5h-1zM280 7h1v1h-1zM281 6h1v2h-1zM282 7h3v1h-3zM285 6h4v2h-4zM289 7h1v1h-1zM290 6h2v2h-2zM292 4h1v4h-1zM293 7h2v1h-2zM295 6h1v2h-1zM296 7h2v1h-2zM298 3h1v5h-1zM299 6h1v2h-1zM300 5h1v3h-1zM301 4h1v4h-1zM302 5h2v3h-2zM304 6h4v2h-4zM308 5h1v3h-1zM309 6h1v2h-1zM310 5h1v3h-1zM311 7h2v1h-2zM313 6h1v2h-1zM314 5h1v3h-1zM315 6h1v2h-1zM316 4h1v4h-1zM317 6h1v2h-1zM318 5h1v3h-1zM319 6h4v2h-4zM323 7h1v1h-1zM324 6h2v2h-2zM326 5h2v3h-2zM328 4h4v4h-4zM332 5h1v3h-1zM333 3h1v5h-1zM334 5h2v3h-2zM336 2h1v6h-1zM337 4h2v4h-2zM339 5h2v3h-2zM341 6h2v2h-2zM343 3h1v5h-1zM344 5h1v3h-1zM345 4h5v4h-5zM350 3h2v5h-2zM352 1h1v7h-1zM353 4h1v4h-1zM354 5h3v3h-3zM357 4h1v4h-1zM358 3h2v5h-2z" style="fill:var(--accent)"></path></svg>
+        <svg viewBox="0 0 27 27" shape-rendering="crispEdges" class="contacts-star animate-spin-slow" aria-hidden="true" focusable="false"><path d="M11 1h5v1h-5zM10 2h1v1h-1zM16 2h1v1h-1zM9 3h1v1h-1zM17 3h1v1h-1zM8 4h1v1h-1zM18 4h1v1h-1zM8 5h1v1h-1zM18 5h1v1h-1zM4 6h5v1h-5zM18 6h5v1h-5zM3 7h1v1h-1zM9 7h1v1h-1zM17 7h1v1h-1zM23 7h1v1h-1zM2 8h1v1h-1zM9 8h1v1h-1zM17 8h1v1h-1zM24 8h1v1h-1zM1 9h1v1h-1zM10 9h1v1h-1zM16 9h1v1h-1zM25 9h1v1h-1zM1 10h1v1h-1zM10 10h1v1h-1zM13 10h1v1h-1zM16 10h1v1h-1zM25 10h1v1h-1zM1 11h1v1h-1zM11 11h5v1h-5zM25 11h1v1h-1zM1 12h1v1h-1zM11 12h1v1h-1zM15 12h1v1h-1zM25 12h1v1h-1zM1 13h1v1h-1zM10 13h2v1h-2zM15 13h2v1h-2zM25 13h1v1h-1zM2 14h1v1h-1zM9 14h2v1h-2zM11 14h1v1h-1zM15 14h1v1h-1zM16 14h2v1h-2zM24 14h1v1h-1zM3 15h1v1h-1zM6 15h3v1h-3zM11 15h5v1h-5zM18 15h3v1h-3zM23 15h1v1h-1zM4 16h2v1h-2zM13 16h1v1h-1zM21 16h2v1h-2zM4 17h1v1h-1zM13 17h1v1h-1zM22 17h1v1h-1zM4 18h1v1h-1zM13 18h1v1h-1zM22 18h1v1h-1zM4 19h1v1h-1zM13 19h1v1h-1zM22 19h1v1h-1zM4 20h1v1h-1zM13 20h1v1h-1zM22 20h1v1h-1zM4 21h1v1h-1zM13 21h1v1h-1zM22 21h1v1h-1zM5 22h1v1h-1zM13 22h1v1h-1zM21 22h1v1h-1zM6 23h1v1h-1zM12 23h1v1h-1zM14 23h1v1h-1zM20 23h1v1h-1zM7 24h5v1h-5zM15 24h5v1h-5z" style="fill:var(--ink)"></path></svg>
+
+        <div class="container-shell contacts-grid">
+          <div>
+            <p class="contacts-eyebrow" data-i18n="contacts.eyebrow">ready to build?</p>
+            <h2 id="contact-title" class="contacts-title" data-i18n="contacts.title">let's talk!</h2>
+            <p class="contacts-lead" data-i18n="contacts.lead">
+              Founder, startup, Bitcoin project, company, or creator? Whether you need AI agents, a fast MVP, local LLM hardware, or Lightning tooling — tell me what you're building.
+            </p>
+
+            <ol class="steps-list">
+              <li class="step-row">
+                <span class="step-num">1</span>
+                <span class="step-text" data-i18n="contacts.step1">direct reply within 24h</span>
+              </li>
+              <li class="step-row">
+                <span class="step-num">2</span>
+                <span class="step-text" data-i18n="contacts.step2">30-min technical call to align on scope &amp; constraints</span>
+              </li>
+              <li class="step-row">
+                <span class="step-num">3</span>
+                <span class="step-text" data-i18n="contacts.step3">clear plan with architecture, prototype &amp; timeline</span>
+              </li>
+            </ol>
+
+            <div class="direct-links">
+              <a href="mailto:admin@faktotum.it" class="pixel-btn pixel-btn--paper pixel-btn--sm">admin@faktotum.it <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a>
+              <a href="https://github.com/bc1edi" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn--paper pixel-btn--sm">GitHub</a>
+              <a href="https://x.com/edi_btc" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn--paper pixel-btn--sm">X</a>
+              <a href="https://it.linkedin.com/in/edi-de-rosa-12302290" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn--paper pixel-btn--sm">LinkedIn</a>
+              <a href="https://t.me/Addr1000" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn--paper pixel-btn--sm">Telegram</a>
+            </div>
+
+            <div class="mascot-stage mascot-stage--contact" data-mascot-stage>
+              <button type="button" class="mascot-btn" data-mascot-kickflip data-i18n-aria="hero.mascotAria" aria-label="Tap BITCODE">
+                <span class="mascot-flip"><img src="./assets/sprites/crew-bitcode.svg" alt="" class="pixel-sprite" width="47" height="86"></span>
+              </button>
+              <span class="mascot-bubble" aria-hidden="true">
+                <span class="mascot-bubble__box">
+                  <span data-mascot-bubble>Psst! fill the form</span>
+                  <span class="mascot-bubble__tail-1"></span>
+                  <span class="mascot-bubble__tail-2"></span>
+                </span>
+              </span>
+              <span class="sr-only" aria-live="polite" data-mascot-live></span>
+            </div>
+          </div>
+
+          <div data-reveal="right" data-shown="false">
+            <div class="retro-window">
+              <div class="retro-window__bar retro-window__bar--ink">
+                <span class="retro-window__title">
+                  <span class="retro-window__square" aria-hidden="true"></span>
+                  <span class="truncate">nuovo_progetto.exe</span>
+                </span>
+                <span class="retro-window__controls" aria-hidden="true">
+                  <span class="retro-window__ctrl"><svg viewBox="0 0 5 5" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M0 3h5v1h-5z" style="fill:var(--ink)"></path></svg></span>
+                  <span class="retro-window__ctrl"><svg viewBox="0 0 5 5" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M0 0h5v1h-5zM0 1h1v1h-1zM4 1h1v1h-1zM0 2h1v1h-1zM4 2h1v1h-1zM0 3h1v1h-1zM4 3h1v1h-1zM0 4h5v1h-5z" style="fill:var(--ink)"></path></svg></span>
+                  <span class="retro-window__ctrl"><svg viewBox="0 0 5 5" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><path d="M0 0h1v1h-1zM4 0h1v1h-1zM1 1h1v1h-1zM3 1h1v1h-1zM2 2h1v1h-1zM1 3h1v1h-1zM3 3h1v1h-1zM0 4h1v1h-1zM4 4h1v1h-1z" style="fill:var(--ink)"></path></svg></span>
+                </span>
+              </div>
+
+              <div class="retro-window__body">
+                <form id="project-form" class="contact-form" novalidate>
+                  <div class="sr-only" aria-hidden="true">
+                    <label for="contact-website" data-i18n="contacts.honeypotLabel">Leave this field empty</label>
+                    <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off">
+                  </div>
+
+                  <div class="form-row-2">
+                    <div>
+                      <label for="contact-name" class="field-label" data-i18n="contacts.nameLabel">your name</label>
+                      <input id="contact-name" name="name" type="text" required autocomplete="name" maxlength="100"
+                        placeholder="Alex Rivera" data-i18n-placeholder="contacts.namePlaceholder" class="pixel-input pixel-input--text" aria-describedby="error-name">
+                      <p id="error-name" class="field-error" hidden></p>
+                    </div>
+                    <div>
+                      <label for="contact-email" class="field-label" data-i18n="contacts.emailLabel">email</label>
+                      <input id="contact-email" name="email" type="email" required inputmode="email" autocomplete="email" maxlength="254"
+                        placeholder="alex@company.com" data-i18n-placeholder="contacts.emailPlaceholder" class="pixel-input pixel-input--text" aria-describedby="error-email">
+                      <p id="error-email" class="field-error" hidden></p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="contact-company" class="field-label" data-i18n-html="contacts.companyLabel">
+                      project or company <span class="field-optional">(optional)</span>
+                    </label>
+                    <input id="contact-company" name="company" type="text" autocomplete="organization" maxlength="120"
+                      placeholder="Product or team name" data-i18n-placeholder="contacts.companyPlaceholder" class="pixel-input pixel-input--text">
+                  </div>
+
+                  <fieldset>
+                    <legend class="field-label" data-i18n-html="contacts.scopesLabel">
+                      areas of work <span class="field-optional">(optional)</span>
+                    </legend>
+                    <div class="chip-group">
+                      <label class="chip-option">
+                        <input type="checkbox" name="scopes" value="AI Agents &amp; Workflows" class="sr-only">
+                        <svg viewBox="0 0 8 6" shape-rendering="crispEdges" class="chip-check" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:currentColor"></path></svg>
+                        <span>AI Agents &amp; Workflows</span>
+                      </label>
+                      <label class="chip-option">
+                        <input type="checkbox" name="scopes" value="Web App &amp; MVP" class="sr-only">
+                        <svg viewBox="0 0 8 6" shape-rendering="crispEdges" class="chip-check" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:currentColor"></path></svg>
+                        <span>Web App &amp; MVP</span>
+                      </label>
+                      <label class="chip-option">
+                        <input type="checkbox" name="scopes" value="Local AI &amp; Hardware" class="sr-only">
+                        <svg viewBox="0 0 8 6" shape-rendering="crispEdges" class="chip-check" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:currentColor"></path></svg>
+                        <span>Local AI &amp; Hardware</span>
+                      </label>
+                      <label class="chip-option">
+                        <input type="checkbox" name="scopes" value="Bitcoin / Lightning" class="sr-only">
+                        <svg viewBox="0 0 8 6" shape-rendering="crispEdges" class="chip-check" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:currentColor"></path></svg>
+                        <span>Bitcoin / Lightning</span>
+                      </label>
+                      <label class="chip-option">
+                        <input type="checkbox" name="scopes" value="Advisory &amp; Prototype" class="sr-only">
+                        <svg viewBox="0 0 8 6" shape-rendering="crispEdges" class="chip-check" aria-hidden="true" focusable="false"><path d="M7 0h1v1h-1zM6 1h2v1h-2zM0 2h1v1h-1zM5 2h2v1h-2zM0 3h2v1h-2zM4 3h2v1h-2zM1 4h4v1h-4zM2 5h2v1h-2z" style="fill:currentColor"></path></svg>
+                        <span>Advisory &amp; Prototype</span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <div>
+                    <label for="contact-message" class="field-label" data-i18n="contacts.msgLabel">message</label>
+                    <textarea id="contact-message" name="message" required maxlength="2000"
+                      placeholder="Tell me what you want to build, your constraints, and where agents can help..."
+                      data-i18n-placeholder="contacts.msgPlaceholder"
+                      class="pixel-input pixel-input--textarea" aria-describedby="error-message"></textarea>
+                    <p id="error-message" class="field-error" hidden></p>
+                  </div>
+
+                  <button type="submit" class="pixel-btn pixel-btn--lg"><span data-i18n="contacts.submit">send it!</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></button>
+                </form>
+
+                <div id="form-success" class="form-success" tabindex="-1" role="status" hidden>
+                  <div class="form-success__mascot" aria-hidden="true"><img src="./assets/sprites/crew-bitcode.svg" alt="" class="pixel-sprite" width="47" height="86"></div>
+                  <h3 class="form-success__title" data-i18n="contacts.successTitle">brief ready!</h3>
+                  <p class="form-success__text" data-i18n="contacts.successText">
+                    Your brief is validated and ready to send. Open your pre-filled email client or draft another message.
+                  </p>
+                  <div class="form-success__actions">
+                    <a id="form-mailto-link" href="mailto:admin@faktotum.it" class="pixel-btn pixel-btn--md"><span data-i18n="contacts.mailtoBtn">open in email</span> <svg viewBox="0 0 8 7" shape-rendering="crispEdges" class="pixel-arrow" aria-hidden="true" focusable="false"><path d="M4 0h1v1h-1zM4 1h2v1h-2zM0 2h7v1h-7zM0 3h8v1h-8zM0 4h7v1h-7zM4 5h2v1h-2zM4 6h1v1h-1z" style="fill:currentColor"></path></svg></a>
+                    <button type="button" id="form-reset-btn" class="pixel-btn pixel-btn--paper pixel-btn--md" data-i18n="contacts.resetBtn">write another</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
+    <footer class="site-footer section-dark">
+      <svg viewBox="0 0 360 8" preserveAspectRatio="xMidYMax slice" shape-rendering="crispEdges" class="jagged-top" aria-hidden="true" focusable="false"><path d="M0 5h1v3h-1zM1 4h1v4h-1zM2 5h1v3h-1zM3 6h1v2h-1zM4 5h1v3h-1zM5 6h1v2h-1zM6 5h1v3h-1zM7 6h2v2h-2zM9 7h1v1h-1zM10 6h2v2h-2zM12 7h10v1h-10zM22 6h2v2h-2zM24 7h3v1h-3zM27 6h1v2h-1zM28 5h1v3h-1zM29 4h1v4h-1zM30 5h3v3h-3zM33 6h1v2h-1zM34 5h1v3h-1zM35 4h2v4h-2zM37 2h1v6h-1zM38 4h3v4h-3zM41 3h2v5h-2zM43 0h1v8h-1zM44 3h1v5h-1zM45 4h2v4h-2zM47 3h1v5h-1zM48 4h1v4h-1zM49 3h3v5h-3zM52 4h1v4h-1zM53 5h5v3h-5zM58 4h1v4h-1zM59 5h2v3h-2zM61 4h2v4h-2zM63 5h1v3h-1zM64 4h1v4h-1zM65 5h2v3h-2zM67 3h1v5h-1zM68 5h1v3h-1zM69 6h1v2h-1zM70 7h15v1h-15zM85 6h2v2h-2zM87 5h1v3h-1zM88 4h3v4h-3zM91 5h1v3h-1zM92 3h1v5h-1zM93 4h1v4h-1zM94 3h1v5h-1zM95 4h2v4h-2zM97 0h1v8h-1zM98 3h4v5h-4zM102 0h1v8h-1zM103 3h1v5h-1zM104 4h1v4h-1zM105 5h2v3h-2zM107 4h2v4h-2zM109 5h1v3h-1zM110 6h1v2h-1zM111 7h2v1h-2zM113 6h1v2h-1zM114 7h9v1h-9zM123 5h1v3h-1zM124 6h2v2h-2zM126 5h2v3h-2zM128 4h1v4h-1zM129 2h1v6h-1zM130 5h3v3h-3zM133 6h1v2h-1zM134 7h2v1h-2zM136 5h1v3h-1zM137 7h3v1h-3zM140 4h1v4h-1zM141 6h1v2h-1zM142 5h3v3h-3zM145 4h2v4h-2zM147 1h1v7h-1zM148 3h8v5h-8zM156 4h1v4h-1zM157 3h1v5h-1zM158 4h1v4h-1zM159 3h4v5h-4zM163 4h1v4h-1zM164 3h4v5h-4zM168 4h1v4h-1zM169 5h1v3h-1zM170 4h2v4h-2zM172 5h1v3h-1zM173 4h1v4h-1zM174 3h5v5h-5zM179 4h3v4h-3zM182 3h2v5h-2zM184 4h2v4h-2zM186 2h1v6h-1zM187 4h2v4h-2zM189 3h3v5h-3zM192 4h1v4h-1zM193 3h2v5h-2zM195 1h1v7h-1zM196 4h2v4h-2zM198 3h1v5h-1zM199 4h2v4h-2zM201 5h2v3h-2zM203 3h1v5h-1zM204 7h2v1h-2zM206 6h1v2h-1zM207 5h1v3h-1zM208 6h2v2h-2zM210 5h1v3h-1zM211 4h1v4h-1zM212 6h3v2h-3zM215 5h4v3h-4zM219 6h1v2h-1zM220 7h5v1h-5zM225 6h1v2h-1zM226 5h5v3h-5zM231 4h3v4h-3zM234 3h13v5h-13zM247 0h1v8h-1zM248 3h2v5h-2zM250 4h1v4h-1zM251 3h6v5h-6zM257 4h1v4h-1zM258 3h1v5h-1zM259 4h2v4h-2zM261 2h1v6h-1zM262 3h1v5h-1zM263 4h1v4h-1zM264 3h5v5h-5zM269 1h1v7h-1zM270 3h10v5h-10zM280 4h1v4h-1zM281 3h1v5h-1zM282 4h1v4h-1zM283 5h4v3h-4zM287 4h1v4h-1zM288 5h5v3h-5zM293 6h1v2h-1zM294 5h1v3h-1zM295 2h1v6h-1zM296 4h1v4h-1zM297 1h1v7h-1zM298 4h1v4h-1zM299 3h2v5h-2zM301 4h1v4h-1zM302 3h7v5h-7zM309 4h1v4h-1zM310 3h3v5h-3zM313 4h1v4h-1zM314 3h7v5h-7zM321 4h2v4h-2zM323 5h2v3h-2zM325 6h2v2h-2zM327 5h1v3h-1zM328 6h3v2h-3zM331 5h1v3h-1zM332 6h1v2h-1zM333 5h1v3h-1zM334 4h1v4h-1zM335 5h2v3h-2zM337 4h2v4h-2zM339 3h1v5h-1zM340 4h1v4h-1zM341 3h2v5h-2zM343 0h1v8h-1zM344 3h2v5h-2zM346 4h1v4h-1zM347 3h11v5h-11zM358 4h1v4h-1zM359 5h1v3h-1z" style="fill:var(--ink)"></path></svg>
+
+      <div class="container-shell footer-grid">
+        <div>
+          <a href="#hero" class="brand-link" data-i18n-aria="brandAria" aria-label="edi.md, back to top">
+            <svg viewBox="0 0 120 120" shape-rendering="crispEdges" class="brand-mark" aria-hidden="true" focusable="false"><rect x="80" y="0" width="40" height="40" fill="#c73a00"/><rect x="0" y="80" width="40" height="40" fill="#c73a00"/><rect x="0" y="0" width="90" height="90" fill="#f54e00"/><rect x="30" y="30" width="90" height="90" fill="#fafaf7"/><rect x="20" y="20" width="80" height="80" fill="#26251e"/><rect x="40" y="40" width="40" height="10" fill="#f54e00"/><rect x="40" y="70" width="60" height="10" fill="#fafaf7"/></svg>
+            <span class="brand-name">edi.md</span>
+          </a>
+          <p class="footer-bio" data-i18n="footer.bio">
+            Vibecoder, orchestrator, enthusiast. Digital products built with code, AI agents, and human direction.
+          </p>
+        </div>
+
+        <nav aria-label="Footer">
+          <h2 class="footer-heading" data-i18n="footer.explore">explore</h2>
+          <ul class="footer-list">
+            <li><a href="#who-we-are" class="footer-link" data-i18n="nav.who">about</a></li>
+            <li><a href="#projects" class="footer-link" data-i18n="nav.projects">projects</a></li>
+            <li><a href="#skills" class="footer-link" data-i18n="nav.skills">skills</a></li>
+            <li><a href="#process" class="footer-link" data-i18n="nav.process">workflow</a></li>
+            <li><a href="#team" class="footer-link" data-i18n="nav.team">crew</a></li>
+            <li><a href="#contacts" class="footer-link" data-i18n="nav.contacts">contact</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-heading" data-i18n="footer.projects">projects</h2>
+          <ul class="footer-list">
+            <li><a href="#projects" class="footer-link">METEVO</a></li>
+            <li><a href="#projects" class="footer-link">addr1 + addr2 / OnlySats</a></li>
+            <li><a href="#projects" class="footer-link">habilis</a></li>
+            <li><a href="#projects" class="footer-link">bitcode</a></li>
+            <li><a href="#projects" class="footer-link">edi.md</a></li>
+            <li><a href="#projects" class="footer-link">faktotum</a></li>
+            <li><a href="#projects" class="footer-link">promptOS</a></li>
+            <li><a href="#projects" class="footer-link">zero_to_Bitcoin</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-heading" data-i18n="footer.sayHi">say hi</h2>
+          <ul class="footer-list">
+            <li><a href="mailto:admin@faktotum.it" class="footer-link">admin@faktotum.it</a></li>
+            <li><a href="https://github.com/bc1edi" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a></li>
+            <li><a href="https://x.com/edi_btc" target="_blank" rel="noopener noreferrer" class="footer-link">X (@edi_btc)</a></li>
+            <li><a href="https://t.me/Addr1000" target="_blank" rel="noopener noreferrer" class="footer-link">Telegram</a></li>
+          </ul>
+          <a href="#hero" class="back-to-top" data-i18n="footer.top">back to top ↑</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container-shell footer-bottom__inner">
+          <p data-i18n="footer.copy">© 2026 edi.md — personal lab orchestrated with AI agents</p>
+          <p data-i18n="footer.tech">Pixelify Sans · Montserrat · edi.md palette (#f7f7f4 / #26251e / #f54e00)</p>
+        </div>
+      </div>
+    </footer>
+
+    <aside id="lang-popup" class="lang-popup" role="dialog" aria-labelledby="lang-popup-title" aria-describedby="lang-popup-desc" hidden>
+      <div class="retro-window__bar retro-window__bar--ink">
+        <span id="lang-popup-title" class="retro-window__title">
+          <span class="retro-window__square" aria-hidden="true"></span>
+          <span>italiano.exe</span>
+        </span>
+        <button type="button" id="lang-popup-close" class="retro-window__ctrl lang-popup__close" aria-label="Chiudi suggerimento lingua">×</button>
+      </div>
+      <div class="lang-popup__body">
+        <p id="lang-popup-desc" class="lang-popup__text">
+          Sembra che tu sia in Italia — vuoi passare alla versione in italiano?
+        </p>
+        <div class="lang-popup__actions">
+          <button type="button" id="lang-popup-accept" class="pixel-btn pixel-btn--sm">Passa all'italiano</button>
+          <button type="button" id="lang-popup-dismiss" class="pixel-btn pixel-btn--paper pixel-btn--sm">Keep English</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

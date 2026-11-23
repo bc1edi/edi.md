@@ -1,26 +1,25 @@
 # edi.md
 
-Portfolio di Edi — Vibecoder, Orchestrator, Enthusiast. Un mondo 3D esplorabile: la rete di agenti nello spazio, con le sezioni del sito come nodi. Costruito con agenti AI.
+Portfolio e laboratorio digitale di **Edi** — *Vibecoder, Orchestrator, Enthusiast*.
 
-## Stack
+Edizione statica zero-dipendenze in HTML, CSS e JavaScript puro:
+- Palette e tipografia proprietarie (`#f7f7f4` / `#26251e` / `#f54e00` · `Pixelify Sans` & `Montserrat` self-hosted).
+- Sprite vettoriali pixel-art 16-bit (`assets/sprites/`), animazione Hero legata allo scroll e bilinguismo EN/IT.
+- Zero runtime cloud obbligatorio: nessun bundler, nessuna chiamata esterna.
 
-- Next.js 16 (App Router) · TypeScript strict · Tailwind CSS v4 (token in `app/globals.css`)
-- three + @react-three/fiber + drei + postprocessing — il mondo in `components/world/`, caricato lazy solo se c'è WebGL; senza WebGL (o senza JS) le sezioni si mostrano in colonna
-- Contenuti e coordinate dei nodi in `lib/content.ts`, icone brand in `components/icons/`
+## Struttura
 
-## Come si usa il sito
+- `index.html`: documento principale e markup semantico bilingue.
+- `styles.css`: stili, layout responsive e keyframe pixel/scroll.
+- `app.js`: i18n EN/IT, fisica della collisione in Hero, accordion progetti e validazione modulo.
+- `assets/`: sprite SVG della crew (`Edi`, `CODE`, `DESIGN`, `BITCODE`), loghi progetti, icone e immagini OpenGraph.
+- `fonts/`: font locali (`Pixelify Sans`, `Montserrat`).
+- `vercel.json`: configurazione deploy statico su Vercel (`https://edimd.vercel.app/`).
 
-Trascina per ruotare, scroll per avvicinare, clicca un nodo (o un flag nella riga di comando in alto) per aprire la sezione; `esc` chiude. Su touch: tocca. Con `prefers-reduced-motion` niente rotazione automatica né agenti in movimento.
-
-## Comandi
+## Anteprima locale
 
 ```sh
-npm install
-npm run dev        # http://localhost:3000
-npm run build && npm start
-npm run typecheck
+python3 -m http.server 8080
 ```
 
-## Brand
-
-Carta `#f7f7f4` su ink `#12110d`, accento `#f54e00` come unica luce · Inter / Lato / Roboto Mono · geometria ortogonale, angoli vivi (cubi, gabbie, asterisco).
+Apri `http://localhost:8080`.

@@ -1,6 +1,10 @@
-# File di lavoro — non vanno caricati nel deploy
+.git
+.gitignore
+.vercel
+.agents
 .claude
 .opencode
+.swarm
 .hallmark
-design-sync
+.env*
 README.md
