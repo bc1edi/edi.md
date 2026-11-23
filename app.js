@@ -784,6 +784,7 @@
   const collisionStage = document.querySelector("[data-collision-stage]");
   if (collisionRunway && collisionStage) {
     const heroEl = collisionRunway.querySelector(".hero");
+    const heroCenterEl = heroEl ? heroEl.querySelector(".hero-center") : null;
     const ediActor = collisionStage.querySelector('[data-actor="edi"]');
     const bitcodeActor = collisionStage.querySelector('[data-actor="bitcode"]');
     const ediBtn = collisionStage.querySelector("[data-edi-tap]");
@@ -871,14 +872,21 @@
         const recoil = isDizzy ? Math.min(24, stageW * 0.04) : 0;
 
         // Vertical starting height in the upper-right sky (clear of hero title & mobile CTAs)
-        const startY =
-          stageW >= 960
-            ? -Math.min(Math.round(heroH * 0.23), 215)
-            : stageW >= 640
-              ? -Math.min(Math.round(heroH * 0.19), 160)
-              : -Math.min(Math.round(heroH * 0.08), 58);
+        let startY;
+        if (stageW >= 960) {
+          startY = -Math.min(Math.round(heroH * 0.23), 215);
+        } else if (stageW >= 640) {
+          startY = -Math.min(Math.round(heroH * 0.19), 160);
+        } else {
+          const stageRect = collisionStage.getBoundingClientRect();
+          const centerBottom = heroCenterEl ? heroCenterEl.getBoundingClientRect().bottom : stageRect.top;
+          const bitH = bitcodeActor.offsetHeight || 151;
+          const bubblePad = 42;
+          const freeHeadroom = Math.max(0, Math.floor(stageRect.bottom - centerBottom - bitH - bubblePad));
+          startY = -Math.min(34, freeHeadroom);
+        }
 
-        const ampX = stageW >= 640 ? Math.min(stageW * 0.085, 68) : Math.min(stageW * 0.07, 22);
+        const ampX = stageW >= 640 ? Math.min(stageW * 0.085, 68) : Math.min(stageW * 0.06, 20);
         const zigX = isDizzy ? 0 : Math.sin(t * Math.PI * 3) * ampX * (1 - t * 0.5);
         const baseBitX = Math.min(0, targetBitX) * t;
         const curBitX = isDizzy
@@ -906,6 +914,9 @@
       };
 
       updateCollision();
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => updateCollision());
+      }
       window.addEventListener("scroll", onCollisionScroll, { passive: true });
       window.addEventListener("resize", onCollisionScroll, { passive: true });
     }

@@ -638,8 +638,8 @@ main {
   min-height: 100svh;
   flex-direction: column;
   overflow-x: clip;
-  padding-top: 4.5rem;
-  padding-bottom: 1.25rem;
+  padding-top: 4.25rem;
+  padding-bottom: 1rem;
 }
 
 @media (min-width: 48rem) {
@@ -747,6 +747,7 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding-bottom: 0.75rem;
 }
 
 .hero-badge {
@@ -836,13 +837,19 @@ main {
 }
 
 .hero-ctas {
-  margin-top: 1.5rem;
+  margin-top: 1.15rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 1rem 1.75rem;
   animation: pop-in 0.28s steps(3, end) 0.68s both;
+}
+
+@media (min-width: 48rem) {
+  .hero-ctas {
+    margin-top: 1.5rem;
+  }
 }
 
 /* ── Hero Collision Stage & Characters ─────────────────────────────────── */
@@ -853,7 +860,7 @@ main {
   margin-inline: auto;
   margin-top: auto;
   padding-inline: 1.25rem;
-  height: 158px;
+  height: 228px;
   z-index: 2;
 }
 
@@ -914,12 +921,12 @@ main {
 
 .actor--edi {
   left: 4%;
-  width: 72px;
+  width: 62px;
 }
 
 .actor--bitcode {
-  right: 1.5%;
-  width: 112px;
+  right: 2%;
+  width: 92px;
   z-index: 4;
   transform-origin: 50% 14%;
   transform: translate3d(var(--actor-x, 0px), var(--actor-y, 0px), 0) rotate(var(--actor-rot, 0deg));
@@ -985,11 +992,11 @@ main {
 }
 
 .collision-stage.is-dizzy .actor--edi {
-  width: 118px;
+  width: 108px;
 }
 
 .collision-stage.is-dizzy .actor--bitcode {
-  width: 138px;
+  width: 124px;
   transform-origin: 50% 80%;
 }
 
@@ -1046,9 +1053,32 @@ main {
 }
 
 @media (max-width: 39.99rem) {
+  .hero .mascot-bubble {
+    bottom: calc(100% + 6px);
+  }
+  .hero .mascot-bubble__box {
+    padding: 0.2rem 0.45rem;
+    font-size: 0.6875rem;
+  }
+  .hero .mascot-bubble__tail-1 {
+    bottom: -8px;
+    width: 0.375rem;
+    height: 0.375rem;
+  }
+  .hero .mascot-bubble__tail-2 {
+    bottom: -14px;
+    width: 0.375rem;
+    height: 0.375rem;
+  }
   .collision-stage[data-phase="approach"] .actor--edi .mascot-bubble,
   .collision-stage.is-dizzy .actor--edi .mascot-bubble {
-    bottom: calc(100% + 2.35rem);
+    bottom: calc(100% + 8px);
+  }
+  .hero-bottom {
+    margin-top: 0.85rem;
+  }
+  .hero-bottom__desc {
+    font-size: 0.8125rem;
   }
 }
 
